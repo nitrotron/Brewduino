@@ -29,21 +29,37 @@ namespace BrewduinoCatalogLib
             Arduino = inArduino;
         }
 
-        public void setHighTempAlarm(ThermometersName whichThermo, int highTemp)
+        
+        public void SetHighTempAlarm(ThermometersName whichThermo, int highTemp)
         {
             string command = whichThermo.ToString() + "," + highTemp.ToString();
             Arduino.SendCommand(ArduinoCommands.CommandTypes.SetTempAlarmHigh, command);
         }
-        public void setLowTempAlarm(ThermometersName whichThermo, int lowTemp)
+        public void SetLowTempAlarm(ThermometersName whichThermo, int lowTemp)
         {
             string command = whichThermo.ToString() + "," + lowTemp.ToString();
             Arduino.SendCommand(ArduinoCommands.CommandTypes.SetTempAlarmLow, command);
         }
-        public int getHighTempAlarm(ThermometersName whichThermo)
+        public int GetHighTempAlarm(ThermometersName whichThermo)
         {
             Dictionary<string, int> response = Arduino.SendCommandWithResponse(ArduinoCommands.CommandTypes.GetTempAlarms, "");
             //need to fix this.
-            return Convert.ToInt16(response["TempHigh"]);
+            string key = "ThermometerHighAlarm" + whichThermo;
+            return Convert.ToInt16(response[key]);
+        }
+        public int GetLowTempAlarm(ThermometersName whichThermo)
+        {
+            Dictionary<string, int> response = Arduino.SendCommandWithResponse(ArduinoCommands.CommandTypes.GetTempAlarms, "");
+            
+            string key = "ThermometerLowAlarm" + whichThermo;
+            return Convert.ToInt16(response[key]);
+        }
+        public int GetTemps(ThermometersName whichThermo)
+        {
+            Dictionary<string, int> response = Arduino.SendCommandWithResponse(ArduinoCommands.CommandTypes.GetTempAlarms, "");
+             
+            string key = "Thermometer" + whichThermo;
+            return Convert.ToInt16(response[key]);
         }
     }
 }
