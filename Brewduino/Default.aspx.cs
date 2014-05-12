@@ -15,18 +15,27 @@ namespace Brewduino
     public partial class _Default : System.Web.UI.Page
     {
         protected ArduinoSerial mySerial = new ArduinoSerial();
+        protected BrewController BrewControl;
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-            //string retString = mySerial.WriteLineWithResponse(ArduinoSerial.ArduinoCommands.GetTemp, "0");
-            //retString = mySerial.WriteLineWithResponse(ArduinoSerial.ArduinoCommands.GetTemp, "1");
+            BrewControl = new BrewController(mySerial);
+
+            if (!IsPostBack)
+            {
+                PopulateTemperatures();
+            }
+            
+        }
+
+        private void PopulateTemperatures()
+        {
+            lblRIMSTemp.Text = BrewControl.GetTemps(BrewController.ThermometersName.RIMS).ToString();
+            lblMashTemp.Text = BrewControl.GetTemps(BrewController.ThermometersName.MashTun).ToString();
         }
 
         protected void btnSetHighAlarm_click(object sender, EventArgs e)
         {
-
-            //string retString = mySerial.WriteLineWithResponse(ArduinoSerial.ArduinoCommands.SetTempAlarmHigh, "1," + tbMashHighAlarm.Text);
-            //retString = mySerial.WriteLineWithResponse(ArduinoSerial.ArduinoCommands.ResetAlarm, "");
+            BrewControl.SetHighTempAlarm(BrewController.ThermometersName.MashTun, Convert.ToInt16(tbMashHighAlarm.Text));
         }
     }
 }
