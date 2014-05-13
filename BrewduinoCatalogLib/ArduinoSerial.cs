@@ -30,6 +30,15 @@ namespace BrewduinoCatalogLib
 
         }
 
+        public void OpenPort()
+        {
+            if (!IsOpen) Open();
+        }
+        public void ClosePort()
+        {
+            Close();
+        }
+
         public void SendCommand(ArduinoCommands.CommandTypes cmd, string text)
         {
             StringBuilder sendCmd = new StringBuilder();
@@ -50,9 +59,9 @@ namespace BrewduinoCatalogLib
             }
 
         }
-        public Dictionary<string, int> SendCommandWithResponse(ArduinoCommands.CommandTypes cmd, string text)
+        public Dictionary<string, decimal> SendCommandWithResponse(ArduinoCommands.CommandTypes cmd, string text)
         {
-            if (!IsOpen) Open();
+            //if (!IsOpen) Open();
             SendCommand(cmd, text);
             StringBuilder response = new StringBuilder();
 
@@ -64,20 +73,20 @@ namespace BrewduinoCatalogLib
                 }
                 catch
                 {
-                    Close();
-                    return new Dictionary<string, int>();
+                    //Close();
+                    return new Dictionary<string, decimal>();
                 }
                 if (response.ToString().Contains(";"))
                     break;
 
             }
 
-            Close();
+            //Close();
 
             return parseVaribles(response.ToString());
         }
 
-        public Dictionary<string, int> parseVaribles(string response)
+        public Dictionary<string, decimal> parseVaribles(string response)
         {
             string[] pStrings;
             string message;
@@ -90,7 +99,7 @@ namespace BrewduinoCatalogLib
             {
                 message = response;
             }
-            Dictionary<string, int> dict = new Dictionary<string, int>();
+            Dictionary<string, decimal> dict = new Dictionary<string, decimal>();
 
             string[] pairs = message.Split(',');
 
@@ -98,11 +107,11 @@ namespace BrewduinoCatalogLib
             {
                 string[] pair = textValue.Split('|');
                 //string value = pair[1];
-                double temp;
-                double.TryParse(pair[1], out temp);
+                decimal temp;
+                decimal.TryParse(pair[1], out temp);
                 //int temp = (int)Convert.ToDecimal(value);
                 //dict.Add(pair[0], (int)Convert.ToInt32(pair[1]));
-                dict.Add(pair[0], (int)temp);
+                dict.Add(pair[0], temp);
             }
 
 

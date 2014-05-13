@@ -19,12 +19,18 @@ namespace Brewduino
         protected void Page_Load(object sender, EventArgs e)
         {
             BrewControl = new BrewController(mySerial);
+            mySerial.OpenPort();
 
             if (!IsPostBack)
             {
                 PopulateTemperatures();
             }
             
+        }
+
+        protected void Page_Unload(object sender, EventArgs e)
+        {
+            mySerial.ClosePort();
         }
 
         private void PopulateTemperatures()
