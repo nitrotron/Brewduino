@@ -34,6 +34,7 @@ namespace BrewduinoCatalogLib
         {
             StringBuilder sendCmd = new StringBuilder();
 
+
             sendCmd.Append((int)cmd);
             if (!string.IsNullOrEmpty(text))
                 sendCmd.Append("," + text + ";");
@@ -43,6 +44,8 @@ namespace BrewduinoCatalogLib
 
             if (sendCmd != null && !String.IsNullOrEmpty(sendCmd.ToString()))
             {
+                //if (!IsOpen) Open();
+                // FIXTHIS there was a problem with the serial not being open
                 WriteLine(sendCmd.ToString());
             }
 
@@ -77,15 +80,29 @@ namespace BrewduinoCatalogLib
         public Dictionary<string, int> parseVaribles(string response)
         {
             string[] pStrings;
-            pStrings = response.Split(':');
+            string message;
+            if (response.Contains(':'))
+            {
+                pStrings = response.Split(':');
+                message = pStrings[1];
+            }
+            else
+            {
+                message = response;
+            }
             Dictionary<string, int> dict = new Dictionary<string, int>();
 
-            string[] pairs = pStrings[1].Split(',');
+            string[] pairs = message.Split(',');
 
             foreach (string textValue in pairs)
             {
                 string[] pair = textValue.Split('|');
-                dict.Add(pair[0], Convert.ToInt16(pair[1]));
+                //string value = pair[1];
+                double temp;
+                double.TryParse(pair[1], out temp);
+                //int temp = (int)Convert.ToDecimal(value);
+                //dict.Add(pair[0], (int)Convert.ToInt32(pair[1]));
+                dict.Add(pair[0], (int)temp);
             }
 
 

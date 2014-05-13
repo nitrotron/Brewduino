@@ -32,7 +32,7 @@ namespace BrewduinoCatalogLib
         
         public void SetHighTempAlarm(ThermometersName whichThermo, int highTemp)
         {
-            string command = whichThermo.ToString() + "," + highTemp.ToString();
+            string command = ((int)whichThermo).ToString() + "," + highTemp.ToString();
             Arduino.SendCommand(ArduinoCommands.CommandTypes.SetTempAlarmHigh, command);
         }
         public void SetLowTempAlarm(ThermometersName whichThermo, int lowTemp)
@@ -56,9 +56,10 @@ namespace BrewduinoCatalogLib
         }
         public int GetTemps(ThermometersName whichThermo)
         {
-            Dictionary<string, int> response = Arduino.SendCommandWithResponse(ArduinoCommands.CommandTypes.GetTempAlarms, "");
-             
-            string key = "Thermometer" + whichThermo;
+            Dictionary<string, int> response = Arduino.SendCommandWithResponse(ArduinoCommands.CommandTypes.GetTemps, "");
+
+            int index = (int)whichThermo;
+            string key = "Thermometer" + (int)whichThermo;
             return Convert.ToInt16(response[key]);
         }
     }
