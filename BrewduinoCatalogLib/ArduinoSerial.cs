@@ -99,6 +99,13 @@ namespace BrewduinoCatalogLib
             {
                 message = response;
             }
+
+            if (message.Contains(';'))
+            {
+                pStrings = message.Split(';');
+                message = pStrings[0];
+            }
+
             Dictionary<string, decimal> dict = new Dictionary<string, decimal>();
 
             string[] pairs = message.Split(',');

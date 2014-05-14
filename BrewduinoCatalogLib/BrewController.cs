@@ -30,12 +30,12 @@ namespace BrewduinoCatalogLib
         }
 
 
-        public void SetHighTempAlarm(ThermometersName whichThermo, int highTemp)
+        public void SetHighTempAlarm(ThermometersName whichThermo, decimal highTemp)
         {
             string command = ((int)whichThermo).ToString() + "," + highTemp.ToString();
             Arduino.SendCommand(ArduinoCommands.CommandTypes.SetTempAlarmHigh, command);
         }
-        public void SetLowTempAlarm(ThermometersName whichThermo, int lowTemp)
+        public void SetLowTempAlarm(ThermometersName whichThermo, decimal lowTemp)
         {
             string command = ((int)whichThermo).ToString() + "," + lowTemp.ToString();
             Arduino.SendCommand(ArduinoCommands.CommandTypes.SetTempAlarmLow, command);

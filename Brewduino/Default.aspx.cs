@@ -35,13 +35,34 @@ namespace Brewduino
 
         private void PopulateTemperatures()
         {
-            lblRIMSTemp.Text = BrewControl.GetTemps(BrewController.ThermometersName.RIMS).ToString();
-            lblMashTemp.Text = BrewControl.GetTemps(BrewController.ThermometersName.MashTun).ToString();
+            lblRIMSTemp.Text = "RIMS Temp=" + BrewControl.GetTemps(BrewController.ThermometersName.RIMS).ToString();
+            lblMashTemp.Text = "Mash Temp=" + BrewControl.GetTemps(BrewController.ThermometersName.MashTun).ToString();
+            lblKettleTemp.Text = "Kettle Temp=" + BrewControl.GetTemps(BrewController.ThermometersName.Kettle).ToString();
         }
 
         protected void btnSetHighAlarm_click(object sender, EventArgs e)
         {
-            BrewControl.SetHighTempAlarm(BrewController.ThermometersName.MashTun, Convert.ToInt16(tbMashHighAlarm.Text));
+            Button btn = (Button)sender;
+            BrewController.ThermometersName thermo;
+            decimal value = 120;
+
+            if (btn.ID == "btnSetHighAlarmMash")
+            {
+                thermo = BrewController.ThermometersName.MashTun;
+                decimal.TryParse(tbMashHighAlarm.Text, out value);
+
+            }
+            else if (btn.ID == "btnSetHighAlarmRIMS")
+            {
+                thermo = BrewController.ThermometersName.RIMS;
+                decimal.TryParse(tbRIMSHighAlarm.Text, out value);
+            }
+            else
+            {
+                thermo = BrewController.ThermometersName.Kettle;
+                decimal.TryParse(tbKettleHighAlarm.Text, out value);
+            }
+            BrewControl.SetHighTempAlarm(thermo, value);
         }
     }
 }

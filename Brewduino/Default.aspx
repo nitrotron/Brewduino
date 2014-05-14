@@ -17,7 +17,12 @@
 
     <asp:Label ID="lblRIMSTemp" Text="-999" runat="server"/>
     <asp:Label ID="lblMashTemp" Text="-999" runat="server" />
+    <asp:Label ID="lblKettleTemp" Text="-999" runat="server" />
     
-    <asp:TextBox ID="tbMashHighAlarm" runat="server" />
-    <asp:Button ID="btnSetHighAlarm" runat="server" OnClick="btnSetHighAlarm_click" />
+    <asp:TextBox ID="tbMashHighAlarm" runat="server" /> click to set Mash High Temp
+    <asp:Button ID="btnSetHighAlarmMash" runat="server" OnClick="btnSetHighAlarm_click" />
+    <asp:TextBox ID="tbRIMSHighAlarm" runat="server" /> click to set RIMS High Temp
+    <asp:Button ID="btnSetHighAlarmRIMS" runat="server" OnClick="btnSetHighAlarm_click" />
+    <asp:TextBox ID="tbKettleHighAlarm" runat="server" /> click to set Kettle High Temp
+    <asp:Button ID="btnSetHighAlarmKettle" runat="server" OnClick="btnSetHighAlarm_click" />
 </asp:Content>

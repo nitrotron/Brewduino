@@ -31,6 +31,15 @@ namespace Brewduino {
         protected global::System.Web.UI.WebControls.Label lblMashTemp;
         
         /// <summary>
+        /// lblKettleTemp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblKettleTemp;
+        
+        /// <summary>
         /// tbMashHighAlarm control.
         /// </summary>
         /// <remarks>
@@ -40,12 +49,48 @@ namespace Brewduino {
         protected global::System.Web.UI.WebControls.TextBox tbMashHighAlarm;
         
         /// <summary>
-        /// btnSetHighAlarm control.
+        /// btnSetHighAlarmMash control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSetHighAlarm;
+        protected global::System.Web.UI.WebControls.Button btnSetHighAlarmMash;
+        
+        /// <summary>
+        /// tbRIMSHighAlarm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbRIMSHighAlarm;
+        
+        /// <summary>
+        /// btnSetHighAlarmRIMS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSetHighAlarmRIMS;
+        
+        /// <summary>
+        /// tbKettleHighAlarm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbKettleHighAlarm;
+        
+        /// <summary>
+        /// btnSetHighAlarmKettle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSetHighAlarmKettle;
     }
 }
