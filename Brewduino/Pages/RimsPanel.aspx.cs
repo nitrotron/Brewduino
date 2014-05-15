@@ -13,6 +13,7 @@ namespace Brewduino.Pages
         protected ArduinoSerial mySerial = new ArduinoSerial();
         protected BrewController BrewControl;
         protected Dictionary<string, decimal> CurrentStatus;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             BrewControl = new BrewController(mySerial);
@@ -36,12 +37,34 @@ namespace Brewduino.Pages
             if (CurrentStatus["TempAlarmActive"] > 0)
                 lblMainAlarm.Text = "We have an alarm";
 
-            Response.AppendHeader("Refresh", 10 + "; URL=RimsPanel.aspx");  
+            Response.AppendHeader("Refresh", 10 + "; URL=RimsPanel.aspx");
 
         }
         protected void Page_Unload(object sender, EventArgs e)
         {
             mySerial.ClosePort();
+        }
+
+        protected void btnResetAlarm_OnClick(object sender, EventArgs e)
+        {
+            if (CurrentStatus["TempAlarmActive"] > 0)
+            {
+                if (CurrentStatus["WhichThermoAlarm"] == (int)BrewController.ThermometersName.RIMS)
+                {
+                    btRims.ResetAlarm();
+                }
+                else if (CurrentStatus["WhichThermoAlarm"] == (int)BrewController.ThermometersName.MashTun)
+                {
+                    btMash.ResetAlarm();
+                }
+                else if (CurrentStatus["WhichThermoAlarm"] == (int)BrewController.ThermometersName.Kettle)
+                {
+                    btKettle.ResetAlarm();
+                }
+            }
+
+            BrewControl.ResetAlarm();
+
         }
     }
 }

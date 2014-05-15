@@ -78,7 +78,10 @@ namespace BrewduinoCatalogLib
             string command = ((int)whichThermo).ToString();
             Arduino.SendCommand(ArduinoCommands.CommandTypes.ClearTempAlarms, command);
         }
-
+        public void ResetAlarm()
+        {
+            Arduino.SendCommand(ArduinoCommands.CommandTypes.ResetAlarm, "");
+        }
 
         public Dictionary<string, decimal> MergeDict(Dictionary<string, decimal> orig, Dictionary<string, decimal> up)
         {
