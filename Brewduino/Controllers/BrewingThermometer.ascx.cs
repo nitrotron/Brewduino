@@ -1,0 +1,77 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using BrewduinoCatalogLib;
+
+namespace Brewduino.Controllers
+{
+    public partial class BrewingThermometer : System.Web.UI.UserControl
+    {
+        #region attributes
+        protected BrewController _BrewControl;
+        public BrewController BrewControl
+        {
+            get { return _BrewControl; }
+            set { _BrewControl = value; }
+        }
+        protected BrewController.ThermometersName _Thermometer;
+        public BrewController.ThermometersName Thermometer
+        {
+            get { return _Thermometer; }
+            set { _Thermometer = value; }
+        }
+
+        protected string _Name;
+        public string Name
+        {
+            get { return _Name; }
+            set { _Name = value; }
+        }
+        protected Dictionary<string, decimal> _Status;
+        public Dictionary<string, decimal> Status
+        {
+            get { return _Status; }
+            set { _Status = value; }
+        }
+        #endregion
+
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                UpdateReadings();
+            }
+        }
+
+        protected void UpdateReadings()
+        {
+            //Dictionary<string, decimal> response = BrewControl.GetStatus();
+            int whichT = (int)Thermometer;
+
+            //lblTitle.Text = Name;
+            //lblCurrentTemp.Text = response["Thermometer" + whichT].ToString();
+            //lblHighAlarm.Text = response["ThermometerHighAlarm" + whichT].ToString();
+            //lblLowAlarm.Text = response["ThermometerLowAlarm" + whichT].ToString();
+            lblCurrentTemp.Text = Status["Thermometer" + whichT].ToString();
+            lblHighAlarm.Text = Status["ThermometerHighAlarm" + whichT].ToString();
+            lblLowAlarm.Text = Status["ThermometerLowAlarm" + whichT].ToString();
+        }
+        protected void btnUpdateAlarms_OnClick(object sender, EventArgs e)
+        {
+            BrewControl.ClearAlarms(Thermometer);
+            decimal alarm = -999;
+            decimal.TryParse(tbHighAlarm.Text, out alarm);
+            if (alarm >= -10 && alarm <= 125 && !string.IsNullOrEmpty(tbHighAlarm.Text))
+                BrewControl.SetHighTempAlarm(Thermometer, alarm);
+            alarm = -999;
+            decimal.TryParse(tbLowAlarm.Text, out alarm);
+            if (alarm >= -10 && alarm <= 125 && !string.IsNullOrEmpty(tbLowAlarm.Text))
+                BrewControl.SetLowTempAlarm(Thermometer, alarm);
+        }
+
+    }
+}

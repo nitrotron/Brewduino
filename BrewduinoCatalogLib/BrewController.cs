@@ -43,7 +43,7 @@ namespace BrewduinoCatalogLib
         public decimal GetHighTempAlarm(ThermometersName whichThermo)
         {
             Dictionary<string, decimal> response = Arduino.SendCommandWithResponse(ArduinoCommands.CommandTypes.GetTempAlarms, "");
-            
+
             string key = "ThermometerHighAlarm" + (int)whichThermo;
             return response[key];
         }
@@ -61,6 +61,24 @@ namespace BrewduinoCatalogLib
             int index = (int)whichThermo;
             string key = "Thermometer" + (int)whichThermo;
             return response[key];
+        }
+        public Dictionary<string, decimal> GetStatus()
+        {
+            Dictionary<string, decimal> response = Arduino.SendCommandWithResponse(ArduinoCommands.CommandTypes.GetTemps, "");
+            Dictionary<string, decimal> alarms = (Arduino.SendCommandWithResponse(ArduinoCommands.CommandTypes.GetTempAlarms, ""));
+            foreach (var item in alarms)
+            {
+                if (response.ContainsKey(item.Key))
+                    response[item.Key] = item.Value;
+                else
+                    response.Add(item.Key, item.Value);
+            }
+            return response;
+        }
+        public void ClearAlarms(ThermometersName whichThermo)
+        {
+            string command = ((int)whichThermo).ToString();
+            Arduino.SendCommand(ArduinoCommands.CommandTypes.ClearTempAlarms, command);
         }
     }
 }
