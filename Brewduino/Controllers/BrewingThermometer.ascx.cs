@@ -57,20 +57,38 @@ namespace Brewduino.Controllers
             //lblHighAlarm.Text = response["ThermometerHighAlarm" + whichT].ToString();
             //lblLowAlarm.Text = response["ThermometerLowAlarm" + whichT].ToString();
             lblCurrentTemp.Text = Status["Thermometer" + whichT].ToString();
+            
+            if (Status["TempAlarmActive"] > 0 && Status["WhichThermoAlarm"] == whichT)
+            {
+                lblCurrentTemp.Text = lblCurrentTemp.Text + "!!!!";
+                lblCurrentTemp.ForeColor = System.Drawing.Color.Red;
+            }
+
             lblHighAlarm.Text = Status["ThermometerHighAlarm" + whichT].ToString();
             lblLowAlarm.Text = Status["ThermometerLowAlarm" + whichT].ToString();
         }
         protected void btnUpdateAlarms_OnClick(object sender, EventArgs e)
         {
             BrewControl.ClearAlarms(Thermometer);
+            lblHighAlarm.Text = Convert.ToString(257);
+            lblLowAlarm.Text = Convert.ToString(14);
+
             decimal alarm = -999;
             decimal.TryParse(tbHighAlarm.Text, out alarm);
             if (alarm >= -10 && alarm <= 125 && !string.IsNullOrEmpty(tbHighAlarm.Text))
+            {
                 BrewControl.SetHighTempAlarm(Thermometer, alarm);
+                lblHighAlarm.Text = Convert.ToString(alarm);
+            }
             alarm = -999;
             decimal.TryParse(tbLowAlarm.Text, out alarm);
             if (alarm >= -10 && alarm <= 125 && !string.IsNullOrEmpty(tbLowAlarm.Text))
+            {
                 BrewControl.SetLowTempAlarm(Thermometer, alarm);
+                lblLowAlarm.Text = Convert.ToString(alarm);
+            }
+
+            
         }
 
     }

@@ -23,11 +23,11 @@ namespace BrewduinoCatalogLib
             ClearTempAlarms,//9
             GetTimer,//10
             SetTimer,//11
-            ResetAlarm,//12
-            StartLogging,//13
-            StopLogging,//14
-            SetPIDSetPoint//15
-
+            ResetAlarm,//12  
+            GetAlarmStatus, //13
+            StartLogging,//14
+            StopLogging,//15
+            SetPIDSetPoint//16
 
         };
     }

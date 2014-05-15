@@ -5,6 +5,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <table>
 <tr>
+<td colspan="3"><asp:Label ID="lblMainAlarm" runat="server" /></td>
+</tr><tr>
 <td>
 <uc1:BrewThermometer ID="btRims" runat="server" />
 </td>

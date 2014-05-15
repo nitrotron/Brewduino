@@ -33,6 +33,9 @@ namespace Brewduino.Pages
             btKettle.Thermometer = BrewController.ThermometersName.Kettle;
             btKettle.Name = "Kettle";
 
+            if (CurrentStatus["TempAlarmActive"] > 0)
+                lblMainAlarm.Text = "We have an alarm";
+
             Response.AppendHeader("Refresh", 10 + "; URL=RimsPanel.aspx");  
 
         }

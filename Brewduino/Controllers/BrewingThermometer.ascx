@@ -46,5 +46,5 @@
             <asp:TextBox ID="tbLowAlarm" runat="server" />
         </td>
     </tr>
-    <tr><td colspan="2"><asp:Button ID="btnUpdateAlarms" runat="server" OnClick="btnUpdateAlarms_OnClick" /></td></tr>
+    <tr><td colspan="2"><asp:Button ID="btnUpdateAlarms" runat="server" OnClick="btnUpdateAlarms_OnClick" Text="Update" /></td></tr>
 </table>
