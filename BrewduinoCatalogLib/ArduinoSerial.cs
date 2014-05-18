@@ -19,7 +19,8 @@ namespace BrewduinoCatalogLib
         {
 
 
-            this.PortName = "COM3";
+            //this.PortName = "COM3";
+            this.PortName = "/dev/ttyACM0";
             this.BaudRate = 9600;
             this.Parity = Parity.None;
             this.DataBits = 8;
