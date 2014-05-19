@@ -86,6 +86,31 @@ namespace BrewduinoCatalogLib
             return parseVaribles(response.ToString());
         }
 
+        public string SendCommandWithDebugResponse(ArduinoCommands.CommandTypes cmd, string text)
+        {
+            //if (!IsOpen) Open();
+            SendCommand(cmd, text);
+            StringBuilder response = new StringBuilder();
+
+            while (true)
+            {
+                try
+                {
+                    response.Append(ReadLine());
+                }
+                catch
+                {
+                    //Close();
+                    return string.Empty;
+                }
+                if (response.ToString().Contains(";"))
+                    break;
+
+            }
+
+            return response.ToString();
+        }
+
         public Dictionary<string, decimal> parseVaribles(string response)
         {
             string[] pStrings;

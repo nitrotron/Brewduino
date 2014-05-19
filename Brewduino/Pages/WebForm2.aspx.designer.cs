@@ -22,13 +22,13 @@ namespace Brewduino.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// lblTest control.
+        /// lblStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTest;
+        protected global::System.Web.UI.WebControls.Label lblStatus;
         
         /// <summary>
         /// btnPreOpen control.
@@ -40,6 +40,24 @@ namespace Brewduino.Pages {
         protected global::System.Web.UI.WebControls.Button btnPreOpen;
         
         /// <summary>
+        /// ddlCommand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCommand;
+        
+        /// <summary>
+        /// ddlThermo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlThermo;
+        
+        /// <summary>
         /// btnTest control.
         /// </summary>
         /// <remarks>
@@ -47,5 +65,14 @@ namespace Brewduino.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnTest;
+        
+        /// <summary>
+        /// lblTest control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTest;
     }
 }
