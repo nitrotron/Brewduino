@@ -107,9 +107,12 @@ namespace BrewduinoCatalogLib
                     break;
 
             }
+          
 
             return response.ToString();
         }
+
+       
 
         public Dictionary<string, decimal> parseVaribles(string response)
         {
@@ -148,6 +151,15 @@ namespace BrewduinoCatalogLib
 
 
             return dict;
+        }
+
+        public Dictionary<string, decimal> GetStatus()
+        {
+            throw new NotImplementedException();
+        }
+        public string GetRawStatus()
+        {
+            throw new NotImplementedException();
         }
     }
 

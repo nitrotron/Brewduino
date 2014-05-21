@@ -10,5 +10,9 @@ namespace BrewduinoCatalogLib
 
         void SendCommand(ArduinoCommands.CommandTypes cmd, string text);
         Dictionary<string, decimal> SendCommandWithResponse(ArduinoCommands.CommandTypes cmd, string text);
+        string SendCommandWithDebugResponse(ArduinoCommands.CommandTypes cmd, string text);
+        Dictionary<string, decimal> GetStatus();
+        string GetRawStatus();
+        
     }
 }
