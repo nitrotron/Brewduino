@@ -149,6 +149,15 @@ namespace BrewduinoCatalogLib
 
             return dict;
         }
+        public Dictionary<string, decimal> GetStatus()
+        {
+            return new Dictionary<string,decimal>();
+        }
+        public void UpdateStatus()
+        {
+        }
+        public string GetRawStatus()
+        { return string.Empty; }
     }
 
 }
