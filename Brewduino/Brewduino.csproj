@@ -63,6 +63,7 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Controllers\BrewingThermometer.ascx" />
+    <Content Include="Pages\Debugaspx.aspx" />
     <Content Include="Pages\RimsPanel.aspx" />
     <Content Include="Pages\WebForm1.aspx" />
     <Content Include="Pages\WebForm2.aspx" />
@@ -132,6 +133,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Debugaspx.aspx.cs">
+      <DependentUpon>Debugaspx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Debugaspx.aspx.designer.cs">
+      <DependentUpon>Debugaspx.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\RimsPanel.aspx.cs">
       <DependentUpon>RimsPanel.aspx</DependentUpon>

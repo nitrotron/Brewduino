@@ -152,6 +152,7 @@ namespace BrewduinoCatalogLib
 
             return dict;
         }
+<<<<<<< HEAD
 
         public Dictionary<string, decimal> GetStatus()
         {
@@ -161,6 +162,17 @@ namespace BrewduinoCatalogLib
         {
             throw new NotImplementedException();
         }
+=======
+        public Dictionary<string, decimal> GetStatus()
+        {
+            return new Dictionary<string,decimal>();
+        }
+        public void UpdateStatus()
+        {
+        }
+        public string GetRawStatus()
+        { return string.Empty; }
+>>>>>>> 35fed74a1e9f606bb394696a53466b789f05b4eb
     }
 
 }
