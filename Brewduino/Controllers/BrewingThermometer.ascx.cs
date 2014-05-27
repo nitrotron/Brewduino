@@ -54,12 +54,7 @@ namespace Brewduino.Controllers
 
         protected void UpdateReadings()
         {
-            //Dictionary<string, decimal> response = BrewControl.GetStatus();
-            
-            //lblTitle.Text = Name;
-            //lblCurrentTemp.Text = response["Thermometer" + whichT].ToString();
-            //lblHighAlarm.Text = response["ThermometerHighAlarm" + whichT].ToString();
-            //lblLowAlarm.Text = response["ThermometerLowAlarm" + whichT].ToString();
+           
             lblCurrentTemp.Text = Status["Thermometer" + ThermoInt].ToString();
 
             if (Status["TempAlarmActive"] > 0 && Status["WhichThermoAlarm"] == ThermoInt)

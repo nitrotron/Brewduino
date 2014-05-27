@@ -14,8 +14,8 @@ namespace BrewduinoCatalogLib
         string GetRawStatus();
         [OperationContract]
         Dictionary<string, decimal> GetStatus();
-        //[OperationContract]
-        //void SendCommand(ArduinoCommands.CommandTypes cmd, string text);
+        [OperationContract]
+        void SendCommand(int arduinoCommands, string text);
         //[OperationContract]
         //Dictionary<string, decimal> SendCommandWithResponse(ArduinoCommands.CommandTypes cmd, string text);
         [OperationContract]

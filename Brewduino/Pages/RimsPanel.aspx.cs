@@ -23,9 +23,7 @@ namespace Brewduino.Pages
             var address = new EndpointAddress("http://192.168.0.16:8080/SerialSwitch");
             Arduino = new ArduinoSelfHostClient(binding, address);
             BrewControl = new BrewController(Arduino);
-            //mySerial.ClosePort();
-            //mySerial.OpenPort();
-
+           
             CurrentStatus = BrewControl.GetStatus();
             btRims.BrewControl = BrewControl;
             btRims.Status = CurrentStatus;
@@ -46,10 +44,7 @@ namespace Brewduino.Pages
             Response.AppendHeader("Refresh", 10 + "; URL=RimsPanel.aspx");
 
         }
-        protected void Page_Unload(object sender, EventArgs e)
-        {
-            //mySerial.ClosePort();
-        }
+       
 
         protected void btnResetAlarm_OnClick(object sender, EventArgs e)
         {
