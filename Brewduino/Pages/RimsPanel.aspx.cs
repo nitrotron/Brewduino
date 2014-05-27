@@ -5,20 +5,26 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BrewduinoCatalogLib;
+using System.ServiceModel;
 
 namespace Brewduino.Pages
 {
     public partial class RimsPanel : System.Web.UI.Page
     {
-        protected ArduinoSerial mySerial = new ArduinoSerial();
+        //protected ArduinoSerial mySerial = new ArduinoSerial();
+        protected ArduinoSelfHostClient Arduino;
         protected BrewController BrewControl;
         protected Dictionary<string, decimal> CurrentStatus;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            BrewControl = new BrewController(mySerial);
-            mySerial.ClosePort();
-            mySerial.OpenPort();
+             var binding = new BasicHttpBinding();
+            //var address = new EndpointAddress("http://localhost:8080/SerialSwitch");
+            var address = new EndpointAddress("http://192.168.0.16:8080/SerialSwitch");
+            Arduino = new ArduinoSelfHostClient(binding, address);
+            BrewControl = new BrewController(Arduino);
+            //mySerial.ClosePort();
+            //mySerial.OpenPort();
 
             CurrentStatus = BrewControl.GetStatus();
             btRims.BrewControl = BrewControl;
@@ -42,7 +48,7 @@ namespace Brewduino.Pages
         }
         protected void Page_Unload(object sender, EventArgs e)
         {
-            mySerial.ClosePort();
+            //mySerial.ClosePort();
         }
 
         protected void btnResetAlarm_OnClick(object sender, EventArgs e)

@@ -14,12 +14,12 @@ namespace Brewduino
 {
     public partial class _Default : System.Web.UI.Page
     {
-        protected ArduinoSerial mySerial = new ArduinoSerial();
+       // protected ArduinoSerial mySerial = new ArduinoSerial();
         protected BrewController BrewControl;
         protected void Page_Load(object sender, EventArgs e)
         {
-            BrewControl = new BrewController(mySerial);
-            mySerial.OpenPort();
+            //BrewControl = new BrewController(mySerial);
+            //mySerial.OpenPort();
 
             if (!IsPostBack)
             {
@@ -30,7 +30,7 @@ namespace Brewduino
 
         protected void Page_Unload(object sender, EventArgs e)
         {
-            mySerial.ClosePort();
+            //mySerial.ClosePort();
         }
 
         private void PopulateTemperatures()
