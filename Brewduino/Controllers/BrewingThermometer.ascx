@@ -7,10 +7,10 @@
         </td>
     </tr>
     <tr>
-        <td>
+       <%-- <td>
             Current Temperature
-        </td>
-        <td>
+        </td>--%>
+        <td colspan="2" style="width=100%; background-color:Black;">
             <asp:Label ID="lblCurrentTemp" runat="server"   CssClass="TemperatureDigital"/>
         </td>
     </tr>

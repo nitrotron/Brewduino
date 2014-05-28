@@ -296,14 +296,16 @@ div.accountInfo
 /**************************** Brewing Thermometer **************************/
 .BrewingThermometer_Title
 {
-    font-size: 18px;
+    font-size: 20px;
     text-align: center;
     font-weight: bold;
 }
 .TemperatureDigital
 {
-    font-size:16px;
+    font-size:18px;
     background-color:black;
-    color:red
+    color:red;
+    width:100%;
+    
 
 }
