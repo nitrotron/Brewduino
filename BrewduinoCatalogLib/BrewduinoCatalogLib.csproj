@@ -47,6 +47,7 @@
     <Compile Include="ArduinoSerial.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ArduinoStub.cs" />
     <Compile Include="BrewController.cs">
       <SubType>Code</SubType>
     </Compile>

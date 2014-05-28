@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ServiceModel;
 
 namespace BrewduinoCatalogLib
 {
@@ -19,6 +20,14 @@ namespace BrewduinoCatalogLib
         {
             get { return _Arduino; }
             set { _Arduino = value; }
+        }
+        public BrewController()
+        {
+            var binding = new BasicHttpBinding();
+            //var address = new EndpointAddress("http://localhost:8080/SerialSwitch");
+            var address = new EndpointAddress("http://192.168.0.16:8080/SerialSwitch");
+            Arduino = new ArduinoSelfHostClient(binding, address);
+            
         }
         public BrewController(IArduinoSelfHost inArduino)
         {
