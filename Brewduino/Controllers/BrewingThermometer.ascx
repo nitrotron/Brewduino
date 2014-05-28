@@ -11,7 +11,7 @@
             Current Temperature
         </td>
         <td>
-            <asp:Label ID="lblCurrentTemp" runat="server" />
+            <asp:Label ID="lblCurrentTemp" runat="server"   CssClass="TemperatureDigital"/>
         </td>
     </tr>
     <tr>
