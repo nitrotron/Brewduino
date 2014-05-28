@@ -3,10 +3,10 @@
 <%@ Register Src="~/Controllers/BrewingThermometer.ascx" TagPrefix="uc1" TagName="BrewThermometer" %>
 
 
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="MainTop" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <table>
+    <table class="WebPageMainTable">
         <tr>
             <td colspan="3">
                 <asp:Label ID="lblMainAlarm" runat="server" />

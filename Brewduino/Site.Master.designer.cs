@@ -22,22 +22,22 @@ namespace Brewduino {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
         
         /// <summary>
-        /// HeadLoginView control.
+        /// MainTop control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginView HeadLoginView;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainTop;
         
         /// <summary>
-        /// NavigationMenu control.
+        /// lblTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Menu NavigationMenu;
+        protected global::System.Web.UI.WebControls.Label lblTitle;
         
         /// <summary>
         /// MainContent control.

@@ -8,49 +8,46 @@
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body  class="DefaultBackGround">
     <form runat="server">
-    <div class="page">
-        <div class="header">
-            <div class="title">
-                <h1>
-                    My ASP.NET Application
-                </h1>
-            </div>
-            <div class="loginDisplay">
-                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
-                    <AnonymousTemplate>
-                        [ <a href="~/Account/Login.aspx" id="HeadLoginStatus" runat="server">Log In</a>
-                        ]
-                    </AnonymousTemplate>
-                    <LoggedInTemplate>
-                        Welcome <span class="bold">
-                            <asp:LoginName ID="HeadLoginName" runat="server" />
-                        </span>! [
-                        <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out"
-                            LogoutPageUrl="~/" />
-                        ]
-                    </LoggedInTemplate>
-                </asp:LoginView>
-            </div>
-            <div class="clear hideSkiplink">
-                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false"
-                    IncludeStyleBlock="false" Orientation="Horizontal">
-                    <Items>
-                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" />
-                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About" />
-                    </Items>
-                </asp:Menu>
-            </div>
-        </div>
-        <div class="main">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
-        </div>
-        <div class="clear">
-        </div>
-    </div>
-    <div class="footer">
-    </div>
+        <table class="MasterTable">
+            <tr>
+                <td>
+                    <table class="MasterHeader">
+                        <tr>
+                            <td>
+                                <asp:ContentPlaceHolder ID="MainTop" runat="server">
+                                    <asp:Label ID="lblTitle" runat="server" Text="BrewDuino" CssClass="title" />
+                                </asp:ContentPlaceHolder>
+                            </td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                    <%--                <div class="clear hideSkiplink">
+                    <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false"
+                        IncludeStyleBlock="false" Orientation="Horizontal">
+                        <Items>
+                            <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" />
+                            <asp:MenuItem NavigateUrl="~/About.aspx" Text="About" />
+                        </Items>
+                    </asp:Menu>
+                </div>
+            </div> --%>
+                    <table class="MasterBody">
+                        <tr>
+                            <td>
+                                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
     </form>
 </body>
 </html>
