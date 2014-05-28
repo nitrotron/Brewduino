@@ -2,8 +2,8 @@
     Inherits="Brewduino.Controllers.BrewingThermometer" %>
 <table>
     <tr>
-        <td colspan="2">
-            <asp:Label ID="lblTitle" runat="server" />
+        <td colspan="2" class="BrewingThermometer_Title" >
+            <asp:Label ID="lblTitle" runat="server" CssClass="BrewingThermometer_Title" />
         </td>
     </tr>
     <tr>
