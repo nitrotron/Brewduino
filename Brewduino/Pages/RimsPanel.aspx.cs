@@ -12,7 +12,7 @@ namespace Brewduino.Pages
     public partial class RimsPanel : System.Web.UI.Page
     {
         //protected ArduinoSerial mySerial = new ArduinoSerial();
-        protected ArduinoSelfHostClient Arduino;
+        protected IArduinoSelfHost Arduino;
         protected BrewController BrewControl;
         protected Dictionary<string, decimal> CurrentStatus;
 

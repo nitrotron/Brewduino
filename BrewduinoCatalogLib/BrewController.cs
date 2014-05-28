@@ -14,13 +14,13 @@ namespace BrewduinoCatalogLib
             Kettle,
             MashTun
         }
-        private ArduinoSelfHostClient _Arduino;
-        public ArduinoSelfHostClient Arduino
+        private IArduinoSelfHost _Arduino;
+        public IArduinoSelfHost Arduino
         {
             get { return _Arduino; }
             set { _Arduino = value; }
         }
-        public BrewController(ArduinoSelfHostClient inArduino)
+        public BrewController(IArduinoSelfHost inArduino)
         {
             Arduino = inArduino;
         }
