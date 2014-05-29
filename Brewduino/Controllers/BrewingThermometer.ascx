@@ -28,6 +28,9 @@
         </td>
         <td>
             <asp:Label ID="lblHighAlarm" runat="server" />
+            <h2 class="demoHeaders">Slider</h2>
+<div id="slider"></div>
+            
         </td>
         <td>&nbsp;
         </td>

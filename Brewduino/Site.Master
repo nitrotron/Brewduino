@@ -5,30 +5,39 @@
 <head runat="server">
     <title></title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <link href="css/redmond/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+    <script>
+        $("#slider").slider({
+            range: true,
+            values: [17, 67]
+        });
+    </script>
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body  class="DefaultBackGround">
+<body class="DefaultBackGround">
     <form runat="server">
-        <table class="MasterTable">
-            <tr>
-                <td>
-                    <table class="MasterHeader">
-                        <tr>
-                            <td>
-                                <asp:ContentPlaceHolder ID="MainTop" runat="server">
-                                    <asp:Label ID="lblTitle" runat="server" Text="BrewDuino" CssClass="title" />
-                                </asp:ContentPlaceHolder>
-                            </td>
-                        </tr>
-                    </table>
-
-                </td>
-            </tr>
-            <tr>
-                <td>
-
-                    <%--                <div class="clear hideSkiplink">
+    <h2 class="demoHeaders">Slider</h2>
+<div id="slider"></div>
+    <table class="MasterTable">
+        <tr>
+            <td>
+                <table class="MasterHeader">
+                    <tr>
+                        <td>
+                            <asp:ContentPlaceHolder ID="MainTop" runat="server">
+                                <asp:Label ID="lblTitle" runat="server" Text="BrewDuino" CssClass="title" />
+                            </asp:ContentPlaceHolder>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%--                <div class="clear hideSkiplink">
                     <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false"
                         IncludeStyleBlock="false" Orientation="Horizontal">
                         <Items>
@@ -38,16 +47,16 @@
                     </asp:Menu>
                 </div>
             </div> --%>
-                    <table class="MasterBody">
-                        <tr>
-                            <td>
-                                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
+                <table class="MasterBody">
+                    <tr>
+                        <td>
+                            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
     </form>
 </body>
 </html>
