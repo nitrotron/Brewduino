@@ -4,23 +4,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head runat="server">
     <title></title>
-    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-    <link href="css/redmond/jquery-ui-1.10.4.custom.css" rel="stylesheet">
-    <script>
-        $("#slider").slider({
-            range: true,
-            values: [17, 67]
-        });
-    </script>
+    
+	
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body class="DefaultBackGround">
     <form runat="server">
-    <h2 class="demoHeaders">Slider</h2>
-<div id="slider"></div>
+
     <table class="MasterTable">
         <tr>
             <td>

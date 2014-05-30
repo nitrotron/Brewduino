@@ -4,18 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BrewduinoCatalogLib;
 
 namespace Brewduino.Pages
 {
-    public partial class Debugaspx : System.Web.UI.Page
+    public partial class Test : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) { }
-               
-        }
 
-       
+        }
     }
 }

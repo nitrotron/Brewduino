@@ -70,6 +70,7 @@
     <Content Include="Controllers\BrewingThermometer.ascx" />
     <Content Include="Pages\Debugaspx.aspx" />
     <Content Include="Pages\RimsPanel.aspx" />
+    <Content Include="Pages\Test.aspx" />
     <Content Include="Pages\WebForm1.aspx" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-ui-1.10.4.custom.js" />
@@ -172,6 +173,13 @@
     </Compile>
     <Compile Include="Pages\RimsPanel.aspx.designer.cs">
       <DependentUpon>RimsPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
