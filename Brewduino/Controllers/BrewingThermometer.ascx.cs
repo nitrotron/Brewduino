@@ -54,7 +54,7 @@ namespace Brewduino.Controllers
 
         protected void UpdateReadings()
         {
-           
+
 
             lblCurrentTemp.Text = Status["Thermometer" + ThermoInt].ToString();
 
@@ -73,24 +73,39 @@ namespace Brewduino.Controllers
             BrewControl.ClearAlarms(Thermometer);
             btnTempHighAlarm.Text = Convert.ToString(257);
             btnTempLowAlarm.Text = Convert.ToString(14);
+            pnlSetAlarm.Visible = false;
 
-            //decimal alarm = -999;
-            //decimal.TryParse(tbHighAlarm.Text, out alarm);
-            //if (alarm >= -10 && alarm <= 125 && !string.IsNullOrEmpty(tbHighAlarm.Text))
-            //{
-            //    BrewControl.SetHighTempAlarm(Thermometer, alarm);
-            //    btnTempHighAlarm.Text = Convert.ToString(alarm);
-            //}
-            //alarm = -999;
-            //decimal.TryParse(tbLowAlarm.Text, out alarm);
-            //if (alarm >= -10 && alarm <= 125 && !string.IsNullOrEmpty(tbLowAlarm.Text))
-            //{
-            //    BrewControl.SetLowTempAlarm(Thermometer, alarm);
-            //    btnTempLowAlarm.Text = Convert.ToString(alarm);
-            //}
 
-            
+            decimal alarm = -999;
+            decimal.TryParse(tbAlarm.Text, out alarm);
+            if (alarm >= -10 && alarm <= 125 && !string.IsNullOrEmpty(tbAlarm.Text))
+            {
+                if (hfWhichAlarm.Value == "High")
+                {
+                    BrewControl.SetHighTempAlarm(Thermometer, alarm);
+                    btnTempHighAlarm.Text = Convert.ToString(alarm);
+                }
+                else
+                {
+                    BrewControl.SetLowTempAlarm(Thermometer, alarm);
+                    btnTempLowAlarm.Text = Convert.ToString(alarm);
+                }
+            }
+
+
         }
+        protected void btnTempHighAlarm_OnClick(object sender, EventArgs e)
+        {
+            pnlSetAlarm.Visible = true;
+            hfWhichAlarm.Value = "High";
+        }
+        protected void btnTempLowAlarm_OnClick(object sender, EventArgs e)
+        {
+            pnlSetAlarm.Visible = true;
+            hfWhichAlarm.Value = "Low";
+        }
+
+
 
 
         public void ResetAlarm()
