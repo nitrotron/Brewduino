@@ -1,6 +1,25 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="BrewingThermometer.ascx.cs"
     Inherits="Brewduino.Controllers.BrewingThermometer" %>
-<table class="BrewingThermometerMainTable">
+<div id="BrewingThermometerMain">
+    <asp:Label ID="lblTitle" runat="server" CssClass="BrewingThermometer_Title" Text="Title" />
+    <br />
+    <div id="BrewingThermometer_Display">
+        <asp:Label ID="lblCurrentTemp" runat="server" CssClass="TemperatureDigital" Text="180" />
+        <asp:LinkButton ID="btnTempHighAlarm" runat="server" CssClass="TemperatureDigitalSmallTop"
+            Text="200" />
+        <asp:LinkButton ID="btnTempLowAlarm" runat="server" CssClass="TemperatureDigitalSmallBottom"
+            Text="-10" />
+    </div>
+</div>
+<%--
+<div id="SetAlarm" class="Overlay" onmouseout="divSetAlarm_OnMouseOut">
+Hello world
+<asp:Button ID="btnUpdateAlarms" runat="server" OnClick="btnUpdateAlarms_OnClick"
+                Text="Update" />
+</div>
+--%>
+
+<%-- <table class="BrewingThermometerMainTable">
     <tr>
         <td style="width: 2%;">
             <td colspan="3" class="BrewingThermometer_Title">
@@ -88,4 +107,4 @@
                 Text="Update" />
         </td>
     </tr>
-</table>
+</table>--%>

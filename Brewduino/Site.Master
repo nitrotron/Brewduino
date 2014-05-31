@@ -18,7 +18,7 @@
                 <table class="MasterHeader">
                     <tr>
                         <td>
-                            <asp:ContentPlaceHolder ID="MainTop" runat="server">
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolderHead" runat="server">
                                 <asp:Label ID="lblTitle" runat="server" Text="BrewDuino" CssClass="title" />
                             </asp:ContentPlaceHolder>
                         </td>
@@ -41,7 +41,7 @@
                 <table class="MasterBody">
                     <tr>
                         <td>
-                            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server" />
                         </td>
                     </tr>
                 </table>

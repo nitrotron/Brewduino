@@ -31,48 +31,21 @@ namespace Brewduino.Controllers {
         protected global::System.Web.UI.WebControls.Label lblCurrentTemp;
         
         /// <summary>
-        /// lblHighAlarm control.
+        /// btnTempHighAlarm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHighAlarm;
+        protected global::System.Web.UI.WebControls.LinkButton btnTempHighAlarm;
         
         /// <summary>
-        /// lblLowAlarm control.
+        /// btnTempLowAlarm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLowAlarm;
-        
-        /// <summary>
-        /// tbHighAlarm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbHighAlarm;
-        
-        /// <summary>
-        /// tbLowAlarm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbLowAlarm;
-        
-        /// <summary>
-        /// btnUpdateAlarms control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdateAlarms;
+        protected global::System.Web.UI.WebControls.LinkButton btnTempLowAlarm;
     }
 }
