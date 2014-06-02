@@ -13,6 +13,15 @@ namespace Brewduino.Pages {
     public partial class RimsPanel {
         
         /// <summary>
+        /// tmrRefreshStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.Timer tmrRefreshStatus;
+        
+        /// <summary>
         /// lblMainAlarm control.
         /// </summary>
         /// <remarks>
@@ -56,5 +65,14 @@ namespace Brewduino.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Brewduino.Controllers.BrewingThermometer btKettle;
+        
+        /// <summary>
+        /// cdtTimer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Brewduino.Controllers.CountDownTimer cdtTimer;
     }
 }

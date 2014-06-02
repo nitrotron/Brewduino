@@ -33,6 +33,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -68,6 +69,7 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Controllers\BrewingThermometer.ascx" />
+    <Content Include="Controllers\CountDownTimer.ascx" />
     <Content Include="Pages\Debugaspx.aspx" />
     <Content Include="Pages\RimsPanel.aspx" />
     <Content Include="Pages\Test.aspx" />
@@ -151,6 +153,13 @@
     </Compile>
     <Compile Include="Controllers\BrewingThermometer.ascx.designer.cs">
       <DependentUpon>BrewingThermometer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\CountDownTimer.ascx.cs">
+      <DependentUpon>CountDownTimer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controllers\CountDownTimer.ascx.designer.cs">
+      <DependentUpon>CountDownTimer.ascx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

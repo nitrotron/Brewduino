@@ -30,14 +30,20 @@ namespace Brewduino.Pages
             btRims.Status = CurrentStatus;
             btRims.Thermometer = BrewController.ThermometersName.RIMS;
             btRims.Name = "RIMS";
+            btRims.tmrRefreshStatus = tmrRefreshStatus;
             btMash.BrewControl = BrewControl;
             btMash.Status = CurrentStatus;
             btMash.Thermometer = BrewController.ThermometersName.MashTun;
             btMash.Name = "Mash Tun";
+            btMash.tmrRefreshStatus = tmrRefreshStatus;
             btKettle.BrewControl = BrewControl;
             btKettle.Status = CurrentStatus;
             btKettle.Thermometer = BrewController.ThermometersName.Kettle;
             btKettle.Name = "Kettle";
+            btKettle.tmrRefreshStatus = tmrRefreshStatus;
+            
+
+
 
             //btRims1.BrewControl = BrewControl;
             //btRims1.Status = CurrentStatus;
@@ -57,7 +63,9 @@ namespace Brewduino.Pages
             if (CurrentStatus["TempAlarmActive"] > 0)
                 lblMainAlarm.Text = "We have an alarm";
 
-            Response.AppendHeader("Refresh", 5 + "; URL=RimsPanel.aspx");
+            //Response.AppendHeader("Refresh", 5 + "; URL=RimsPanel.aspx");
+            tmrRefreshStatus.Interval = 5000;
+            tmrRefreshStatus.Enabled = true;
 
         }
 
@@ -88,6 +96,17 @@ namespace Brewduino.Pages
             }
 
             BrewControl.ResetAlarm();
+
+        }
+
+        protected void tmrRefreshStatus_Tick(object sender, EventArgs e)
+        {
+            // do nothing. This post back should be enough
+            CurrentStatus = BrewControl.GetStatus();
+
+            btRims.Status = CurrentStatus;
+            btKettle.Status = CurrentStatus;
+            btMash.Status = CurrentStatus;
 
         }
     }
