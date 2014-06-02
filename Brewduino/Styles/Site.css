@@ -405,11 +405,12 @@ div#BrewingThermometer_Display
 .PanelOverlay
 {
     position: absolute;
-    top: 1000px !important;
-    left: 0px;
+    top: 75px ;
+    left: 400px;
     padding: 10px 10px 10px 10px;
     background-color: Lime;
     z-index: 999;
+    font-size: 18px;
 }
 
 

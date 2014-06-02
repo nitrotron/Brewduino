@@ -57,10 +57,17 @@ namespace Brewduino.Pages
             if (CurrentStatus["TempAlarmActive"] > 0)
                 lblMainAlarm.Text = "We have an alarm";
 
-            Response.AppendHeader("Refresh", 60 + "; URL=RimsPanel.aspx");
+            Response.AppendHeader("Refresh", 5 + "; URL=RimsPanel.aspx");
 
         }
-       
+
+        //public void setAutoRefresh(bool onOff)
+        //{
+        //    if (onOff)
+        //        Response.AppendHeader("Refresh", 5 + "; URL=RimsPanel.aspx");
+        //    else
+        //}
+
 
         protected void btnResetAlarm_OnClick(object sender, EventArgs e)
         {

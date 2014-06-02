@@ -6,20 +6,19 @@
     <div id="BrewingThermometer_Display">
         <asp:Label ID="lblCurrentTemp" runat="server" CssClass="TemperatureDigital" Text="180" />
         <asp:LinkButton ID="btnTempHighAlarm" runat="server" CssClass="TemperatureDigitalSmallTop"
-            Text="200" OnClick="btnTempHighAlarm_OnClick"/>
+            Text="200" OnClick="btnTempHighAlarm_OnClick" />
         <asp:LinkButton ID="btnTempLowAlarm" runat="server" CssClass="TemperatureDigitalSmallBottom"
-            Text="-10" OnClick="btnTempLowAlarm_OnClick"/>
+            Text="-10" OnClick="btnTempLowAlarm_OnClick" />
+        <asp:Panel ID="pnlSetAlarm" class="PanelOverlay" runat="server" Visible="false">
+            <asp:Label ID="lblAlarmTitle" runat="server"/>
+            <br />
+            <asp:TextBox ID="tbAlarm" runat="server" />
+            <asp:Button ID="btnUpdateAlarms" runat="server" OnClick="btnUpdateAlarms_OnClick"
+                Text="Update" />
+            <asp:HiddenField ID="hfWhichAlarm" runat="server" />
+        </asp:Panel>
     </div>
 </div>
-
-<asp:panel id="pnlSetAlarm" class="PanelOverlay" runat="server" Visible="false">
-<asp:TextBox ID="tbAlarm" runat="server" />
-<asp:Button ID="btnUpdateAlarms" runat="server" OnClick="btnUpdateAlarms_OnClick"
-                Text="Update" />
-                <asp:HiddenField ID="hfWhichAlarm" runat="server" />
-</asp:panel>
-
-
 <%-- <table class="BrewingThermometerMainTable">
     <tr>
         <td style="width: 2%;">

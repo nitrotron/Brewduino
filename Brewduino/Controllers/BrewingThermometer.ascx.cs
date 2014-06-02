@@ -76,8 +76,14 @@ namespace Brewduino.Controllers
             pnlSetAlarm.Visible = false;
 
 
-            decimal alarm = -999;
-            decimal.TryParse(tbAlarm.Text, out alarm);
+
+
+            decimal alarm;
+            if (decimal.TryParse(tbAlarm.Text, out alarm) == false)
+            {
+                return;
+            }
+
             if (alarm >= -10 && alarm <= 125 && !string.IsNullOrEmpty(tbAlarm.Text))
             {
                 if (hfWhichAlarm.Value == "High")
@@ -96,12 +102,15 @@ namespace Brewduino.Controllers
         }
         protected void btnTempHighAlarm_OnClick(object sender, EventArgs e)
         {
+            
             pnlSetAlarm.Visible = true;
+            lblAlarmTitle.Text = Name + ": High Temperature Alarm";
             hfWhichAlarm.Value = "High";
         }
         protected void btnTempLowAlarm_OnClick(object sender, EventArgs e)
         {
             pnlSetAlarm.Visible = true;
+            lblAlarmTitle.Text = Name + ": Low Temperature Alarm";
             hfWhichAlarm.Value = "Low";
         }
 
