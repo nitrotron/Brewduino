@@ -310,7 +310,7 @@ div#RimsThermometers
 }
 div#RimsThermometers .RimsThermometer
 {
-    background-color: White;
+    background-color: #DDDDDD;
     width: 30%;
     display: inline-block;
 }
@@ -326,26 +326,26 @@ div#RimsThermometers .RimsThermometer
 
 .TemperatureDigital
 {
-    font-size: 25px;
+    font-size: 65px;
     background-color: Black;
     color: red;
     text-align: center;
     float: left;
-    width: 100px;
-    height: 41px;
+    width: 200px;
+    height: 81px;
     border: solid;
     border-color: Blue;
     border-width: 1px;
 }
 .TemperatureDigitalSmallTop
 {
-    font-size: 12px;
+    font-size: 30px;
     background-color: Black;
     color: red;
     text-align: center;
     float: left;
-    width: 50px;
-    height: 20px;
+    width: 100px;
+    height: 40px;
     border: solid;
     border-color: Blue;
     border-width: 1px;
@@ -353,28 +353,51 @@ div#RimsThermometers .RimsThermometer
     border-left-width: 0px;
     text-decoration: none;
     color: Red !important;
- }
+}
 
 .TemperatureDigitalSmallBottom
 {
-    font-size: 12px;
+    font-size: 30px;
     background-color: Black;
     color: red;
     text-align: center;
     float: left;
-    width: 50px;
-    height: 20px;
+    width: 100px;
+    height: 40px;
     border: solid;
     border-color: Blue;
     border-width: 1px;
     border-left-width: 0px;
     text-decoration: none;
     color: Red !important;
+    background: #3498db;
+    background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+    background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+    background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+    background-image: -o-linear-gradient(top, #3498db, #2980b9);
+    background-image: linear-gradient(to bottom, #3498db, #2980b9);
+    font-family: Arial;
+    color: #ffffff; /*font-size: 20px; */ /*padding: 10px 20px 10px 20px;*/
+    text-decoration: none;
 }
+
+.TemperatureDigitalSmallBottom:hover
+{
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+}
+
+
+
 div#BrewingThermometer_Display
 {
     display: inline-block;
-    width: 154px;
+    width: 304px;
     height: 400px;
     float: none; /* background-color: Lime;     border-color: Black;     border-width: 5px;     border: solid; */
 }
@@ -387,8 +410,6 @@ div#BrewingThermometer_Display
     padding: 10px 10px 10px 10px;
     background-color: Lime;
     z-index: 999;
-    
-    
 }
 
 
