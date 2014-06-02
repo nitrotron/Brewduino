@@ -67,12 +67,21 @@ namespace Brewduino.Pages {
         protected global::Brewduino.Controllers.BrewingThermometer btKettle;
         
         /// <summary>
-        /// cdtTimer control.
+        /// rptrTimer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Brewduino.Controllers.CountDownTimer cdtTimer;
+        protected global::System.Web.UI.WebControls.Repeater rptrTimer;
+        
+        /// <summary>
+        /// btnAddTimer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddTimer;
     }
 }

@@ -109,5 +109,11 @@ namespace Brewduino.Pages
             btMash.Status = CurrentStatus;
 
         }
+
+        protected void btnAddTimer_Click(object sender, EventArgs e)
+        {
+
+           
+        }
     }
 }

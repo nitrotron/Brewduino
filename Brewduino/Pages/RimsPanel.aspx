@@ -23,7 +23,10 @@
                 <uc1:BrewThermometer ID="btKettle" runat="server" />
             </div>
             <div class="CountDownTimer">
-                <uc2:CoundDownTimer ID="cdtTimer" runat="server" />
+                <asp:Repeater ID="rptrTimer" runat="server" >
+                <%--<uc2:CoundDownTimer ID="cdtTimer" runat="server" />--%>
+                    </asp:Repeater>
+                <asp:Button ID="btnAddTimer" runat="server" OnClick="btnAddTimer_Click" />
             </div>
         </div>
     </div>
