@@ -77,6 +77,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-ui-1.10.4.custom.js" />
     <Content Include="Scripts\jquery-ui-1.10.4.custom.min.js" />
+    <Content Include="Scripts\jquery.countdown.js" />
+    <Content Include="Scripts\jquery.countdown.min.js" />
     <Content Include="Styles\redmond\images\animated-overlay.gif" />
     <Content Include="Styles\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Styles\redmond\images\ui-bg_flat_55_fbec88_40x100.png" />

@@ -18,13 +18,13 @@ namespace Brewduino.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-             var binding = new BasicHttpBinding();
+            var binding = new BasicHttpBinding();
             //var address = new EndpointAddress("http://localhost:8080/SerialSwitch");
             var address = new EndpointAddress("http://192.168.0.16:8080/SerialSwitch");
             Arduino = new ArduinoSelfHostClient(binding, address);
             Arduino = new ArduinoStub(); //This in there so I can work on the skin.
             BrewControl = new BrewController(Arduino);
-           
+
             CurrentStatus = BrewControl.GetStatus();
             btRims.BrewControl = BrewControl;
             btRims.Status = CurrentStatus;
@@ -41,7 +41,7 @@ namespace Brewduino.Pages
             btKettle.Thermometer = BrewController.ThermometersName.Kettle;
             btKettle.Name = "Kettle";
             btKettle.tmrRefreshStatus = tmrRefreshStatus;
-            
+
 
 
 
@@ -58,13 +58,13 @@ namespace Brewduino.Pages
             //btKettle1.Thermometer = BrewController.ThermometersName.Kettle;
             //btKettle1.Name = "Kettle";
 
-            
+
 
             if (CurrentStatus["TempAlarmActive"] > 0)
                 lblMainAlarm.Text = "We have an alarm";
 
             //Response.AppendHeader("Refresh", 5 + "; URL=RimsPanel.aspx");
-            tmrRefreshStatus.Interval = 5000;
+            tmrRefreshStatus.Interval = 50000;
             tmrRefreshStatus.Enabled = true;
 
         }
@@ -112,8 +112,11 @@ namespace Brewduino.Pages
 
         protected void btnAddTimer_Click(object sender, EventArgs e)
         {
+            
+            //Control uc2 = Page.LoadControl("~/Controllers/CountDownTimer.ascx");
+            //rptrTimer.Controls.Add(uc2);
+            
 
-           
         }
     }
 }
