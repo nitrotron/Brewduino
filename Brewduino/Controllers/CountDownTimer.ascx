@@ -24,14 +24,14 @@
     $("input[id$='btnAddNewTimer']").click(function () {
         var newtime = $("#<%=tbNewTime.ClientID%>").val();
         var settime = new Date();
-        confirm(settime);
-        confirm(newtime);
+        //confirm(settime);
+        //confirm(newtime);
         settime = settime.valueOf() + new Number(newtime) * 60 * 1000;
-        confirm(settime);
+        //confirm(settime);
 
         //confirm("is this your date " + newtime);
         $("#getting-started").countdown(settime, function (event) {
-            $(this).html(event.strftime('%D days %H:%M:%S'));
+            $(this).html(event.strftime('%H:%M:%S'));
         });
         return false;
     });
