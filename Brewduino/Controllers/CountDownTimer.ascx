@@ -7,7 +7,7 @@
     <span id="clock"></span>
 </div>
 <asp:TextBox ID="tbNewTime" runat="server" />
-<asp:Button ID="btnAddNewTimer" runat="server" />
+<asp:Button ID="btnAddNewTimer" runat="server" Text="Start" />
 <select id="exampleDate">
     <option selected="selected">choose some date and time</option>
     <option value="set15daysFromNow">15 days from now</option>
@@ -18,6 +18,29 @@
 <script src="../Scripts/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="../Scripts/jquery.countdown.js"></script>
 <script type="text/javascript">
+    //$(document).ready(function() {
+
+
+    $("input[id$='btnAddNewTimer']").click(function () {
+        var newtime = $("#<%=tbNewTime.ClientID%>").val();
+        var settime = new Date();
+        confirm(settime);
+        confirm(newtime);
+        settime = settime.valueOf() + new Number(newtime) * 60 * 1000;
+        confirm(settime);
+
+        //confirm("is this your date " + newtime);
+        $("#getting-started").countdown(settime, function (event) {
+            $(this).html(event.strftime('%D days %H:%M:%S'));
+        });
+        return false;
+    });
+
+    //});
+</script>
+<%--<script type="text/javascript">
+
+
     function addTimerScript() {
 
         var newTimeMinutes = $("#<%=tbNewTime.ClientID%>").val();
@@ -115,4 +138,4 @@
         });
 
     });
-</script>
+</script>--%>
