@@ -2,9 +2,9 @@
     Inherits="Brewduino.Controllers.CountDownTimer" %>
 <div id="getting-started">
 </div>
-<div class="countdown">
-    New timer should be here
-    <span id="clock"></span>
+<div id="countdown">
+    <%--<div class="clock">
+    </div>--%>
 </div>
 <asp:TextBox ID="tbNewTime" runat="server" />
 <asp:Button ID="btnAddNewTimer" runat="server" Text="Start" />
@@ -13,7 +13,6 @@
     <option value="set15daysFromNow">15 days from now</option>
     <option value="set1minFromNow">1 minute from now</option>
 </select>
-
 <%--OnClientClick="addTimerScript()" />--%>
 <script src="../Scripts/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="../Scripts/jquery.countdown.js"></script>
@@ -22,19 +21,37 @@
 
 
     $("input[id$='btnAddNewTimer']").click(function () {
+        debugger;
         var newtime = $("#<%=tbNewTime.ClientID%>").val();
         var settime = new Date();
         //confirm(settime);
         //confirm(newtime);
         settime = settime.valueOf() + new Number(newtime) * 60 * 1000;
-        //confirm(settime);
+        confirm(settime);
 
+        var currentClockCount = $(".clock").length;
+        var nextClockID = "clock" + $(".clock").length;
+        confirm(nextClockID);
+        var newTimer = '<div class="clock" id="' + nextClockID + '"> Hello '+ nextClockID + '</div>';
+        confirm(newTimer);
+        //        
+        //        var newTimer = $('<div/>', {
+        //            id: nextClockID,
+        //            className: "clock",
+        //            html: content
+        //        });
+        var html = newTimer;
+        confirm(html);
         //confirm("is this your date " + newtime);
-        $("#getting-started").countdown(settime, function (event) {
+        $("#countdown").append(newTimer);
+
+        $("#" + nextClockID).countdown(settime, function (event) {
             $(this).html(event.strftime('%H:%M:%S'));
         });
+
         return false;
     });
+    
 
     //});
 </script>
