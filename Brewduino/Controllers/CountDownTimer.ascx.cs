@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -54,12 +55,15 @@ namespace Brewduino.Controllers
 
             BrewControl.SetTimer(minutes);
 
-            if (hfPresentTimerList.Text.Length == 0)
-                hfPresentTimerList.Text = countDownTo.ToString();
+            if (hfPresentTimerList.Value.Length == 0)
+                hfPresentTimerList.Value = countDownTo.ToString("G", DateTimeFormatInfo.InvariantInfo);
             else
             {
-                hfPresentTimerList.Text += "," + countDownTo.ToString();
+                hfPresentTimerList.Value += "," + countDownTo.ToString("G", DateTimeFormatInfo.InvariantInfo);
             }
+
+            //Div countdown = Page.FindControl("divCountdown") as Div;
+            
 
             Status["TimersNotAllocated"] -= 1;
             UpdateReadings();
