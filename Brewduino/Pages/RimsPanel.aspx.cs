@@ -42,23 +42,8 @@ namespace Brewduino.Pages
             btKettle.Name = "Kettle";
             btKettle.tmrRefreshStatus = tmrRefreshStatus;
 
-
-
-
-            //btRims1.BrewControl = BrewControl;
-            //btRims1.Status = CurrentStatus;
-            //btRims1.Thermometer = BrewController.ThermometersName.RIMS;
-            //btRims1.Name = "RIMS";
-            //btMash1.BrewControl = BrewControl;
-            //btMash1.Status = CurrentStatus;
-            //btMash1.Thermometer = BrewController.ThermometersName.MashTun;
-            //btMash1.Name = "Mash Tun";
-            //btKettle1.BrewControl = BrewControl;
-            //btKettle1.Status = CurrentStatus;
-            //btKettle1.Thermometer = BrewController.ThermometersName.Kettle;
-            //btKettle1.Name = "Kettle";
-
-
+            cdtTimer.BrewControl = BrewControl;
+            cdtTimer.Status = CurrentStatus;
 
             if (CurrentStatus["TempAlarmActive"] > 0)
                 lblMainAlarm.Text = "We have an alarm";
@@ -68,13 +53,6 @@ namespace Brewduino.Pages
             tmrRefreshStatus.Enabled = true;
 
         }
-
-        //public void setAutoRefresh(bool onOff)
-        //{
-        //    if (onOff)
-        //        Response.AppendHeader("Refresh", 5 + "; URL=RimsPanel.aspx");
-        //    else
-        //}
 
 
         protected void btnResetAlarm_OnClick(object sender, EventArgs e)
@@ -110,13 +88,5 @@ namespace Brewduino.Pages
 
         }
 
-        protected void btnAddTimer_Click(object sender, EventArgs e)
-        {
-            
-            //Control uc2 = Page.LoadControl("~/Controllers/CountDownTimer.ascx");
-            //rptrTimer.Controls.Add(uc2);
-            
-
-        }
     }
 }

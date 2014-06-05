@@ -44,6 +44,10 @@ namespace BrewduinoCatalogLib
             string command = ((int)whichThermo).ToString() + "," + lowTemp.ToString();
             Arduino.SendCommand((int)ArduinoCommands.CommandTypes.SetTempAlarmLow, command);
         }
+        public void SetTimer(decimal minutes)
+        {
+            Arduino.SendCommand((int)ArduinoCommands.CommandTypes.SetTimer, minutes.ToString());
+        }
         public decimal GetHighTempAlarm(ThermometersName whichThermo)
         {
             Dictionary<string, decimal> response = Arduino.GetStatus();

@@ -8,7 +8,7 @@
     </div>--%>
 </div>
 <asp:TextBox ID="tbNewTime" runat="server" />
-<asp:Button ID="btnAddNewTimer" runat="server" Text="Start" />
+<asp:Button ID="btnAddNewTimer" runat="server" Text="Start" OnClick="btnAddNewTimer_Click"/>
 <select id="exampleDate">
     <option selected="selected">choose some date and time</option>
     <option value="set15daysFromNow">15 days from now</option>
@@ -18,44 +18,53 @@
 <script src="../Scripts/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="../Scripts/jquery.countdown.js"></script>
 <script type="text/javascript">
-    //$(document).ready(function() {
+    $(document).ready(function () {
+        debugger;
+        var hfTimerList = $("#<%=hfPresentTimerList.ClientID%>").html();
+        var timerList = (hfTimerList).split(",");
+        confirm(timerList);
+        confirm(hfTimerList);
 
 
-    $("input[id$='btnAddNewTimer']").click(function () {
-        var newtime = $("#<%=tbNewTime.ClientID%>").val();
-        var settime = new Date();
-        //confirm(settime);
-        //confirm(newtime);
-        settime = settime.valueOf() + new Number(newtime) * 60 * 1000;
-        confirm(settime);
 
-        var currentClockCount = $(".clock").length;
-        var nextClockID = "clock" + $(".clock").length;
-        confirm(nextClockID);
-        var newTimer = '<div class="clock" id="' + nextClockID + '"> Hello ' + nextClockID + '</div>';
-        //        var newTimer = $('<div/>', {
-        //            id: nextClockID,
-        //            className: "clock",
-        //            html: content
-        //        });
-        confirm(newTimer);
-        //confirm("is this your date " + newtime);
-        $("#countdown").append(newTimer);
-
-        $("#" + nextClockID).countdown(settime, function (event) {
-            $(this).html(event.strftime('%H:%M:%S'));
-        });
-
-        var hfTimerList = $("#<%=hfPresentTimerList.ClientID%>");
-        confirm(hfTimerList.val());
-        //        hfTimerList.text("Hello");
-        if (currentClockCount > 0) {
-            hfTimerList.append(",");
-        }
-        hfTimerList.append(nextClockID + "|" + settime);
-
-        return false;
     });
+
+
+ //   $("input[id$='btnAddNewTimer']").click(function () {
+ //       var newtime = $("#<%=tbNewTime.ClientID%>").val();
+ //       var settime = new Date();
+ //       //confirm(settime);
+ //       //confirm(newtime);
+ //       settime = settime.valueOf() + new Number(newtime) * 60 * 1000;
+ //       confirm(settime);
+ //
+ //       var currentClockCount = $(".clock").length;
+ //       var nextClockID = "clock" + $(".clock").length;
+ //       confirm(nextClockID);
+ //       var newTimer = '<div class="clock" id="' + nextClockID + '"> Hello ' + nextClockID + '</div>';
+ //       //        var newTimer = $('<div/>', {
+ //       //            id: nextClockID,
+ //       //            className: "clock",
+ //       //            html: content
+ //       //        });
+ //       confirm(newTimer);
+ //       //confirm("is this your date " + newtime);
+ //       $("#countdown").append(newTimer);
+ //
+ //       $("#" + nextClockID).countdown(settime, function (event) {
+ //           $(this).html(event.strftime('%H:%M:%S'));
+ //       });
+ //
+ //       var hfTimerList = $("#<%=hfPresentTimerList.ClientID%>");
+ //       confirm(hfTimerList.val());
+ //       //        hfTimerList.text("Hello");
+ //       if (currentClockCount > 0) {
+ //           hfTimerList.append(",");
+ //       }
+ //       hfTimerList.append(nextClockID + "|" + settime);
+ //
+ //       return false;
+ //   });
 
 
     //});

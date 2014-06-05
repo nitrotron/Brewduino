@@ -32,6 +32,9 @@ namespace BrewduinoCatalogLib
             returnDict["ThermometerLowAlarm1"] = -10;
             returnDict["ThermometerLowAlarm2"] = -10;
 
+            returnDict["TimersNotAllocated"] = 3;
+            returnDict["TotalTimers"] = 6;
+
             return returnDict;
         }
 
