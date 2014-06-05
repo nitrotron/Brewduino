@@ -3,6 +3,7 @@
 <div id="getting-started">
 </div>
 <div id="countdown">
+    <asp:Label ID="hfPresentTimerList" runat="server" />
     <%--<div class="clock">
     </div>--%>
 </div>
@@ -21,7 +22,6 @@
 
 
     $("input[id$='btnAddNewTimer']").click(function () {
-        debugger;
         var newtime = $("#<%=tbNewTime.ClientID%>").val();
         var settime = new Date();
         //confirm(settime);
@@ -32,16 +32,13 @@
         var currentClockCount = $(".clock").length;
         var nextClockID = "clock" + $(".clock").length;
         confirm(nextClockID);
-        var newTimer = '<div class="clock" id="' + nextClockID + '"> Hello '+ nextClockID + '</div>';
-        confirm(newTimer);
-        //        
+        var newTimer = '<div class="clock" id="' + nextClockID + '"> Hello ' + nextClockID + '</div>';
         //        var newTimer = $('<div/>', {
         //            id: nextClockID,
         //            className: "clock",
         //            html: content
         //        });
-        var html = newTimer;
-        confirm(html);
+        confirm(newTimer);
         //confirm("is this your date " + newtime);
         $("#countdown").append(newTimer);
 
@@ -49,9 +46,17 @@
             $(this).html(event.strftime('%H:%M:%S'));
         });
 
+        var hfTimerList = $("#<%=hfPresentTimerList.ClientID%>");
+        confirm(hfTimerList.val());
+        //        hfTimerList.text("Hello");
+        if (currentClockCount > 0) {
+            hfTimerList.append(",");
+        }
+        hfTimerList.append(nextClockID + "|" + settime);
+
         return false;
     });
-    
+
 
     //});
 </script>
