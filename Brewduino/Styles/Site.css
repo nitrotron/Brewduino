@@ -5,7 +5,7 @@ body
 {
     background: #084C8C;
     font-size: .80em;
-    font-family: "Helvetica Neue" , "Lucida Grande" , "Segoe UI" , Arial, Helvetica, Verdana, sans-serif;
+    font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
     margin: 0px;
     padding: 0px;
     color: #696969;
@@ -103,16 +103,16 @@ first child of the left and right table columns */
     width: 100%;
 }
 
-.header h1
-{
-    font-weight: 700;
-    margin: 0px;
-    padding: 0px 0px 0px 20px;
-    color: #f9f9f9;
-    border: none;
-    line-height: 2em;
-    font-size: 2em;
-}
+    .header h1
+    {
+        font-weight: 700;
+        margin: 0px;
+        padding: 0px 0px 0px 20px;
+        color: #f9f9f9;
+        border: none;
+        line-height: 2em;
+        font-size: 2em;
+    }
 
 .main
 {
@@ -159,39 +159,39 @@ div.menu
     padding: 4px 0px 4px 8px;
 }
 
-div.menu ul
-{
-    list-style: none;
-    margin: 0px;
-    padding: 0px;
-    width: auto;
-}
+    div.menu ul
+    {
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+        width: auto;
+    }
 
-div.menu ul li a, div.menu ul li a:visited
-{
-    background-color: #465c71;
-    border: 1px #4e667d solid;
-    color: #dde4ec;
-    display: block;
-    line-height: 1.35em;
-    padding: 4px 20px;
-    text-decoration: none;
-    white-space: nowrap;
-}
+        div.menu ul li a, div.menu ul li a:visited
+        {
+            background-color: #465c71;
+            border: 1px #4e667d solid;
+            color: #dde4ec;
+            display: block;
+            line-height: 1.35em;
+            padding: 4px 20px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
 
-div.menu ul li a:hover
-{
-    background-color: #bfcbd6;
-    color: #465c71;
-    text-decoration: none;
-}
+            div.menu ul li a:hover
+            {
+                background-color: #bfcbd6;
+                color: #465c71;
+                text-decoration: none;
+            }
 
-div.menu ul li a:active
-{
-    background-color: #465c71;
-    color: #cfdbe6;
-    text-decoration: none;
-}
+            div.menu ul li a:active
+            {
+                background-color: #465c71;
+                color: #cfdbe6;
+                text-decoration: none;
+            }
 
 /* FORM ELEMENTS   
 ----------------------------------------------------------*/
@@ -203,20 +203,20 @@ fieldset
     border: 1px solid #ccc;
 }
 
-fieldset p
-{
-    margin: 2px 12px 10px 10px;
-}
+    fieldset p
+    {
+        margin: 2px 12px 10px 10px;
+    }
 
-fieldset.login label, fieldset.register label, fieldset.changePassword label
-{
-    display: block;
-}
+    fieldset.login label, fieldset.register label, fieldset.changePassword label
+    {
+        display: block;
+    }
 
-fieldset label.inline
-{
-    display: inline;
-}
+    fieldset label.inline
+    {
+        display: inline;
+    }
 
 legend
 {
@@ -267,20 +267,20 @@ div.accountInfo
     color: White;
 }
 
-.loginDisplay a:link
-{
-    color: white;
-}
+    .loginDisplay a:link
+    {
+        color: white;
+    }
 
-.loginDisplay a:visited
-{
-    color: white;
-}
+    .loginDisplay a:visited
+    {
+        color: white;
+    }
 
-.loginDisplay a:hover
-{
-    color: white;
-}
+    .loginDisplay a:hover
+    {
+        color: white;
+    }
 
 .failureNotification
 {
@@ -308,10 +308,16 @@ div#RimsThermometers
     margin-left: auto; /*width: 90%;*/
     text-align: center;
 }
-div#RimsThermometers .RimsThermometer
+
+    div#RimsThermometers .RimsThermometer
+    {
+        background-color: #DDDDDD;
+        width: 25%;
+        display: inline-block;
+    }
+
+.CountDownTimer
 {
-    background-color: #DDDDDD;
-    width: 30%;
     display: inline-block;
 }
 
@@ -337,6 +343,7 @@ div#RimsThermometers .RimsThermometer
     border-color: Blue;
     border-width: 1px;
 }
+
 .TemperatureDigitalSmallTop
 {
     font-size: 30px;
@@ -381,16 +388,16 @@ div#RimsThermometers .RimsThermometer
     text-decoration: none;
 }
 
-.TemperatureDigitalSmallBottom:hover
-{
-    background: #3cb0fd;
-    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-    text-decoration: none;
-}
+    .TemperatureDigitalSmallBottom:hover
+    {
+        background: #3cb0fd;
+        background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+        background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+        background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+        background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+        background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+        text-decoration: none;
+    }
 
 
 
@@ -405,7 +412,7 @@ div#BrewingThermometer_Display
 .PanelOverlay
 {
     position: absolute;
-    top: 75px ;
+    top: 75px;
     left: 400px;
     padding: 10px 10px 10px 10px;
     background-color: Lime;
@@ -484,47 +491,62 @@ div#BrewingThermometer_Display
 
 body
 {
-    font: 62.5% "Trebuchet MS" , sans-serif;
+    font: 62.5% "Trebuchet MS", sans-serif;
     margin: 50px;
 }
+
 .demoHeaders
 {
     margin-top: 2em;
 }
+
 #dialog-link
 {
     padding: .4em 1em .4em 20px;
     text-decoration: none;
     position: relative;
 }
-#dialog-link span.ui-icon
-{
-    margin: 0 5px 0 0;
-    position: absolute;
-    left: .2em;
-    top: 50%;
-    margin-top: -8px;
-}
+
+    #dialog-link span.ui-icon
+    {
+        margin: 0 5px 0 0;
+        position: absolute;
+        left: .2em;
+        top: 50%;
+        margin-top: -8px;
+    }
+
 #icons
 {
     margin: 0;
     padding: 0;
 }
-#icons li
-{
-    margin: 2px;
-    position: relative;
-    padding: 4px 0;
-    cursor: pointer;
-    float: left;
-    list-style: none;
-}
-#icons span.ui-icon
-{
-    float: left;
-    margin: 0 4px;
-}
+
+    #icons li
+    {
+        margin: 2px;
+        position: relative;
+        padding: 4px 0;
+        cursor: pointer;
+        float: left;
+        list-style: none;
+    }
+
+    #icons span.ui-icon
+    {
+        float: left;
+        margin: 0 4px;
+    }
+
 .fakewindowcontain .ui-widget-overlay
 {
     position: absolute;
+}
+
+
+/********************* Count Down ********************/
+.clock
+{
+    font-size: 28px;
+    background-color: chocolate;
 }
