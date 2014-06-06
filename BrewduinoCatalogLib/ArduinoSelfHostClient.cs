@@ -18,7 +18,7 @@ namespace BrewduinoCatalogLib
         {
             return Channel.GetRawStatus();
         }
-        public Dictionary<string, decimal> GetStatus()
+        public Dictionary<string, float> GetStatus()
         {
             return Channel.GetStatus();
         }

@@ -59,7 +59,7 @@ namespace BrewduinoCatalogLib
             }
 
         }
-        public Dictionary<string, decimal> SendCommandWithResponse(ArduinoCommands.CommandTypes cmd, string text)
+        public Dictionary<string, float> SendCommandWithResponse(ArduinoCommands.CommandTypes cmd, string text)
         {
             //if (!IsOpen) Open();
             SendCommand(cmd, text);
@@ -74,7 +74,7 @@ namespace BrewduinoCatalogLib
                 catch
                 {
                     //Close();
-                    return new Dictionary<string, decimal>();
+                    return new Dictionary<string, float>();
                 }
                 if (response.ToString().Contains(";"))
                     break;
@@ -114,7 +114,7 @@ namespace BrewduinoCatalogLib
 
        
 
-        public Dictionary<string, decimal> parseVaribles(string response)
+        public Dictionary<string, float> parseVaribles(string response)
         {
             string[] pStrings;
             string message;
@@ -134,7 +134,7 @@ namespace BrewduinoCatalogLib
                 message = pStrings[0];
             }
 
-            Dictionary<string, decimal> dict = new Dictionary<string, decimal>();
+            Dictionary<string, float> dict = new Dictionary<string, float>();
 
             string[] pairs = message.Split(',');
 
@@ -142,9 +142,9 @@ namespace BrewduinoCatalogLib
             {
                 string[] pair = textValue.Split('|');
                 //string value = pair[1];
-                decimal temp;
-                decimal.TryParse(pair[1], out temp);
-                //int temp = (int)Convert.ToDecimal(value);
+                float temp;
+                float.TryParse(pair[1], out temp);
+                //int temp = (int)Convert.Tofloat(value);
                 //dict.Add(pair[0], (int)Convert.ToInt32(pair[1]));
                 dict.Add(pair[0], temp);
             }
@@ -153,9 +153,9 @@ namespace BrewduinoCatalogLib
             return dict;
         }
 
-        public Dictionary<string, decimal> GetStatus()
+        public Dictionary<string, float> GetStatus()
         {
-            return new Dictionary<string,decimal>();
+            return new Dictionary<string,float>();
         }
         public void UpdateStatus()
         {

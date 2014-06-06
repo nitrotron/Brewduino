@@ -34,8 +34,8 @@ namespace Brewduino.Controllers
             get { return _Name; }
             set { _Name = value; }
         }
-        protected Dictionary<string, decimal> _Status;
-        public Dictionary<string, decimal> Status
+        protected Dictionary<string, float> _Status;
+        public Dictionary<string, float> Status
         {
             get { return _Status; }
             set
@@ -45,12 +45,7 @@ namespace Brewduino.Controllers
             }
         }
 
-        protected Timer _tmrRefreshStatus;
-        public Timer tmrRefreshStatus
-        {
-            get { return _tmrRefreshStatus; }
-            set { _tmrRefreshStatus = value; }
-        }
+      
         #endregion
 
 
@@ -88,8 +83,8 @@ namespace Brewduino.Controllers
 
 
 
-            decimal alarm;
-            if (decimal.TryParse(tbAlarm.Text, out alarm) == false)
+            float alarm;
+            if (float.TryParse(tbAlarm.Text, out alarm) == false)
             {
                 return;
             }

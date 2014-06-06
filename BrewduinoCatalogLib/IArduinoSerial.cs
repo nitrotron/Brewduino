@@ -9,14 +9,14 @@ namespace BrewduinoCatalogLib
     {
 
         void SendCommand(ArduinoCommands.CommandTypes cmd, string text);
-        Dictionary<string, decimal> SendCommandWithResponse(ArduinoCommands.CommandTypes cmd, string text);
+        Dictionary<string, float> SendCommandWithResponse(ArduinoCommands.CommandTypes cmd, string text);
 
         string SendCommandWithDebugResponse(ArduinoCommands.CommandTypes cmd, string text);
-        Dictionary<string, decimal> GetStatus();
+        Dictionary<string, float> GetStatus();
         string GetRawStatus();
         
 
-        //Dictionary<string, decimal> GetStatus();
+        //Dictionary<string, float> GetStatus();
         //void UpdateStatus();
         //string GetRawStatus();
 

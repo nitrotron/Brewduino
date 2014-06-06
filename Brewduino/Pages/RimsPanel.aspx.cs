@@ -14,7 +14,7 @@ namespace Brewduino.Pages
         //protected ArduinoSerial mySerial = new ArduinoSerial();
         protected IArduinoSelfHost Arduino;
         protected BrewController BrewControl;
-        protected Dictionary<string, decimal> CurrentStatus;
+        protected Dictionary<string, float> CurrentStatus;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,30 +22,30 @@ namespace Brewduino.Pages
             //var address = new EndpointAddress("http://localhost:8080/SerialSwitch");
             var address = new EndpointAddress("http://192.168.0.16:8080/SerialSwitch");
             Arduino = new ArduinoSelfHostClient(binding, address);
-            //Arduino = new ArduinoStub(); //This in there so I can work on the skin.
+            Arduino = new ArduinoStub(); //This in there so I can work on the skin.
             BrewControl = new BrewController(Arduino);
 
             CurrentStatus = BrewControl.GetStatus();
-            btRims.BrewControl = BrewControl;
-            btRims.Status = CurrentStatus;
             btRims.Thermometer = BrewController.ThermometersName.RIMS;
             btRims.Name = "RIMS";
-            btRims.tmrRefreshStatus = tmrRefreshStatus;
-            btMash.BrewControl = BrewControl;
-            btMash.Status = CurrentStatus;
+            btRims.BrewControl = BrewControl;
+            btRims.Status = CurrentStatus;
+
+
             btMash.Thermometer = BrewController.ThermometersName.MashTun;
             btMash.Name = "Mash Tun";
-            btMash.tmrRefreshStatus = tmrRefreshStatus;
-            btKettle.BrewControl = BrewControl;
-            btKettle.Status = CurrentStatus;
+            btMash.BrewControl = BrewControl;
+            btMash.Status = CurrentStatus;
+
             btKettle.Thermometer = BrewController.ThermometersName.Kettle;
             btKettle.Name = "Kettle";
-            btKettle.tmrRefreshStatus = tmrRefreshStatus;
+            btKettle.BrewControl = BrewControl;
+            btKettle.Status = CurrentStatus;
 
             cdtTimer.BrewControl = BrewControl;
             cdtTimer.Status = CurrentStatus;
 
-            
+
             if (CurrentStatus["TempAlarmActive"] > 0 || CurrentStatus["TimerAlarmActive"] > 0)
                 lblMainAlarm.Text = "We have an alarm";
 
@@ -75,9 +75,10 @@ namespace Brewduino.Pages
             }
             if (CurrentStatus["TimerAlarmActive"] > 0)
             {
+                cdtTimer.ResetAlarm();
             }
             lblMainAlarm.Text = string.Empty;
-            
+
             BrewControl.ResetAlarm();
 
         }

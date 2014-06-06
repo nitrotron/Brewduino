@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -17,8 +18,8 @@ namespace Brewduino.Controllers
             get { return _BrewControl; }
             set { _BrewControl = value; }
         }
-        protected Dictionary<string, decimal> _Status;
-        public Dictionary<string, decimal> Status
+        protected Dictionary<string, float> _Status;
+        public Dictionary<string, float> Status
         {
             get { return _Status; }
             set
@@ -49,8 +50,8 @@ namespace Brewduino.Controllers
         protected void btnAddNewTimer_Click(object sender, EventArgs e)
         {
             DateTime countDownTo = DateTime.Now;
-            decimal minutes;
-            decimal.TryParse(tbNewTime.Text, out minutes);
+            float minutes;
+            float.TryParse(tbNewTime.Text, out minutes);
             countDownTo = countDownTo.AddSeconds((double)(minutes * 60));
 
             BrewControl.SetTimer(minutes);
@@ -67,6 +68,29 @@ namespace Brewduino.Controllers
 
             Status["TimersNotAllocated"] -= 1;
             UpdateReadings();
+
+        }
+
+        public void ResetAlarm()
+        {
+            string[] timerStrArray = hfPresentTimerList.Value.Split(',');
+            StringBuilder updateHF = new StringBuilder();
+
+            int timerCount = 0;
+            foreach (string item in timerStrArray)
+            {
+                DateTime itemDateTime;
+                DateTime.TryParse(item, out itemDateTime);
+                if (itemDateTime > DateTime.Now)
+                {
+                    if (timerCount > 0)
+                        updateHF.Append("," + item);
+                    else
+                        updateHF.Append(item);
+                    timerCount++;
+                }
+            }
+            hfPresentTimerList.Value = updateHF.ToString();
 
         }
     }

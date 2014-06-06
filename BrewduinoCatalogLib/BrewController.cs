@@ -34,46 +34,46 @@ namespace BrewduinoCatalogLib
             Arduino = inArduino;
         }
        
-        public void SetHighTempAlarm(ThermometersName whichThermo, decimal highTemp)
+        public void SetHighTempAlarm(ThermometersName whichThermo, float highTemp)
         {
             string command = ((int)whichThermo).ToString() + "," + highTemp.ToString();
             Arduino.SendCommand((int)ArduinoCommands.CommandTypes.SetTempAlarmHigh, command);
         }
-        public void SetLowTempAlarm(ThermometersName whichThermo, decimal lowTemp)
+        public void SetLowTempAlarm(ThermometersName whichThermo, float lowTemp)
         {
             string command = ((int)whichThermo).ToString() + "," + lowTemp.ToString();
             Arduino.SendCommand((int)ArduinoCommands.CommandTypes.SetTempAlarmLow, command);
         }
-        public void SetTimer(decimal minutes)
+        public void SetTimer(float minutes)
         {
             Arduino.SendCommand((int)ArduinoCommands.CommandTypes.SetTimer, minutes.ToString());
         }
-        public decimal GetHighTempAlarm(ThermometersName whichThermo)
+        public float GetHighTempAlarm(ThermometersName whichThermo)
         {
-            Dictionary<string, decimal> response = Arduino.GetStatus();
+            Dictionary<string, float> response = Arduino.GetStatus();
 
             string key = "ThermometerHighAlarm" + (int)whichThermo;
             return response[key];
         }
-        public decimal GetLowTempAlarm(ThermometersName whichThermo)
+        public float GetLowTempAlarm(ThermometersName whichThermo)
         {
-            Dictionary<string, decimal> response = Arduino.GetStatus();
+            Dictionary<string, float> response = Arduino.GetStatus();
 
             string key = "ThermometerLowAlarm" + (int)whichThermo;
             return response[key];
         }
-        public decimal GetTemps(ThermometersName whichThermo)
+        public float GetTemps(ThermometersName whichThermo)
         {
-            Dictionary<string, decimal> response = Arduino.GetStatus();
+            Dictionary<string, float> response = Arduino.GetStatus();
 
 
             int index = (int)whichThermo;
             string key = "Thermometer" + (int)whichThermo;
             return response[key];
         }
-        public Dictionary<string, decimal> GetStatus()
+        public Dictionary<string, float> GetStatus()
         {
-            Dictionary<string, decimal> response = Arduino.GetStatus();
+            Dictionary<string, float> response = Arduino.GetStatus();
 
             return response;
         }

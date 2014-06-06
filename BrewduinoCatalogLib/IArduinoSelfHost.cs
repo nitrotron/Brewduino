@@ -13,11 +13,11 @@ namespace BrewduinoCatalogLib
         [OperationContract]
         string GetRawStatus();
         [OperationContract]
-        Dictionary<string, decimal> GetStatus();
+        Dictionary<string, float> GetStatus();
         [OperationContract]
         void SendCommand(int arduinoCommands, string text);
         //[OperationContract]
-        //Dictionary<string, decimal> SendCommandWithResponse(ArduinoCommands.CommandTypes cmd, string text);
+        //Dictionary<string, float> SendCommandWithResponse(ArduinoCommands.CommandTypes cmd, string text);
         [OperationContract]
         void UpdateStatus();
     }

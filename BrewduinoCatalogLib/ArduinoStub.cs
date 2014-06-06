@@ -15,25 +15,28 @@ namespace BrewduinoCatalogLib
         }
 
 
-        public Dictionary<string, decimal> GetStatus()
+        public Dictionary<string, float> GetStatus()
         {
-            Dictionary<string, decimal> returnDict = new Dictionary<string, decimal>();
+            Dictionary<string, float> returnDict = new Dictionary<string, float>();
 
-            returnDict["Thermometer0"] = 150;
-            returnDict["Thermometer1"] = 150;
-            returnDict["Thermometer2"] = 150;
+            returnDict["Thermometer0"] = 150.2F;
+            returnDict["Thermometer1"] = 82.9F;
+            returnDict["Thermometer2"] = 202.3F;
 
             returnDict["TempAlarmActive"] = 0;
+            returnDict["TimerAlarmActive"] = 1;
 
-            returnDict["ThermometerHighAlarm0"] = 275;
-            returnDict["ThermometerHighAlarm1"] = 275;
-            returnDict["ThermometerHighAlarm2"] = 275;
-            returnDict["ThermometerLowAlarm0"] = -10;
-            returnDict["ThermometerLowAlarm1"] = -10;
-            returnDict["ThermometerLowAlarm2"] = -10;
+            returnDict["ThermometerHighAlarm0"] = 275.0F;
+            returnDict["ThermometerHighAlarm1"] = 275.0F;
+            returnDict["ThermometerHighAlarm2"] = 275.0F;
+            returnDict["ThermometerLowAlarm0"] = -10.0F;
+            returnDict["ThermometerLowAlarm1"] = -10.0F;
+            returnDict["ThermometerLowAlarm2"] = -10.0F;
 
             returnDict["TimersNotAllocated"] = 3;
             returnDict["TotalTimers"] = 6;
+
+            
 
             return returnDict;
         }
