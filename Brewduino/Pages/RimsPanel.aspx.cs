@@ -22,7 +22,7 @@ namespace Brewduino.Pages
             //var address = new EndpointAddress("http://localhost:8080/SerialSwitch");
             var address = new EndpointAddress("http://192.168.0.16:8080/SerialSwitch");
             Arduino = new ArduinoSelfHostClient(binding, address);
-            Arduino = new ArduinoStub(); //This in there so I can work on the skin.
+            //Arduino = new ArduinoStub(); //This in there so I can work on the skin.
             BrewControl = new BrewController(Arduino);
 
             CurrentStatus = BrewControl.GetStatus();
@@ -45,11 +45,12 @@ namespace Brewduino.Pages
             cdtTimer.BrewControl = BrewControl;
             cdtTimer.Status = CurrentStatus;
 
-            if (CurrentStatus["TempAlarmActive"] > 0)
+            
+            if (CurrentStatus["TempAlarmActive"] > 0 || CurrentStatus["TimerAlarmActive"] > 0)
                 lblMainAlarm.Text = "We have an alarm";
 
             //Response.AppendHeader("Refresh", 5 + "; URL=RimsPanel.aspx");
-            tmrRefreshStatus.Interval = 50000;
+            tmrRefreshStatus.Interval = 10000;
             tmrRefreshStatus.Enabled = true;
 
         }
@@ -72,7 +73,11 @@ namespace Brewduino.Pages
                     btKettle.ResetAlarm();
                 }
             }
-
+            if (CurrentStatus["TimerAlarmActive"] > 0)
+            {
+            }
+            lblMainAlarm.Text = string.Empty;
+            
             BrewControl.ResetAlarm();
 
         }
