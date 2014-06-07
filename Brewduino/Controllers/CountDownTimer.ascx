@@ -1,12 +1,38 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CountDownTimer.ascx.cs"
     Inherits="Brewduino.Controllers.CountDownTimer" %>
-<div id="getting-started">
+<div id="btnShowNewTimerPanel">
+    Click for New Timer</div>
+<div id="pnlAddTimer" style="display: none;">
+    <table>
+        <tr>
+            <td>
+                New Time(minutes):
+            </td>
+            <td style="text-align:left;">
+                <asp:TextBox ID="tbNewTime" runat="server" Width="50px" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Title:
+            </td>
+            <td style="text-align:left;">
+                <asp:TextBox ID="tbTimerLabel" runat="server" Width="50px" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td style="text-align:left;">
+                <asp:Button ID="btnAddNewTimer" runat="server" Text="Start" OnClick="btnAddNewTimer_Click" />
+            </td>
+        </tr>
+    </table>
 </div>
 <div id="divCountdown" runat="server">
     <asp:HiddenField ID="hfPresentTimerList" runat="server" />
+    <asp:HiddenField ID="hfPresentTimerTitleList" runat="server" />
 </div>
-<asp:TextBox ID="tbNewTime" runat="server" />
-<asp:Button ID="btnAddNewTimer" runat="server" Text="Start" OnClick="btnAddNewTimer_Click" />
 <%--OnClientClick="addTimerScript()" />--%>
 <script src="../Scripts/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="../Scripts/jquery.countdown.js"></script>
@@ -15,47 +41,75 @@
         //debugger;
         var hfTimerList = $("#<%=hfPresentTimerList.ClientID%>").val();
         var timerList = (hfTimerList).split(",");
+        var hfTimerTitleList = $("#<%=hfPresentTimerTitleList.ClientID%>").val();
+        var timerTitleList = (hfTimerTitleList).split(",");
 
-        function callback(event) {
-            $this = $(this);
-            switch (event.type) {
-                case "seconds":
-                case "minutes":
-                case "hours":
-                case "days":
-                case "weeks":
-                case "daysLeft":
-                    $this.find('span#' + event.type).html(event.value);
-                    if (finished) {
-                        $this.fadeTo(0, 1);
-                        finished = false;
-                    }
-                    break;
-                case "finished":
-                    $this.fadeTo('slow', .5);
-                    finished = true;
-                    break;
-            }
-        }
+        //$("#pnlAddTimer").hide();
 
+        //        $("input[id$='btnShowNewTimerPanel']").click(function () {
+        $("#btnShowNewTimerPanel").click(function () {
+            $("#btnShowNewTimerPanel").hide();
+            $("#pnlAddTimer").show();
+        });
+
+        $("pnlAddTimer").click(function () {
+            $("#btnShowNewTimerPanel").show();
+        });
 
 
         $.each(timerList, function (index, value) {
             if (value != "") {
-                var newTimer = '<div class="clock" id="clock' + index + '" data-countdown="' + value + '"></div>';
+                var newTimer = '<div class="clock" id="clock' + index + '" data-countdown="' + value + '" data-title="' + timerTitleList[index] + '"></div>';
                 $("#<%=divCountdown.ClientID%>").append(newTimer);
             }
         });
 
+        //        $('[data-countdown]').each(function () {
+        //            var $this = $(this), finalDate = $(this).data('countdown');
+        //            //confirm(finalDate);
+        //            $this.countdown(finalDate, function (event) {
+        //                $this.html(event.strftime('%H:%M:%S'));
+        //            });
+        //        });
         $('[data-countdown]').each(function () {
             var $this = $(this), finalDate = $(this).data('countdown');
             //confirm(finalDate);
-            $this.countdown(finalDate, function (event) {
-                $this.html(event.strftime('%H:%M:%S'));
-            });
+            $this.countdown(finalDate)
+                    .on('update.countdown', function (event) {
+                        $this.html(event.strftime('%H:%M:%S ' + $(this).data('title')));
+                    })
+                    .on('finish.countdown', function (event) {
+                        $this.html(event.strftime('%H:%M:%S'));
+                        $(this).css("color", "Black");
+                        $(this).css("background-color", "white");
+                        $(this).fadeTo('slow', .2);
+                        //                        $(this).html('This offer has expired!');
+                    })
         });
+        //        function callback(event) {
+        //            $this = $(this);
+        //            switch (event.type) {
+        //                case "seconds":
+        //                case "minutes":
+        //                case "hours":
+        //                case "days":
+        //                case "weeks":
+        //                case "daysLeft":
+        //                    $this.find('span#' + event.type).html(event.value);
+        //                    if (finished) {
+        //                        $this.fadeTo(0, 1);
+        //                        finished = false;
+        //                    }
+        //                    break;
+        //                case "finished":
+        //                    $this.fadeTo('slow', .5);
+        //                    finished = true;
+        //                    break;
+        //            }
+        //        }
+
     });
-    
+
 
     //   $("input[id$='btnAddNewTimer']").click(function () {
     //       var newtime = $("#<%=tbNewTime.ClientID%>").val();

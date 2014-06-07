@@ -57,10 +57,14 @@ namespace Brewduino.Controllers
             BrewControl.SetTimer(minutes);
 
             if (hfPresentTimerList.Value.Length == 0)
+            {
                 hfPresentTimerList.Value = countDownTo.ToString("G", DateTimeFormatInfo.InvariantInfo);
+                hfPresentTimerTitleList.Value = tbTimerLabel.Text;
+            }
             else
             {
                 hfPresentTimerList.Value += "," + countDownTo.ToString("G", DateTimeFormatInfo.InvariantInfo);
+                hfPresentTimerTitleList.Value += "," + tbTimerLabel.Text;
             }
 
             //Div countdown = Page.FindControl("divCountdown") as Div;
