@@ -50,7 +50,7 @@ namespace Brewduino.Pages
                 lblMainAlarm.Text = "We have an alarm";
 
             //Response.AppendHeader("Refresh", 5 + "; URL=RimsPanel.aspx");
-            tmrRefreshStatus.Interval = 10000;
+            tmrRefreshStatus.Interval = 50000;
             tmrRefreshStatus.Enabled = true;
 
         }

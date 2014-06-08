@@ -2,13 +2,13 @@
     Inherits="Brewduino.Controllers.CountDownTimer" %>
 <div id="btnShowNewTimerPanel">
     Click for New Timer</div>
-<div id="pnlAddTimer" style="display: none;">
+<div id="pnlAddTimer" style="display: none; width: 200px;">
     <table>
         <tr>
             <td>
                 New Time(minutes):
             </td>
-            <td style="text-align:left;">
+            <td style="text-align: left;">
                 <asp:TextBox ID="tbNewTime" runat="server" Width="50px" />
             </td>
         </tr>
@@ -16,14 +16,14 @@
             <td>
                 Title:
             </td>
-            <td style="text-align:left;">
+            <td style="text-align: left;">
                 <asp:TextBox ID="tbTimerLabel" runat="server" Width="50px" />
             </td>
         </tr>
         <tr>
             <td>
             </td>
-            <td style="text-align:left;">
+            <td style="text-align: left;">
                 <asp:Button ID="btnAddNewTimer" runat="server" Text="Start" OnClick="btnAddNewTimer_Click" />
             </td>
         </tr>
@@ -44,16 +44,18 @@
         var hfTimerTitleList = $("#<%=hfPresentTimerTitleList.ClientID%>").val();
         var timerTitleList = (hfTimerTitleList).split(",");
 
-        //$("#pnlAddTimer").hide();
 
-        //        $("input[id$='btnShowNewTimerPanel']").click(function () {
+        
         $("#btnShowNewTimerPanel").click(function () {
+            //                        stopTimer();
             $("#btnShowNewTimerPanel").hide();
-            $("#pnlAddTimer").show();
+            $("#pnlAddTimer").fadeIn('slow');
+
         });
 
         $("pnlAddTimer").click(function () {
             $("#btnShowNewTimerPanel").show();
+            //            startTimer();
         });
 
 

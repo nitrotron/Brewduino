@@ -550,3 +550,13 @@ body
     font-size: 28px;
     background-color: chocolate;
 }
+
+
+#pnlAddTimer
+{
+    position:absolute;
+     top: 75px;
+    left: 400px;
+    background-color: White;
+    padding: 10px 10px 10px 10px;
+}
