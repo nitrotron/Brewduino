@@ -27,7 +27,13 @@ namespace BrewduinoCatalogLib
             GetAlarmStatus, //13
             StartLogging,//14
             StopLogging,//15
-            SetPIDSetPoint//16
+            SetPIDSetPoint,//16
+            SetPIDWindowSize,//17
+            SetPIDKp,//18
+            SetPIDKi,//19
+            SetPIDKd,//20
+            TurnOnRims, //21
+            TurnOnPump // 22
 
         };
     }

@@ -1,28 +1,27 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CountDownTimer.ascx.cs"
     Inherits="Brewduino.Controllers.CountDownTimer" %>
 <div id="btnShowNewTimerPanel">
-    Click for New Timer</div>
+    Click for New Timer
+</div>
+<div style="width: 200px"></div>
 <div id="pnlAddTimer" style="display: none; width: 200px;">
     <table>
         <tr>
-            <td>
-                New Time(minutes):
+            <td>New Time(minutes):
             </td>
             <td style="text-align: left;">
                 <asp:TextBox ID="tbNewTime" runat="server" Width="50px" />
             </td>
         </tr>
         <tr>
-            <td>
-                Title:
+            <td>Title:
             </td>
             <td style="text-align: left;">
                 <asp:TextBox ID="tbTimerLabel" runat="server" Width="50px" />
             </td>
         </tr>
         <tr>
-            <td>
-            </td>
+            <td></td>
             <td style="text-align: left;">
                 <asp:Button ID="btnAddNewTimer" runat="server" Text="Start" OnClick="btnAddNewTimer_Click" />
             </td>
@@ -33,21 +32,19 @@
     <asp:HiddenField ID="hfPresentTimerList" runat="server" />
     <asp:HiddenField ID="hfPresentTimerTitleList" runat="server" />
 </div>
-<%--OnClientClick="addTimerScript()" />--%>
+
 <script src="../Scripts/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="../Scripts/jquery.countdown.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        //debugger;
         var hfTimerList = $("#<%=hfPresentTimerList.ClientID%>").val();
         var timerList = (hfTimerList).split(",");
         var hfTimerTitleList = $("#<%=hfPresentTimerTitleList.ClientID%>").val();
         var timerTitleList = (hfTimerTitleList).split(",");
 
 
-        
+
         $("#btnShowNewTimerPanel").click(function () {
-            //                        stopTimer();
             $("#btnShowNewTimerPanel").hide();
             $("#pnlAddTimer").fadeIn('slow');
 
@@ -55,7 +52,6 @@
 
         $("pnlAddTimer").click(function () {
             $("#btnShowNewTimerPanel").show();
-            //            startTimer();
         });
 
 
@@ -66,27 +62,19 @@
             }
         });
 
-        //        $('[data-countdown]').each(function () {
-        //            var $this = $(this), finalDate = $(this).data('countdown');
-        //            //confirm(finalDate);
-        //            $this.countdown(finalDate, function (event) {
-        //                $this.html(event.strftime('%H:%M:%S'));
-        //            });
-        //        });
+
         $('[data-countdown]').each(function () {
             var $this = $(this), finalDate = $(this).data('countdown');
-            //confirm(finalDate);
             $this.countdown(finalDate)
-                    .on('update.countdown', function (event) {
-                        $this.html(event.strftime('%H:%M:%S ' + $(this).data('title')));
-                    })
-                    .on('finish.countdown', function (event) {
-                        $this.html(event.strftime('%H:%M:%S'));
-                        $(this).css("color", "Black");
-                        $(this).css("background-color", "white");
-                        $(this).fadeTo('slow', .2);
-                        //                        $(this).html('This offer has expired!');
-                    })
+                     .on('update.countdown', function (event) {
+                         $this.html(event.strftime('%H:%M:%S ' + $(this).data('title')));
+                     })
+                     .on('finish.countdown', function (event) {
+                         $this.html(event.strftime('%H:%M:%S ' + $(this).data('title')));
+                         $(this).css("color", "Black");
+                         $(this).css("background-color", "white");
+                         $(this).fadeTo('slow', .2);
+                     })
         });
         //        function callback(event) {
         //            $this = $(this);
@@ -113,44 +101,6 @@
     });
 
 
-    //   $("input[id$='btnAddNewTimer']").click(function () {
-    //       var newtime = $("#<%=tbNewTime.ClientID%>").val();
-    //       var settime = new Date();
-    //       //confirm(settime);
-    //       //confirm(newtime);
-    //       settime = settime.valueOf() + new Number(newtime) * 60 * 1000;
-    //       confirm(settime);
-    //
-    //       var currentClockCount = $(".clock").length;
-    //       var nextClockID = "clock" + $(".clock").length;
-    //       confirm(nextClockID);
-    //       var newTimer = '<div class="clock" id="' + nextClockID + '"> Hello ' + nextClockID + '</div>';
-    //       //        var newTimer = $('<div/>', {
-    //       //            id: nextClockID,
-    //       //            className: "clock",
-    //       //            html: content
-    //       //        });
-    //       confirm(newTimer);
-    //       //confirm("is this your date " + newtime);
-    //       $("#divCountdown").append(newTimer);
-    //
-    //       $("#" + nextClockID).countdown(settime, function (event) {
-    //           $(this).html(event.strftime('%H:%M:%S'));
-    //       });
-    //
-    //       var hfTimerList = $("#<%=hfPresentTimerList.ClientID%>");
-    //       confirm(hfTimerList.val());
-    //       //        hfTimerList.text("Hello");
-    //       if (currentClockCount > 0) {
-    //           hfTimerList.append(",");
-    //       }
-    //       hfTimerList.append(nextClockID + "|" + settime);
-    //
-    //       return false;
-    //   });
-
-
-    //});
 </script>
 <%--<script type="text/javascript">
 

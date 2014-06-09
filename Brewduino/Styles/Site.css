@@ -319,6 +319,7 @@ div#RimsThermometers
 .CountDownTimer
 {
     display: inline-block;
+    vertical-align:top;
 }
 
 

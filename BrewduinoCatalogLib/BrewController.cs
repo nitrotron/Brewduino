@@ -87,6 +87,34 @@ namespace BrewduinoCatalogLib
             Arduino.SendCommand((int)ArduinoCommands.CommandTypes.ResetAlarm, "");
         }
 
+        public void SetPIDSetPoint(float setPoint)
+        {
+            Arduino.SendCommand((int)ArduinoCommands.CommandTypes.SetPIDSetPoint, setPoint.ToString());
+        }
+        public void SetPIDWindowSize(float windowSize)
+        {
+            Arduino.SendCommand((int)ArduinoCommands.CommandTypes.SetPIDWindowSize, windowSize.ToString());
+        }
+        public void SetPIDKp(float kp)
+        {
+            Arduino.SendCommand((int)ArduinoCommands.CommandTypes.SetPIDKp, kp.ToString());
+        }
+        public void SetPIDKi(float ki)
+        {
+            Arduino.SendCommand((int)ArduinoCommands.CommandTypes.SetPIDKi, ki.ToString());
+        }
+        public void SetPIDKd(float kd)
+        {
+            Arduino.SendCommand((int)ArduinoCommands.CommandTypes.SetPIDKd, kd.ToString());
+        }
+        public void TurnOnRims(int rimsOn)
+        {
+            Arduino.SendCommand((int)ArduinoCommands.CommandTypes.TurnOnRims, rimsOn.ToString());
+        }
+        public void TurnOnPumps(int pumpsOn)
+        {
+            Arduino.SendCommand((int)ArduinoCommands.CommandTypes.TurnOnPump, pumpsOn.ToString());
+        }
        
     }
 }

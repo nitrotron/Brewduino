@@ -6,6 +6,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
+    <script src="../Scripts/jquery-1.10.2.js"></script>
     <asp:Timer ID="tmrRefreshStatus" runat="server" OnTick="tmrRefreshStatus_Tick" Enabled="false" />
     <div id="RimsPanelMain">
         <div id="RimsAlarm">
@@ -51,4 +52,21 @@
             </td>
         </tr>
     </table>--%>
+    <div id="hello">hello world</div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            
+            var tmrRefresh = $find('<%= tmrRefreshStatus.ClientID %>');
+           
+
+            $("#btnShowNewTimerPanel").click(function () {
+                tmrRefresh._stopTimer();
+            });
+
+            
+        
+        });
+    </script>
 </asp:Content>
+
