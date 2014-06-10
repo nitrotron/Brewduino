@@ -3,7 +3,12 @@
 <div id="btnShowNewTimerPanel">
     Click for New Timer
 </div>
-<div style="width: 200px"></div>
+<div style="width: 210px"></div>
+<div id="divCountdown" runat="server">
+    <asp:HiddenField ID="hfPresentTimerList" runat="server" />
+    <asp:HiddenField ID="hfPresentTimerTitleList" runat="server" />
+</div>
+
 <div id="pnlAddTimer" style="display: none; width: 200px;">
     <table>
         <tr>
@@ -27,10 +32,6 @@
             </td>
         </tr>
     </table>
-</div>
-<div id="divCountdown" runat="server">
-    <asp:HiddenField ID="hfPresentTimerList" runat="server" />
-    <asp:HiddenField ID="hfPresentTimerTitleList" runat="server" />
 </div>
 
 <script src="../Scripts/jquery-1.10.2.js"></script>

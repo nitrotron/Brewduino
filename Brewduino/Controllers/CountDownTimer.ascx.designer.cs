@@ -13,33 +13,6 @@ namespace Brewduino.Controllers {
     public partial class CountDownTimer {
         
         /// <summary>
-        /// tbNewTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbNewTime;
-        
-        /// <summary>
-        /// tbTimerLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbTimerLabel;
-        
-        /// <summary>
-        /// btnAddNewTimer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddNewTimer;
-        
-        /// <summary>
         /// divCountdown control.
         /// </summary>
         /// <remarks>
@@ -65,5 +38,32 @@ namespace Brewduino.Controllers {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfPresentTimerTitleList;
+        
+        /// <summary>
+        /// tbNewTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbNewTime;
+        
+        /// <summary>
+        /// tbTimerLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbTimerLabel;
+        
+        /// <summary>
+        /// btnAddNewTimer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddNewTimer;
     }
 }
