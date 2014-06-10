@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CountDownTimer.ascx.cs"
     Inherits="Brewduino.Controllers.CountDownTimer" %>
-<div id="btnShowNewTimerPanel">
+<div id="btnShowNewTimerPanel" class="Clickable">
     Click for New Timer
 </div>
 <div style="width: 210px"></div>
@@ -12,14 +12,18 @@
 <div id="pnlAddTimer" style="display: none; width: 200px;">
     <table>
         <tr>
-            <td>New Time(minutes):
+            <td></td>
+            <td style="text-align: right;"><span id="dvCancelTimer" class="cancelX">X</span></td>
+        </tr>
+        <tr>
+            <td style="text-align: right;">New Time(minutes):
             </td>
             <td style="text-align: left;">
                 <asp:TextBox ID="tbNewTime" runat="server" Width="50px" />
             </td>
         </tr>
         <tr>
-            <td>Title:
+            <td style="text-align: right;">Title:
             </td>
             <td style="text-align: left;">
                 <asp:TextBox ID="tbTimerLabel" runat="server" Width="50px" />
@@ -43,7 +47,10 @@
         var hfTimerTitleList = $("#<%=hfPresentTimerTitleList.ClientID%>").val();
         var timerTitleList = (hfTimerTitleList).split(",");
 
-
+        $("#dvCancelTimer").click(function () {
+            $("#pnlAddTimer").fadeOut('slow');
+            $("#btnShowNewTimerPanel").fadeIn();
+        });
 
         $("#btnShowNewTimerPanel").click(function () {
             $("#btnShowNewTimerPanel").hide();
