@@ -10,8 +10,8 @@
     <asp:Timer ID="tmrRefreshStatus" runat="server" OnTick="tmrRefreshStatus_Tick" Enabled="false" />
     <div id="RimsPanelMain">
         <div id="RimsAlarm">
-            <asp:Label ID="lblMainAlarm" runat="server" />
             <asp:Button ID="btnResetAlarm" runat="server" OnClick="btnResetAlarm_OnClick" Text="Reset Alarms" />
+            <asp:Label ID="lblMainAlarm" runat="server" />
         </div>
         <div id="RimsThermometers">
             <div class="RimsThermometer">
@@ -29,30 +29,7 @@
             </div>
         </div>
     </div>
-    <%--<table class="WebPageMainTable">
-        <tr>
-            <td colspan="3">
-                <asp:Label ID="lblMainAlarm" runat="server" />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <asp:Button ID="btnResetAlarm" runat="server" OnClick="btnResetAlarm_OnClick" Text="Reset Alarms" />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <uc1:BrewThermometer ID="btRims" runat="server" />
-            </td>
-            <td>
-                <uc1:BrewThermometer ID="btMash" runat="server" />
-            </td>
-            <td>
-                <uc1:BrewThermometer ID="btKettle" runat="server" />
-            </td>
-        </tr>
-    </table>--%>
-    <div id="hello">hello world</div>
+   
 
     <script type="text/javascript">
         $(document).ready(function () {

@@ -142,7 +142,7 @@ first child of the left and right table columns */
 {
     margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
-    background-color: Aqua;
+    background-color: white;
 }
 
 /* TAB MENU   
@@ -297,6 +297,12 @@ div.accountInfo
 {
     text-align: right;
     padding-right: 10px;
+}
+
+#RimsAlarm
+{
+    font-size: 18px;
+
 }
 
 /**************************** Brewing Thermometer **************************/

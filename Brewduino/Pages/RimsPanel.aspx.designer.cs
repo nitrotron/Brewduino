@@ -22,15 +22,6 @@ namespace Brewduino.Pages {
         protected global::System.Web.UI.Timer tmrRefreshStatus;
         
         /// <summary>
-        /// lblMainAlarm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMainAlarm;
-        
-        /// <summary>
         /// btnResetAlarm control.
         /// </summary>
         /// <remarks>
@@ -38,6 +29,15 @@ namespace Brewduino.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnResetAlarm;
+        
+        /// <summary>
+        /// lblMainAlarm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMainAlarm;
         
         /// <summary>
         /// btRims control.

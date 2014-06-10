@@ -76,8 +76,8 @@ namespace Brewduino.Controllers
         protected void btnUpdateAlarms_OnClick(object sender, EventArgs e)
         {
             BrewControl.ClearAlarms(Thermometer);
-            btnTempHighAlarm.Text = Convert.ToString(257);
-            btnTempLowAlarm.Text = Convert.ToString(14);
+            //btnTempHighAlarm.Text = Convert.ToString(257);
+            //btnTempLowAlarm.Text = Convert.ToString(14);
             pnlSetAlarm.Visible = false;
 
 
@@ -89,7 +89,7 @@ namespace Brewduino.Controllers
                 return;
             }
 
-            if (alarm >= -10 && alarm <= 125 && !string.IsNullOrEmpty(tbAlarm.Text))
+            if (alarm >= 15 && alarm <= 250 && !string.IsNullOrEmpty(tbAlarm.Text))
             {
                 if (hfWhichAlarm.Value == "High")
                 {
