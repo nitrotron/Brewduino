@@ -70,6 +70,10 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Controllers\BrewingThermometer.ascx" />
     <Content Include="Controllers\CountDownTimer.ascx" />
+    <Content Include="Controllers\ToggleButton.ascx" />
+    <Content Include="Fonts\font-awesome-4.1.0\css\font-awesome.css" />
+    <Content Include="Fonts\font-awesome-4.1.0\css\font-awesome.min.css" />
+    <Content Include="Fonts\font-awesome-4.1.0\fonts\fontawesome-webfont.svg" />
     <Content Include="Pages\Debugaspx.aspx" />
     <Content Include="Pages\RimsPanel.aspx" />
     <Content Include="Pages\Test.aspx" />
@@ -163,6 +167,13 @@
     <Compile Include="Controllers\CountDownTimer.ascx.designer.cs">
       <DependentUpon>CountDownTimer.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\ToggleButton.ascx.cs">
+      <DependentUpon>ToggleButton.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controllers\ToggleButton.ascx.designer.cs">
+      <DependentUpon>ToggleButton.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -235,6 +246,36 @@
     <Content Include="Div.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Fonts\font-awesome-4.1.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Fonts\font-awesome-4.1.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Fonts\font-awesome-4.1.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Fonts\font-awesome-4.1.0\fonts\FontAwesome.otf" />
+    <Content Include="Fonts\font-awesome-4.1.0\less\bordered-pulled.less" />
+    <Content Include="Fonts\font-awesome-4.1.0\less\core.less" />
+    <Content Include="Fonts\font-awesome-4.1.0\less\fixed-width.less" />
+    <Content Include="Fonts\font-awesome-4.1.0\less\font-awesome.less" />
+    <Content Include="Fonts\font-awesome-4.1.0\less\icons.less" />
+    <Content Include="Fonts\font-awesome-4.1.0\less\larger.less" />
+    <Content Include="Fonts\font-awesome-4.1.0\less\list.less" />
+    <Content Include="Fonts\font-awesome-4.1.0\less\mixins.less" />
+    <Content Include="Fonts\font-awesome-4.1.0\less\path.less" />
+    <Content Include="Fonts\font-awesome-4.1.0\less\rotated-flipped.less" />
+    <Content Include="Fonts\font-awesome-4.1.0\less\spinning.less" />
+    <Content Include="Fonts\font-awesome-4.1.0\less\stacked.less" />
+    <Content Include="Fonts\font-awesome-4.1.0\less\variables.less" />
+    <Content Include="Fonts\font-awesome-4.1.0\scss\font-awesome.scss" />
+    <Content Include="Fonts\font-awesome-4.1.0\scss\_bordered-pulled.scss" />
+    <Content Include="Fonts\font-awesome-4.1.0\scss\_core.scss" />
+    <Content Include="Fonts\font-awesome-4.1.0\scss\_fixed-width.scss" />
+    <Content Include="Fonts\font-awesome-4.1.0\scss\_icons.scss" />
+    <Content Include="Fonts\font-awesome-4.1.0\scss\_larger.scss" />
+    <Content Include="Fonts\font-awesome-4.1.0\scss\_list.scss" />
+    <Content Include="Fonts\font-awesome-4.1.0\scss\_mixins.scss" />
+    <Content Include="Fonts\font-awesome-4.1.0\scss\_path.scss" />
+    <Content Include="Fonts\font-awesome-4.1.0\scss\_rotated-flipped.scss" />
+    <Content Include="Fonts\font-awesome-4.1.0\scss\_spinning.scss" />
+    <Content Include="Fonts\font-awesome-4.1.0\scss\_stacked.scss" />
+    <Content Include="Fonts\font-awesome-4.1.0\scss\_variables.scss" />
     <None Include="Properties\PublishProfiles\Deployment.pubxml" />
   </ItemGroup>
   <PropertyGroup>

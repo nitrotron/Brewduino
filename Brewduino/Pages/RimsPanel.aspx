@@ -3,6 +3,7 @@
 
 <%@ Register Src="~/Controllers/BrewingThermometer.ascx" TagPrefix="uc1" TagName="BrewThermometer" %>
 <%@ Register Src="~/Controllers/CountDownTimer.ascx" TagPrefix="uc2" TagName="CoundDownTimer" %>
+<%@ Register Src="~/Controllers/ToggleButton.ascx" TagPrefix="uc3" TagName="ToggleButton" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
@@ -28,6 +29,12 @@
                 <br />
             </div>
         </div>
+        <div id="Div1">
+            <asp:Button ID="Button1" runat="server" OnClick="btnResetAlarm_OnClick" Text="Reset Alarms" />
+            <asp:Label ID="Label1" runat="server" />
+        </div>
+        <uc3:ToggleButton ID="tgbnReset" runat="server" />
+      
     </div>
    
 
