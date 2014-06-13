@@ -4,4 +4,7 @@
         <li><a href="#" class="fa fa-exclamation-triangle fa-5x"/></li>
     </ul>
 </nav>--%>
-<div id="myToggleButton" class="ResetButton" runat="server" ></div>
+<div id="myToggleButton" class="ResetButton" runat="server">
+    <input type="checkbox">
+    <label></label>
+</div>

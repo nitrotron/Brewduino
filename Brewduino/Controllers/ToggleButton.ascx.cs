@@ -11,7 +11,8 @@ namespace Brewduino.Controllers
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            myToggleButton.InnerText = ID;
+           
         }
+        
     }
 }
