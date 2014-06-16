@@ -34,13 +34,13 @@
             <asp:Label ID="Label1" runat="server" />
         </div>--%>
         <div id="buttonRow">
-            <div class="switch demo4">
+            <div class="switch" id="switchReset">
                 <asp:CheckBox ID="btnResetAlarm" runat="server" AutoPostBack="true" OnCheckedChanged="btnResetAlarm_OnClick" Text="<i class='icon-attention-alt'></i>" />
             </div>
-            <div class="switch demo4">
+            <div class="switch" id="switchRimsOn">
                 <asp:CheckBox ID="chkRimsOn" runat="server" AutoPostBack="true" Text="<i class='icon-fire-1'></i>" OnCheckedChanged="chkRimsOn_CheckedChanged" />
             </div>
-            <div class="switch demo4">
+            <div class="switch" id="switchPumpOn">
                 <asp:CheckBox ID="chPumpOn" runat="server" AutoPostBack="true" Text="<i class='icon-off'></i>" OnCheckedChanged="chPumpOn_CheckedChanged" />
             </div>
         </div>
