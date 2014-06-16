@@ -9,7 +9,7 @@
     <link href="~/Fonts/fontello-374a6348/css/misc.css" rel="stylesheet" type="text/css" />
     </head>
 <body style="background-color: White">
-    
+     <form id="form1" runat="server">
         <div class="switch demo4">
             <input type="checkbox">
             <label>
@@ -23,6 +23,14 @@
             </label>
            
         </div>
-    
+        <div class="switch demo4">
+        <asp:CheckBox ID="chkScratchPad" runat="server" AutoPostBack="true" Text="Hello" />
+<%--            <label>
+                <i class="icon-attention-alt"></i>
+            </label>
+            </asp:CheckBox> --%>
+           
+        </div>
+    </form>
 </body>
 </html>

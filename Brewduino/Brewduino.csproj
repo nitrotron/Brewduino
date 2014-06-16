@@ -70,7 +70,6 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Controllers\BrewingThermometer.ascx" />
     <Content Include="Controllers\CountDownTimer.ascx" />
-    <Content Include="Controllers\ToggleButton.ascx" />
     <Content Include="Fonts\font-awesome-4.1.0\css\font-awesome.css" />
     <Content Include="Fonts\font-awesome-4.1.0\css\font-awesome.min.css" />
     <Content Include="Fonts\font-awesome-4.1.0\fonts\fontawesome-webfont.svg" />
@@ -177,13 +176,6 @@
     </Compile>
     <Compile Include="Controllers\CountDownTimer.ascx.designer.cs">
       <DependentUpon>CountDownTimer.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\ToggleButton.ascx.cs">
-      <DependentUpon>ToggleButton.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Controllers\ToggleButton.ascx.designer.cs">
-      <DependentUpon>ToggleButton.ascx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
