@@ -78,7 +78,7 @@ namespace Brewduino.Pages
                     btKettle.ResetAlarm();
                 }
             }
-            if (CurrentStatus["TimerAlarmActive"] > 0)
+            //if (CurrentStatus["TimerAlarmActive"] > 0)
             {
                 cdtTimer.ResetAlarm();
             }
