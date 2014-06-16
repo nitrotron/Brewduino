@@ -49,6 +49,7 @@ namespace Brewduino.Pages
             if (CurrentStatus["TempAlarmActive"] > 0 || CurrentStatus["TimerAlarmActive"] > 0)
             {
                 //lblMainAlarm.Text = "We have an alarm";
+                btnResetAlarm.Checked = true;
                
             }
 
@@ -84,6 +85,7 @@ namespace Brewduino.Pages
             //lblMainAlarm.Text = string.Empty;
 
             BrewControl.ResetAlarm();
+            btnResetAlarm.Checked = false;
 
         }
 
@@ -96,6 +98,16 @@ namespace Brewduino.Pages
             btKettle.Status = CurrentStatus;
             btMash.Status = CurrentStatus;
 
+        }
+
+        protected void chkRimsOn_CheckedChanged(object sender, EventArgs e)
+        {
+            BrewControl.TurnOnRims((chkRimsOn.Checked == true) ? 1 : 0);
+        }
+
+        protected void chPumpOn_CheckedChanged(object sender, EventArgs e)
+        {
+            BrewControl.TurnOnPumps((chPumpOn.Checked == true) ? 1 : 0);
         }
 
     }

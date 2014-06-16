@@ -3,7 +3,7 @@
 
 <%@ Register Src="~/Controllers/BrewingThermometer.ascx" TagPrefix="uc1" TagName="BrewThermometer" %>
 <%@ Register Src="~/Controllers/CountDownTimer.ascx" TagPrefix="uc2" TagName="CoundDownTimer" %>
-<%@ Register Src="~/Controllers/ToggleButton.ascx" TagPrefix="uc3" TagName="ToggleButton" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
@@ -35,22 +35,13 @@
         </div>--%>
         <div id="buttonRow">
             <div class="switch demo4">
-                <input type="checkbox" runat="server" id="btnResetAlarm" onclick="btnResetAlarm_OnClick">
-                <label>
-                    <i class="icon-attention-alt"></i>
-                </label>
+                <asp:CheckBox ID="btnResetAlarm" runat="server" AutoPostBack="true" OnCheckedChanged="btnResetAlarm_OnClick" Text="<i class='icon-attention-alt'></i>" />
             </div>
             <div class="switch demo4">
-                <input type="checkbox">
-                <label>
-                    <i class="icon-fire-1"></i>
-                </label>
+                <asp:CheckBox ID="chkRimsOn" runat="server" AutoPostBack="true" Text="<i class='icon-fire-1'></i>" OnCheckedChanged="chkRimsOn_CheckedChanged" />
             </div>
             <div class="switch demo4">
-                <input type="checkbox">
-                <label>
-                  <i class="icon-off"></i>
-                </label>
+                <asp:CheckBox ID="chPumpOn" runat="server" AutoPostBack="true" Text="<i class='icon-off'></i>" OnCheckedChanged="chPumpOn_CheckedChanged" />
             </div>
         </div>
     </div>

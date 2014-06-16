@@ -13,5 +13,10 @@ namespace Brewduino.Pages
         {
             
         }
+
+        protected void chkScratchPad_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

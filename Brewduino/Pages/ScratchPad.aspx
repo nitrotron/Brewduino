@@ -24,7 +24,7 @@
            
         </div>
         <div class="switch demo4">
-        <asp:CheckBox ID="chkScratchPad" runat="server" AutoPostBack="true" Text="Hello" />
+        <asp:CheckBox ID="chkScratchPad" runat="server" AutoPostBack="true" Text="<i class='icon-attention-alt'></i>" OnCheckedChanged="chkScratchPad_CheckedChanged" />
 <%--            <label>
                 <i class="icon-attention-alt"></i>
             </label>

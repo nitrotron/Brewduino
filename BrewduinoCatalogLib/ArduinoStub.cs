@@ -27,7 +27,7 @@ namespace BrewduinoCatalogLib
             returnDict["TimerAlarmActive"] = 0;
 
             returnDict["ThermometerHighAlarm0"] = 275.0F;
-            returnDict["ThermometerHighAlarm1"] = 275.0F;
+            returnDict["ThermometerHighAlarm1"] = 80.0F;
             returnDict["ThermometerHighAlarm2"] = 275.0F;
             returnDict["ThermometerLowAlarm0"] = -10.0F;
             returnDict["ThermometerLowAlarm1"] = -10.0F;
