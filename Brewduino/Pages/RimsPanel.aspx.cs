@@ -48,13 +48,13 @@ namespace Brewduino.Pages
 
             if (CurrentStatus["TempAlarmActive"] > 0 || CurrentStatus["TimerAlarmActive"] > 0)
             {
-                lblMainAlarm.Text = "We have an alarm";
+                //lblMainAlarm.Text = "We have an alarm";
                
             }
 
 
             //Response.AppendHeader("Refresh", 5 + "; URL=RimsPanel.aspx");
-            tmrRefreshStatus.Interval = 5000;
+            tmrRefreshStatus.Interval = 50000;
             tmrRefreshStatus.Enabled = true;
 
         }
@@ -81,7 +81,7 @@ namespace Brewduino.Pages
             {
                 cdtTimer.ResetAlarm();
             }
-            lblMainAlarm.Text = string.Empty;
+            //lblMainAlarm.Text = string.Empty;
 
             BrewControl.ResetAlarm();
 

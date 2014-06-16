@@ -74,8 +74,19 @@
     <Content Include="Fonts\font-awesome-4.1.0\css\font-awesome.css" />
     <Content Include="Fonts\font-awesome-4.1.0\css\font-awesome.min.css" />
     <Content Include="Fonts\font-awesome-4.1.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Fonts\fontello-374a6348\css\animation.css" />
+    <Content Include="Fonts\fontello-374a6348\css\misc-codes.css" />
+    <Content Include="Fonts\fontello-374a6348\css\misc-embedded.css" />
+    <Content Include="Fonts\fontello-374a6348\css\misc-ie7-codes.css" />
+    <Content Include="Fonts\fontello-374a6348\css\misc-ie7.css" />
+    <Content Include="Fonts\fontello-374a6348\css\misc.css" />
+    <Content Include="Fonts\fontello-374a6348\demo.html" />
+    <Content Include="Fonts\fontello-374a6348\font\misc.svg" />
+    <Content Include="Fonts\fontello-374a6348\LICENSE.txt" />
+    <Content Include="Fonts\fontello-374a6348\README.txt" />
     <Content Include="Pages\Debugaspx.aspx" />
     <Content Include="Pages\RimsPanel.aspx" />
+    <Content Include="Pages\ScratchPad.aspx" />
     <Content Include="Pages\Test.aspx" />
     <Content Include="Pages\WebForm1.aspx" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -205,6 +216,13 @@
     <Compile Include="Pages\RimsPanel.aspx.designer.cs">
       <DependentUpon>RimsPanel.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ScratchPad.aspx.cs">
+      <DependentUpon>ScratchPad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ScratchPad.aspx.designer.cs">
+      <DependentUpon>ScratchPad.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Test.aspx.cs">
       <DependentUpon>Test.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -276,6 +294,10 @@
     <Content Include="Fonts\font-awesome-4.1.0\scss\_spinning.scss" />
     <Content Include="Fonts\font-awesome-4.1.0\scss\_stacked.scss" />
     <Content Include="Fonts\font-awesome-4.1.0\scss\_variables.scss" />
+    <None Include="Fonts\fontello-374a6348\config.json" />
+    <None Include="Fonts\fontello-374a6348\font\misc.eot" />
+    <None Include="Fonts\fontello-374a6348\font\misc.ttf" />
+    <None Include="Fonts\fontello-374a6348\font\misc.woff" />
     <None Include="Properties\PublishProfiles\Deployment.pubxml" />
   </ItemGroup>
   <PropertyGroup>
