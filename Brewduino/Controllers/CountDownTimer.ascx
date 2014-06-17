@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CountDownTimer.ascx.cs"
     Inherits="Brewduino.Controllers.CountDownTimer" %>
 <div id="btnShowNewTimerPanel" class="Clickable">
-    Click for New Timer
+    <i class="fa fa-fa fa-clock-o"></i> Click for New Timer
 </div>
 <div style="width: 210px"></div>
 <div id="divCountdown" runat="server">
@@ -26,7 +26,7 @@
             <td style="text-align: right;">Title:
             </td>
             <td style="text-align: left;">
-                <asp:TextBox ID="tbTimerLabel" runat="server" Width="50px" />
+                <asp:TextBox ID="tbTimerLabel" runat="server" Width="100px" />
             </td>
         </tr>
         <tr>
@@ -49,11 +49,11 @@
 
         $("#dvCancelTimer").click(function () {
             $("#pnlAddTimer").fadeOut('slow');
-            $("#btnShowNewTimerPanel").fadeIn();
+            $("#btnShowNewTimerPanel").fadeTo('slow',1);
         });
 
         $("#btnShowNewTimerPanel").click(function () {
-            $("#btnShowNewTimerPanel").hide();
+            $("#btnShowNewTimerPanel").fadeTo('slow',.5);
             $("#pnlAddTimer").fadeIn('slow');
 
         });
@@ -79,9 +79,9 @@
                      })
                      .on('finish.countdown', function (event) {
                          $this.html(event.strftime('%H:%M:%S ' + $(this).data('title')));
-                         $(this).css("color", "Black");
-                         $(this).css("background-color", "white");
-                         $(this).fadeTo('slow', .2);
+                        // $(this).css("color", "#6291d0");
+                         //$(this).css("background-color", "#FC7E7E");
+                         $(this).fadeTo('slow', .5);
                      })
         });
         //        function callback(event) {
