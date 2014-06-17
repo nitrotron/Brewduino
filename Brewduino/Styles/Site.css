@@ -826,11 +826,27 @@ body
     }
 
 }
+@keyframes pulse {
+
+     0%
+    {
+        color: #C45050;
+    }
+    50%
+    {
+        color: #FC7E7E;
+    }
+    100%
+    {
+        color: #C45050;
+    }
+}
 
 #switchReset input:checked ~ label
 {
     color: #f66565;
     -webkit-animation: pulse 4s infinite;
+    animation: pulse 4s infinite;
 }
 
 #switchPumpOn input:checked ~ label

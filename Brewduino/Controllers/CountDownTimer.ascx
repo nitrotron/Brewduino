@@ -9,17 +9,17 @@
     <asp:HiddenField ID="hfPresentTimerTitleList" runat="server" />
 </div>
 
-<div id="pnlAddTimer" style="display: none; width: 200px;">
+<div id="pnlAddTimer" style="display: none; width: 180px;">
     <table>
         <tr>
             <td></td>
             <td style="text-align: right;"><span id="dvCancelTimer" class="cancelX">X</span></td>
         </tr>
         <tr>
-            <td style="text-align: right;">New Time(minutes):
+            <td style="text-align: right;">Minutes:
             </td>
             <td style="text-align: left;">
-                <asp:TextBox ID="tbNewTime" runat="server" Width="50px" />
+                <asp:TextBox ID="tbNewTime" runat="server" Width="100px" />
             </td>
         </tr>
         <tr>
@@ -31,7 +31,7 @@
         </tr>
         <tr>
             <td></td>
-            <td style="text-align: left;">
+            <td style="text-align: right;">
                 <asp:Button ID="btnAddNewTimer" runat="server" Text="Start" OnClick="btnAddNewTimer_Click" />
             </td>
         </tr>
