@@ -43,6 +43,9 @@
             <div class="switch" id="switchPumpOn">
                 <asp:CheckBox ID="chPumpOn" runat="server" AutoPostBack="true" Text="<i class='icon-off'></i>" OnCheckedChanged="chPumpOn_CheckedChanged" />
             </div>
+            <div class="switch" id="switchAuxPower">
+                <asp:CheckBox ID="chAuxPower" runat="server" AutoPostBack="true" Text="<i class='icon-off'></i>" OnCheckedChanged="chAuxPower_CheckedChanged" />
+            </div>
         </div>
     </div>
     <script type="text/javascript">

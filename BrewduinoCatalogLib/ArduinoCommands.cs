@@ -33,7 +33,8 @@ namespace BrewduinoCatalogLib
             SetPIDKi,//19
             SetPIDKd,//20
             TurnOnRims, //21
-            TurnOnPump // 22
+            TurnOnPump, // 22
+            TurnOnAux //23
 
         };
     }

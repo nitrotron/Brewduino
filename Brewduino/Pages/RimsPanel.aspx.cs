@@ -110,5 +110,10 @@ namespace Brewduino.Pages
             BrewControl.TurnOnPumps((chPumpOn.Checked == true) ? 1 : 0);
         }
 
+        protected void chAuxPower_CheckedChanged(object sender, EventArgs e)
+        {
+            BrewControl.TurnOnPumps((chPumpOn.Checked == true) ? 1 : 0);
+        }
+
     }
 }

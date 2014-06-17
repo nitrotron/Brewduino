@@ -9,6 +9,7 @@ namespace BrewduinoCatalogLib
 {
     public class ArduinoSelfHostClient : ClientBase<IArduinoSelfHost>, IArduinoSelfHost
     {
+        int MAXATTEMPTS = 30;
         public ArduinoSelfHostClient(Binding binding, EndpointAddress address)
             : base(binding, address)
         {
@@ -16,22 +17,98 @@ namespace BrewduinoCatalogLib
 
         public string GetRawStatus()
         {
-            return Channel.GetRawStatus();
+            string rString = null;
+            bool successfulTX = false;
+            int attemptCount = 0;
+            while (!successfulTX)
+            {
+                try
+                {
+                    rString = Channel.GetRawStatus();
+                    successfulTX = true;
+                }
+                catch (Exception e)
+                {
+                    attemptCount++;
+                    if (attemptCount > MAXATTEMPTS)
+                    {
+                        throw e;
+                    }
+                    System.Threading.Thread.Sleep(1000);
+                }
+            }
+            return rString;
         }
         public Dictionary<string, float> GetStatus()
         {
-            return Channel.GetStatus();
+            Dictionary<string, float> rDictionary = null;
+            bool successfulTX = false;
+            int attemptCount = 0;
+            while (!successfulTX)
+            {
+                try
+                {
+                    rDictionary = Channel.GetStatus();
+                    successfulTX = true;
+                }
+                catch (Exception e)
+                {
+                    attemptCount++;
+                    if (attemptCount > MAXATTEMPTS)
+                    {
+                        throw e;
+                    }
+                    System.Threading.Thread.Sleep(1000);
+                }
+            }
+            return rDictionary;
         }
         public void SendCommand(int arduinoCommands, string text)
         {
-            Channel.SendCommand(arduinoCommands, text);
+            bool successfulTX = false;
+            int attemptCount = 0;
+            while (!successfulTX)
+            {
+                try
+                {
+                    Channel.SendCommand(arduinoCommands, text);
+                    successfulTX = true;
+                }
+                catch (Exception e)
+                {
+                    attemptCount++;
+                    if (attemptCount > MAXATTEMPTS)
+                    {
+                        throw e;
+                    }
+                    System.Threading.Thread.Sleep(1000);
+                }
+            }
+
         }
         public void UpdateStatus()
         {
-            Channel.UpdateStatus();
-        }
+            bool successfulTX = false;
+            int attemptCount = 0;
+            while (!successfulTX)
+            {
+                try
+                {
+                    Channel.UpdateStatus();
+                    successfulTX = true;
+                }
+                catch (Exception e)
+                {
+                    attemptCount++;
+                    if (attemptCount > MAXATTEMPTS)
+                    {
+                        throw e;
+                    }
+                    System.Threading.Thread.Sleep(1000);
+                }
+            }
 
-        
+        }
     }
 
 }

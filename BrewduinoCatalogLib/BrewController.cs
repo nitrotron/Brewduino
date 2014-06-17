@@ -115,6 +115,10 @@ namespace BrewduinoCatalogLib
         {
             Arduino.SendCommand((int)ArduinoCommands.CommandTypes.TurnOnPump, pumpsOn.ToString());
         }
+        public void TurnOnAux(int auxOn)
+        {
+            Arduino.SendCommand((int)ArduinoCommands.CommandTypes.TurnOnAux, auxOn.ToString());
+        }
        
     }
 }
