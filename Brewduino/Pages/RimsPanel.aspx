@@ -35,16 +35,16 @@
         </div>--%>
         <div id="buttonRow">
             <div class="switch" id="switchReset">
-                <asp:CheckBox ID="btnResetAlarm" runat="server" AutoPostBack="true" OnCheckedChanged="btnResetAlarm_OnClick" Text="<i class='icon-attention-alt'></i>" />
+                <asp:CheckBox ID="btnResetAlarm" runat="server" AutoPostBack="true" OnCheckedChanged="btnResetAlarm_OnClick" Text="<i class='icon-attention-alt'></i>Alarm" />
             </div>
             <div class="switch" id="switchRimsOn">
-                <asp:CheckBox ID="chkRimsOn" runat="server" AutoPostBack="true" Text="<i class='icon-fire-1'></i>" OnCheckedChanged="chkRimsOn_CheckedChanged" />
+                <asp:CheckBox ID="chkRimsOn" runat="server" AutoPostBack="true" Text="<i class='icon-fire-1'></i>Rims" OnCheckedChanged="chkRimsOn_CheckedChanged" />
             </div>
             <div class="switch" id="switchPumpOn">
-                <asp:CheckBox ID="chPumpOn" runat="server" AutoPostBack="true" Text="<i class='icon-off'></i>" OnCheckedChanged="chPumpOn_CheckedChanged" />
-            </div>
+                <asp:CheckBox ID="chPumpOn" runat="server" AutoPostBack="true" Text="<i class='icon-off'></i>Pump" OnCheckedChanged="chPumpOn_CheckedChanged" />
+        </div>
             <div class="switch" id="switchAuxPower">
-                <asp:CheckBox ID="chAuxPower" runat="server" AutoPostBack="true" Text="<i class='icon-off'></i>" OnCheckedChanged="chAuxPower_CheckedChanged" />
+                <asp:CheckBox ID="chAuxPower" runat="server" AutoPostBack="true" Text="<i class='icon-off'></i>Aux" OnCheckedChanged="chAuxPower_CheckedChanged" />
             </div>
         </div>
     </div>
