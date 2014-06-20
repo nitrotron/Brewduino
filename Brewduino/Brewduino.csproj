@@ -291,6 +291,7 @@
     <None Include="Fonts\fontello-374a6348\font\misc.ttf" />
     <None Include="Fonts\fontello-374a6348\font\misc.woff" />
     <None Include="Properties\PublishProfiles\Deployment.pubxml" />
+    <None Include="Properties\PublishProfiles\DeploymentPostFix.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
