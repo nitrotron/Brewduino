@@ -47,7 +47,10 @@
                 <asp:CheckBox ID="chAuxPower" runat="server" AutoPostBack="true" Text="<i class='icon-off'></i>Aux" OnCheckedChanged="chAuxPower_CheckedChanged" />
             </div>
         </div>
+
+        <div id="RimsGauge"></div>
     </div>
+      <script type='text/javascript' src='https://www.google.com/jsapi'></script>
     <script type="text/javascript">
         $(document).ready(function () {
 
@@ -58,8 +61,26 @@
                 tmrRefresh._stopTimer();
             });
 
-
-
         });
+
+        google.load('visualization', '1', { packages: ['gauge'] });
+        google.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Label', 'Value'],
+              ['DemoRims', 68]
+            ]);
+
+            var options = {
+                width: 800, height: 240,
+                redFrom: 90, redTo: 100,
+                yellowFrom: 75, yellowTo: 90,
+                minorTicks: 5,
+                max: 212
+            };
+
+            var chart = new google.visualization.Gauge(document.getElementById('RimsGauge'));
+            chart.draw(data, options);
+        }
     </script>
 </asp:Content>
