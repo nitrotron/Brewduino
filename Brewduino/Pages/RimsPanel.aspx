@@ -47,8 +47,8 @@
                 <asp:CheckBox ID="chAuxPower" runat="server" AutoPostBack="true" Text="<i class='icon-off'></i>Aux" OnCheckedChanged="chAuxPower_CheckedChanged" />
             </div>
         </div>
-
-        <div id="RimsGauge"></div>
+        <asp:Label ID="lblSound" runat="server" Text="" />
+       <%-- <div id="RimsGauge"></div>--%>
     </div>
       <script type='text/javascript' src='https://www.google.com/jsapi'></script>
     <script type="text/javascript">

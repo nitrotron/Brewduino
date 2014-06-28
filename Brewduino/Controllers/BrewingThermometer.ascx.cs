@@ -75,7 +75,7 @@ namespace Brewduino.Controllers
         }
         protected void btnUpdateAlarms_OnClick(object sender, EventArgs e)
         {
-            BrewControl.ClearAlarms(Thermometer);
+         //   BrewControl.ClearAlarms(Thermometer);
             //btnTempHighAlarm.Text = Convert.ToString(257);
             //btnTempLowAlarm.Text = Convert.ToString(14);
             pnlSetAlarm.Visible = false;

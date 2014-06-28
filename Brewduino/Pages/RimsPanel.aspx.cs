@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BrewduinoCatalogLib;
 using System.ServiceModel;
+using System.Media;
+using System.ComponentModel;
 
 namespace Brewduino.Pages
 {
@@ -22,7 +24,7 @@ namespace Brewduino.Pages
             //var address = new EndpointAddress("http://localhost:8080/SerialSwitch");
             var address = new EndpointAddress("http://192.168.0.16:8080/SerialSwitch");
             Arduino = new ArduinoSelfHostClient(binding, address);
-            Arduino = new ArduinoStub(); //This in there so I can work on the skin.
+            // Arduino = new ArduinoStub(); //This in there so I can work on the skin.
             BrewControl = new BrewController(Arduino);
 
             CurrentStatus = BrewControl.GetStatus();
@@ -50,7 +52,7 @@ namespace Brewduino.Pages
             {
                 //lblMainAlarm.Text = "We have an alarm";
                 btnResetAlarm.Checked = true;
-               
+                soundAlarm();
             }
 
 
@@ -115,5 +117,20 @@ namespace Brewduino.Pages
             BrewControl.TurnOnPumps((chPumpOn.Checked == true) ? 1 : 0);
         }
 
+
+        private void soundAlarm()
+        {
+
+            SoundPlayer wavPlayer = new SoundPlayer();
+            wavPlayer.SoundLocation = "C:/Users/jessica/Documents/GitHub/Brewduino/Brewduino/Sounds/ALARM.WAV";
+            wavPlayer.LoadCompleted += new AsyncCompletedEventHandler(wavPlayer_LoadCompleted);
+            wavPlayer.LoadAsync();
+
+        }
+
+        private void wavPlayer_LoadCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            ((System.Media.SoundPlayer)sender).Play();
+        }
     }
 }
