@@ -1,113 +1,128 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CountDownTimer.ascx.cs"
     Inherits="Brewduino.Controllers.CountDownTimer" %>
+
 <div id="btnShowNewTimerPanel" class="Clickable">
-    <i class="fa fa-fa fa-clock-o"></i> Click for New Timer
+    <i class="fa fa-fa fa-clock-o"></i>Click for New Timer
 </div>
-<div style="width: 210px"></div>
+<div style="width: 210px">
+</div>
 <div id="divCountdown" runat="server">
     <asp:HiddenField ID="hfPresentTimerList" runat="server" />
     <asp:HiddenField ID="hfPresentTimerTitleList" runat="server" />
 </div>
-
 <div id="pnlAddTimer" style="display: none; width: 180px;">
     <table>
         <tr>
-            <td></td>
-            <td style="text-align: right;"><span id="dvCancelTimer" class="cancelX">X</span></td>
+            <td>
+            </td>
+            <td style="text-align: right;">
+                <span id="dvCancelTimer" class="cancelX">X</span>
+            </td>
         </tr>
         <tr>
-            <td style="text-align: right;">Minutes:
+            <td style="text-align: right;">
+                Minutes:
             </td>
             <td style="text-align: left;">
                 <asp:TextBox ID="tbNewTime" runat="server" Width="100px" />
             </td>
         </tr>
         <tr>
-            <td style="text-align: right;">Title:
+            <td style="text-align: right;">
+                Title:
             </td>
             <td style="text-align: left;">
                 <asp:TextBox ID="tbTimerLabel" runat="server" Width="100px" />
             </td>
         </tr>
         <tr>
-            <td></td>
+            <td>
+            </td>
             <td style="text-align: right;">
                 <asp:Button ID="btnAddNewTimer" runat="server" Text="Start" OnClick="btnAddNewTimer_Click" />
             </td>
+            btnAddNewTimer_Click
         </tr>
     </table>
 </div>
-
 <script src="../Scripts/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="../Scripts/jquery.countdown.js"></script>
 <script type="text/javascript">
-    $(document).ready(function () {
-        var hfTimerList = $("#<%=hfPresentTimerList.ClientID%>").val();
-        var timerList = (hfTimerList).split(",");
-        var hfTimerTitleList = $("#<%=hfPresentTimerTitleList.ClientID%>").val();
-        var timerTitleList = (hfTimerTitleList).split(",");
+    function BindEvents2() {
+        debugger;
+        $(document).ready(function () {
+            var hfTimerList = $("#<%=hfPresentTimerList.ClientID%>").val();
+            var timerList = (hfTimerList).split(",");
+            var hfTimerTitleList = $("#<%=hfPresentTimerTitleList.ClientID%>").val();
+            var timerTitleList = (hfTimerTitleList).split(",");
 
-        $("#dvCancelTimer").click(function () {
-            $("#pnlAddTimer").fadeOut('slow');
-            $("#btnShowNewTimerPanel").fadeTo('slow',1);
-        });
+            $("#dvCancelTimer").click(function () {
+                debugger;
+                $("#pnlAddTimer").fadeOut('slow');
+                $("#btnShowNewTimerPanel").fadeTo('slow', 1);
+            });
 
-        $("#btnShowNewTimerPanel").click(function () {
-            $("#btnShowNewTimerPanel").fadeTo('slow',.5);
-            $("#pnlAddTimer").fadeIn('slow');
+            $("#btnShowNewTimerPanel").click(function () {
+                debugger;
+                $("#btnShowNewTimerPanel").fadeTo('slow', .5);
+                $("#pnlAddTimer").fadeIn('slow');
 
-        });
+            });
 
-        $("pnlAddTimer").click(function () {
-            $("#btnShowNewTimerPanel").show();
-        });
-
-
-        $.each(timerList, function (index, value) {
-            if (value != "") {
-                var newTimer = '<div class="clock" id="clock' + index + '" data-countdown="' + value + '" data-title="' + timerTitleList[index] + '"></div>';
-                $("#<%=divCountdown.ClientID%>").append(newTimer);
-            }
-        });
+            $("pnlAddTimer").click(function () {
+                debugger;
+                $("#btnShowNewTimerPanel").show();
+            });
 
 
-        $('[data-countdown]').each(function () {
-            var $this = $(this), finalDate = $(this).data('countdown');
-            $this.countdown(finalDate)
+            $.each(timerList, function (index, value) {
+                if (value != "") {
+                    var newTimer = '<div class="clock" id="clock' + index + '" data-countdown="' + value + '" data-title="' + timerTitleList[index] + '"></div>';
+                    $("#<%=divCountdown.ClientID%>").append(newTimer);
+                }
+            });
+
+
+            $('[data-countdown]').each(function () {
+                var $this = $(this), finalDate = $(this).data('countdown');
+                $this.countdown(finalDate)
                      .on('update.countdown', function (event) {
                          $this.html(event.strftime('%H:%M:%S ' + $(this).data('title')));
                      })
                      .on('finish.countdown', function (event) {
                          $this.html(event.strftime('%H:%M:%S ' + $(this).data('title')));
-                        // $(this).css("color", "#6291d0");
+                         // $(this).css("color", "#6291d0");
                          //$(this).css("background-color", "#FC7E7E");
                          $(this).fadeTo('slow', .5);
                      })
+            });
+
+            //        function callback(event) {
+            //            $this = $(this);
+            //            switch (event.type) {
+            //                case "seconds":
+            //                case "minutes":
+            //                case "hours":
+            //                case "days":
+            //                case "weeks":
+            //                case "daysLeft":
+            //                    $this.find('span#' + event.type).html(event.value);
+            //                    if (finished) {
+            //                        $this.fadeTo(0, 1);
+            //                        finished = false;
+            //                    }
+            //                    break;
+            //                case "finished":
+            //                    $this.fadeTo('slow', .5);
+            //                    finished = true;
+            //                    break;
+            //            }
+            //        }
+
         });
-        //        function callback(event) {
-        //            $this = $(this);
-        //            switch (event.type) {
-        //                case "seconds":
-        //                case "minutes":
-        //                case "hours":
-        //                case "days":
-        //                case "weeks":
-        //                case "daysLeft":
-        //                    $this.find('span#' + event.type).html(event.value);
-        //                    if (finished) {
-        //                        $this.fadeTo(0, 1);
-        //                        finished = false;
-        //                    }
-        //                    break;
-        //                case "finished":
-        //                    $this.fadeTo('slow', .5);
-        //                    finished = true;
-        //                    break;
-        //            }
-        //        }
+    };
 
-    });
-
+    Sys.Application.add_load(BindEvents2);
 
 </script>
 <%--<script type="text/javascript">
