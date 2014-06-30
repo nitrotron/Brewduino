@@ -9,9 +9,7 @@
     <script src="../Scripts/jquery-1.10.2.js"></script>
     <asp:UpdatePanel ID="pnlMain" runat="server">
         <ContentTemplate>
-            <script type="text/javascript">
-                Sys.Application.add_load(BindEvents);
-            </script>
+            
             <asp:Timer ID="tmrRefreshStatus" runat="server" OnTick="tmrRefreshStatus_Tick" Enabled="false" />
             <div id="RimsPanelMain">
                 <%--<div id="RimsAlarm">
@@ -73,6 +71,9 @@
                     });
                 };
 
+            </script>
+            <script type="text/javascript">
+                Sys.Application.add_load(BindEvents);
             </script>
         </ContentTemplate>
     </asp:UpdatePanel>

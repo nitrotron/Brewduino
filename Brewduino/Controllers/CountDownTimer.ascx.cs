@@ -18,8 +18,8 @@ namespace Brewduino.Controllers
             get { return _BrewControl; }
             set { _BrewControl = value; }
         }
-        protected Dictionary<string, float> _Status;
-        public Dictionary<string, float> Status
+        protected Dictionary<string, string> _Status;
+        public Dictionary<string, string> Status
         {
             get { return _Status; }
             set
@@ -31,7 +31,9 @@ namespace Brewduino.Controllers
 
         private void UpdateReadings()
         {
-            if (Status["TimersNotAllocated"] > 0)
+            int TimersNotAllocated;
+            int.TryParse(Status["TimersNotAllocated"], out TimersNotAllocated);
+            if (TimersNotAllocated > 0)
             {
                 btnAddNewTimer.Enabled = true;
             }
@@ -50,11 +52,11 @@ namespace Brewduino.Controllers
         protected void btnAddNewTimer_Click(object sender, EventArgs e)
         {
             DateTime countDownTo = DateTime.Now;
-            float minutes;
-            float.TryParse(tbNewTime.Text, out minutes);
-            countDownTo = countDownTo.AddSeconds((double)(minutes * 60));
+            double minutes;
+            double.TryParse(tbNewTime.Text, out minutes);
+            countDownTo = countDownTo.AddSeconds((minutes * 60));
 
-            BrewControl.SetTimer(minutes);
+            BrewControl.SetTimer(minutes.ToString());
 
             if (hfPresentTimerList.Value.Length == 0)
             {
@@ -68,9 +70,11 @@ namespace Brewduino.Controllers
             }
 
             //Div countdown = Page.FindControl("divCountdown") as Div;
-            
 
-            Status["TimersNotAllocated"] -= 1;
+            int timersNotAllocated;
+            int.TryParse(Status["TimersNotAllocated"], out timersNotAllocated);
+            timersNotAllocated -= 1;
+            Status["TimersNotAllocated"] = timersNotAllocated.ToString();
             UpdateReadings();
 
         }

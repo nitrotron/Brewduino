@@ -44,23 +44,24 @@ namespace Brewduino
         {
             Button btn = (Button)sender;
             BrewController.ThermometersName thermo;
-            float value = 120;
+            string value = "120";
 
             if (btn.ID == "btnSetHighAlarmMash")
             {
                 thermo = BrewController.ThermometersName.MashTun;
-                float.TryParse(tbMashHighAlarm.Text, out value);
+
+                value = tbMashHighAlarm.Text;
 
             }
             else if (btn.ID == "btnSetHighAlarmRIMS")
             {
                 thermo = BrewController.ThermometersName.RIMS;
-                float.TryParse(tbRIMSHighAlarm.Text, out value);
+                value = tbRIMSHighAlarm.Text;
             }
             else
             {
                 thermo = BrewController.ThermometersName.Kettle;
-                float.TryParse(tbKettleHighAlarm.Text, out value);
+                value = tbKettleHighAlarm.Text;
             }
             BrewControl.SetHighTempAlarm(thermo, value);
         }

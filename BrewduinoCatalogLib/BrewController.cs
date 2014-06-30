@@ -34,46 +34,46 @@ namespace BrewduinoCatalogLib
             Arduino = inArduino;
         }
        
-        public void SetHighTempAlarm(ThermometersName whichThermo, float highTemp)
+        public void SetHighTempAlarm(ThermometersName whichThermo, string highTemp)
         {
-            string command = ((int)whichThermo).ToString() + "," + highTemp.ToString();
+            string command = ((int)whichThermo).ToString() + "," + highTemp;
             Arduino.SendCommand((int)ArduinoCommands.CommandTypes.SetTempAlarmHigh, command);
         }
-        public void SetLowTempAlarm(ThermometersName whichThermo, float lowTemp)
+        public void SetLowTempAlarm(ThermometersName whichThermo, string lowTemp)
         {
-            string command = ((int)whichThermo).ToString() + "," + lowTemp.ToString();
+            string command = ((int)whichThermo).ToString() + "," + lowTemp;
             Arduino.SendCommand((int)ArduinoCommands.CommandTypes.SetTempAlarmLow, command);
         }
-        public void SetTimer(float minutes)
+        public void SetTimer(string minutes)
         {
-            Arduino.SendCommand((int)ArduinoCommands.CommandTypes.SetTimer, minutes.ToString());
+            Arduino.SendCommand((int)ArduinoCommands.CommandTypes.SetTimer, minutes);
         }
-        public float GetHighTempAlarm(ThermometersName whichThermo)
+        public string GetHighTempAlarm(ThermometersName whichThermo)
         {
-            Dictionary<string, float> response = Arduino.GetStatus();
+            Dictionary<string, string> response = Arduino.GetStatus();
 
             string key = "ThermometerHighAlarm" + (int)whichThermo;
             return response[key];
         }
-        public float GetLowTempAlarm(ThermometersName whichThermo)
+        public string GetLowTempAlarm(ThermometersName whichThermo)
         {
-            Dictionary<string, float> response = Arduino.GetStatus();
+            Dictionary<string, string> response = Arduino.GetStatus();
 
             string key = "ThermometerLowAlarm" + (int)whichThermo;
             return response[key];
         }
-        public float GetTemps(ThermometersName whichThermo)
+        public string GetTemps(ThermometersName whichThermo)
         {
-            Dictionary<string, float> response = Arduino.GetStatus();
+            Dictionary<string, string> response = Arduino.GetStatus();
 
 
             int index = (int)whichThermo;
             string key = "Thermometer" + (int)whichThermo;
             return response[key];
         }
-        public Dictionary<string, float> GetStatus()
+        public Dictionary<string, string> GetStatus()
         {
-            Dictionary<string, float> response = Arduino.GetStatus();
+            Dictionary<string, string> response = Arduino.GetStatus();
 
             return response;
         }
@@ -87,25 +87,25 @@ namespace BrewduinoCatalogLib
             Arduino.SendCommand((int)ArduinoCommands.CommandTypes.ResetAlarm, "");
         }
 
-        public void SetPIDSetPoint(float setPoint)
+        public void SetPIDSetPoint(string setPoint)
         {
-            Arduino.SendCommand((int)ArduinoCommands.CommandTypes.SetPIDSetPoint, setPoint.ToString());
+            Arduino.SendCommand((int)ArduinoCommands.CommandTypes.SetPIDSetPoint, setPoint);
         }
-        public void SetPIDWindowSize(float windowSize)
+        public void SetPIDWindowSize(string windowSize)
         {
-            Arduino.SendCommand((int)ArduinoCommands.CommandTypes.SetPIDWindowSize, windowSize.ToString());
+            Arduino.SendCommand((int)ArduinoCommands.CommandTypes.SetPIDWindowSize, windowSize);
         }
-        public void SetPIDKp(float kp)
+        public void SetPIDKp(string kp)
         {
-            Arduino.SendCommand((int)ArduinoCommands.CommandTypes.SetPIDKp, kp.ToString());
+            Arduino.SendCommand((int)ArduinoCommands.CommandTypes.SetPIDKp, kp);
         }
-        public void SetPIDKi(float ki)
+        public void SetPIDKi(string ki)
         {
-            Arduino.SendCommand((int)ArduinoCommands.CommandTypes.SetPIDKi, ki.ToString());
+            Arduino.SendCommand((int)ArduinoCommands.CommandTypes.SetPIDKi, ki);
         }
-        public void SetPIDKd(float kd)
+        public void SetPIDKd(string kd)
         {
-            Arduino.SendCommand((int)ArduinoCommands.CommandTypes.SetPIDKd, kd.ToString());
+            Arduino.SendCommand((int)ArduinoCommands.CommandTypes.SetPIDKd, kd);
         }
         public void TurnOnRims(int rimsOn)
         {

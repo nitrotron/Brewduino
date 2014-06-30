@@ -59,7 +59,7 @@ namespace BrewduinoCatalogLib
             }
 
         }
-        public Dictionary<string, float> SendCommandWithResponse(ArduinoCommands.CommandTypes cmd, string text)
+        public Dictionary<string, string> SendCommandWithResponse(ArduinoCommands.CommandTypes cmd, string text)
         {
             //if (!IsOpen) Open();
             SendCommand(cmd, text);
@@ -74,7 +74,7 @@ namespace BrewduinoCatalogLib
                 catch
                 {
                     //Close();
-                    return new Dictionary<string, float>();
+                    return new Dictionary<string, string>();
                 }
                 if (response.ToString().Contains(";"))
                     break;
@@ -114,7 +114,7 @@ namespace BrewduinoCatalogLib
 
        
 
-        public Dictionary<string, float> parseVaribles(string response)
+        public Dictionary<string, string> parseVaribles(string response)
         {
             string[] pStrings;
             string message;
@@ -134,28 +134,24 @@ namespace BrewduinoCatalogLib
                 message = pStrings[0];
             }
 
-            Dictionary<string, float> dict = new Dictionary<string, float>();
+            Dictionary<string, string> dict = new Dictionary<string, string>();
 
             string[] pairs = message.Split(',');
 
             foreach (string textValue in pairs)
             {
                 string[] pair = textValue.Split('|');
-                //string value = pair[1];
-                float temp;
-                float.TryParse(pair[1], out temp);
-                //int temp = (int)Convert.Tofloat(value);
-                //dict.Add(pair[0], (int)Convert.ToInt32(pair[1]));
-                dict.Add(pair[0], temp);
+               
+                dict.Add(pair[0], pair[1]);
             }
 
 
             return dict;
         }
 
-        public Dictionary<string, float> GetStatus()
+        public Dictionary<string, string> GetStatus()
         {
-            return new Dictionary<string,float>();
+            return new Dictionary<string,string>();
         }
         public void UpdateStatus()
         {

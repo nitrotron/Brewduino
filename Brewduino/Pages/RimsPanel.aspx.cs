@@ -16,7 +16,7 @@ namespace Brewduino.Pages
         //protected ArduinoSerial mySerial = new ArduinoSerial();
         protected IArduinoSelfHost Arduino;
         protected BrewController BrewControl;
-        protected Dictionary<string, float> CurrentStatus;
+        protected Dictionary<string, string> CurrentStatus;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -47,8 +47,12 @@ namespace Brewduino.Pages
             cdtTimer.BrewControl = BrewControl;
             cdtTimer.Status = CurrentStatus;
 
-
-            if (CurrentStatus["TempAlarmActive"] > 0 || CurrentStatus["TimerAlarmActive"] > 0)
+            bool tempAlarmActive = false;
+            bool.TryParse(CurrentStatus["TempAlarmActive"], out tempAlarmActive);
+            bool timerAlarmActive = false;
+            bool.TryParse( CurrentStatus["TimerAlarmActive"], out timerAlarmActive);
+            
+            if (tempAlarmActive || timerAlarmActive)
             {
                 //lblMainAlarm.Text = "We have an alarm";
                 btnResetAlarm.Checked = true;
@@ -65,17 +69,22 @@ namespace Brewduino.Pages
 
         protected void btnResetAlarm_OnClick(object sender, EventArgs e)
         {
-            if (CurrentStatus["TempAlarmActive"] > 0)
+            bool tempAlarmActive = false;
+            bool.TryParse(CurrentStatus["TempAlarmActive"], out tempAlarmActive);
+            
+            if (tempAlarmActive)
             {
-                if (CurrentStatus["WhichThermoAlarm"] == (int)BrewController.ThermometersName.RIMS)
+                int whichThermoAlarm = 9999;
+                int.TryParse(CurrentStatus["WhichThermoAlarm"], out whichThermoAlarm);
+                if (whichThermoAlarm == (int)BrewController.ThermometersName.RIMS)
                 {
                     btRims.ResetAlarm();
                 }
-                else if (CurrentStatus["WhichThermoAlarm"] == (int)BrewController.ThermometersName.MashTun)
+                else if (whichThermoAlarm == (int)BrewController.ThermometersName.MashTun)
                 {
                     btMash.ResetAlarm();
                 }
-                else if (CurrentStatus["WhichThermoAlarm"] == (int)BrewController.ThermometersName.Kettle)
+                else if (whichThermoAlarm == (int)BrewController.ThermometersName.Kettle)
                 {
                     btKettle.ResetAlarm();
                 }

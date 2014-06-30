@@ -39,9 +39,9 @@ namespace BrewduinoCatalogLib
             }
             return rString;
         }
-        public Dictionary<string, float> GetStatus()
+        public Dictionary<string, string> GetStatus()
         {
-            Dictionary<string, float> rDictionary = null;
+            Dictionary<string, string> rDictionary = null;
             bool successfulTX = false;
             int attemptCount = 0;
             while (!successfulTX)

@@ -15,26 +15,26 @@ namespace BrewduinoCatalogLib
         }
 
 
-        public Dictionary<string, float> GetStatus()
+        public Dictionary<string, string> GetStatus()
         {
-            Dictionary<string, float> returnDict = new Dictionary<string, float>();
+            Dictionary<string, string> returnDict = new Dictionary<string, string>();
 
-            returnDict["Thermometer0"] = 150.2F;
-            returnDict["Thermometer1"] = 82.9F;
-            returnDict["Thermometer2"] = 202.3F;
+            returnDict["Thermometer0"] = "150.2";
+            returnDict["Thermometer1"] = "82.9";
+            returnDict["Thermometer2"] = "202.3";
 
-            returnDict["TempAlarmActive"] = 1;
-            returnDict["TimerAlarmActive"] = 0;
+            returnDict["TempAlarmActive"] = "1";
+            returnDict["TimerAlarmActive"] = "0";
 
-            returnDict["ThermometerHighAlarm0"] = 275.0F;
-            returnDict["ThermometerHighAlarm1"] = 80.0F;
-            returnDict["ThermometerHighAlarm2"] = 275.0F;
-            returnDict["ThermometerLowAlarm0"] = -10.0F;
-            returnDict["ThermometerLowAlarm1"] = -10.0F;
-            returnDict["ThermometerLowAlarm2"] = -10.0F;
-            returnDict["WhichThermoAlarm"] = (int)BrewController.ThermometersName.Kettle;
-            returnDict["TimersNotAllocated"] = 3;
-            returnDict["TotalTimers"] = 6;
+            returnDict["ThermometerHighAlarm0"] = "275.0";
+            returnDict["ThermometerHighAlarm1"] = "80.0";
+            returnDict["ThermometerHighAlarm2"] = "275.0";
+            returnDict["ThermometerLowAlarm0"] = "-10.0";
+            returnDict["ThermometerLowAlarm1"] = "-10.0";
+            returnDict["ThermometerLowAlarm2"] = "-10.0";
+            returnDict["WhichThermoAlarm"] = BrewController.ThermometersName.Kettle.ToString();
+            returnDict["TimersNotAllocated"] = "3";
+            returnDict["TotalTimers"] = "6";
 
             
 

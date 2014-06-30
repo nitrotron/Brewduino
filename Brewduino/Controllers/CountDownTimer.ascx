@@ -13,31 +13,27 @@
 <div id="pnlAddTimer" style="display: none; width: 180px;">
     <table>
         <tr>
-            <td>
-            </td>
+            <td></td>
             <td style="text-align: right;">
                 <span id="dvCancelTimer" class="cancelX">X</span>
             </td>
         </tr>
         <tr>
-            <td style="text-align: right;">
-                Minutes:
+            <td style="text-align: right;">Minutes:
             </td>
             <td style="text-align: left;">
                 <asp:TextBox ID="tbNewTime" runat="server" Width="100px" />
             </td>
         </tr>
         <tr>
-            <td style="text-align: right;">
-                Title:
+            <td style="text-align: right;">Title:
             </td>
             <td style="text-align: left;">
                 <asp:TextBox ID="tbTimerLabel" runat="server" Width="100px" />
             </td>
         </tr>
         <tr>
-            <td>
-            </td>
+            <td></td>
             <td style="text-align: right;">
                 <asp:Button ID="btnAddNewTimer" runat="server" Text="Start" OnClick="btnAddNewTimer_Click" />
             </td>
@@ -49,36 +45,32 @@
 <script type="text/javascript" src="../Scripts/jquery.countdown.js"></script>
 <script type="text/javascript">
     function BindEvents2() {
-        debugger;
         $(document).ready(function () {
             var hfTimerList = $("#<%=hfPresentTimerList.ClientID%>").val();
             var timerList = (hfTimerList).split(",");
             var hfTimerTitleList = $("#<%=hfPresentTimerTitleList.ClientID%>").val();
-            var timerTitleList = (hfTimerTitleList).split(",");
+      var timerTitleList = (hfTimerTitleList).split(",");
 
-            $("#dvCancelTimer").click(function () {
-                debugger;
-                $("#pnlAddTimer").fadeOut('slow');
-                $("#btnShowNewTimerPanel").fadeTo('slow', 1);
-            });
+      $("#dvCancelTimer").click(function () {
+          $("#pnlAddTimer").fadeOut('slow');
+          $("#btnShowNewTimerPanel").fadeTo('slow', 1);
+      });
 
-            $("#btnShowNewTimerPanel").click(function () {
-                debugger;
-                $("#btnShowNewTimerPanel").fadeTo('slow', .5);
-                $("#pnlAddTimer").fadeIn('slow');
+      $("#btnShowNewTimerPanel").click(function () {
+          $("#btnShowNewTimerPanel").fadeTo('slow', .5);
+          $("#pnlAddTimer").fadeIn('slow');
 
-            });
+      });
 
-            $("pnlAddTimer").click(function () {
-                debugger;
-                $("#btnShowNewTimerPanel").show();
-            });
+      $("pnlAddTimer").click(function () {
+          $("#btnShowNewTimerPanel").show();
+      });
 
 
-            $.each(timerList, function (index, value) {
-                if (value != "") {
-                    var newTimer = '<div class="clock" id="clock' + index + '" data-countdown="' + value + '" data-title="' + timerTitleList[index] + '"></div>';
-                    $("#<%=divCountdown.ClientID%>").append(newTimer);
+      $.each(timerList, function (index, value) {
+          if (value != "") {
+              var newTimer = '<div class="clock" id="clock' + index + '" data-countdown="' + value + '" data-title="' + timerTitleList[index] + '"></div>';
+              $("#<%=divCountdown.ClientID%>").append(newTimer);
                 }
             });
 
