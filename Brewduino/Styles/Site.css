@@ -380,13 +380,24 @@ div#RimsThermometers
     color: #fa0000; /*padding: 10px 20px;*/ /*float: left;*/
     width: 200px;
     height: 81px;
+    /*
     background-image: -webkit-linear-gradient(top, #3c4142, #262a2a);
     background-image: -moz-linear-gradient(top, #3c4142, #262a2a);
     background-image: -ms-linear-gradient(top, #3c4142, #262a2a);
     background-image: -o-linear-gradient(top, #3c4142, #262a2a);
-    background-image: linear-gradient(to bottom, #3c4142, #262a2a); /*background: -moz-linear-gradient( 		top, 		#3c4142 0%, 		#262a2a); 	background: -webkit-gradient( 		linear, left top, left bottom, 		from(#3c4142), 		to(#262a2a));*/ /*-moz-border-radius: 10px; 	-webkit-border-radius: 10px;*/ /*border-radius: 10px;*/ /*border: 1px solid #2617fa;*/ /*-moz-box-shadow: 		4px 2px 0px rgba(175,206,240,0.5), 		inset 0px 0px 2px rgba(255,255,255,1); 	-webkit-box-shadow: 		4px 2px 0px rgba(175,206,240,0.5), 		inset 0px 0px 2px rgba(255,255,255,1); 	box-shadow: 		4px 2px 0px rgba(175,206,240,0.5), 		inset 0px 0px 2px rgba(255,255,255,1); 	text-shadow: 		0px 0px 0px rgba(000,000,000,0), 		0px 0px 0px rgba(255,255,255,0);*/
+    background-image: linear-gradient(to bottom, #3c4142, #262a2a); */
+    background-color: #262a2a;
+    color: #C45050 !important;
+    text-decoration: none;
 }
 
+.TemperatureDigitalZoom
+{
+    width: 400px;
+    height: 161px;
+    z-index:9999;
+    
+}
 
 .TemperatureDigitalSmallTop
 {
@@ -410,6 +421,12 @@ div#RimsThermometers
     background-image: -ms-linear-gradient(top, #3c4142, #262a2a);
     background-image: -o-linear-gradient(top, #3c4142, #262a2a);
     background-image: linear-gradient(to bottom, #3c4142, #262a2a);
+}
+
+.TemperatureDigitalSmallZoom
+{
+    width: 200px;
+    height: 80px
 }
 
 .TemperatureDigitalSmallBottom

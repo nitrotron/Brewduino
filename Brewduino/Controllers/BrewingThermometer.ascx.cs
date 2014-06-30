@@ -118,7 +118,9 @@ namespace Brewduino.Controllers
             hfWhichAlarm.Value = "Low";
         }
 
-
+        protected void btnCurrentTemp_OnClick(object sender, EventArgs e)
+        {
+        }
 
 
         public void ResetAlarm()

@@ -4,7 +4,7 @@
     <asp:Label ID="lblTitle" runat="server" CssClass="BrewingThermometer_Title" Text="Title" />
     <br />
     <div id="BrewingThermometer_Display">
-        <asp:Label ID="lblCurrentTemp" runat="server" CssClass="TemperatureDigital" Text="180" />
+        <asp:LinkButton ID="lblCurrentTemp" runat="server" CssClass="TemperatureDigital" Text="180"  OnClick="btnCurrentTemp_OnClick"/>
         <asp:LinkButton ID="btnTempHighAlarm" runat="server" CssClass="TemperatureDigitalSmallTop"
             Text="200" OnClick="btnTempHighAlarm_OnClick" />
         <asp:LinkButton ID="btnTempLowAlarm" runat="server" CssClass="TemperatureDigitalSmallBottom"

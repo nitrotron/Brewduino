@@ -28,7 +28,7 @@ namespace Brewduino.Controllers {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCurrentTemp;
+        protected global::System.Web.UI.WebControls.LinkButton lblCurrentTemp;
         
         /// <summary>
         /// btnTempHighAlarm control.
