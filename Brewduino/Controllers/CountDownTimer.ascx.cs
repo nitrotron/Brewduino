@@ -41,6 +41,70 @@ namespace Brewduino.Controllers
             {
                 btnAddNewTimer.Enabled = false;
             }
+
+            DateTime serverTimeStamp = new DateTime();
+            TimeSpan timedifference = new TimeSpan(0);
+            if (Status.ContainsKey("ServerTime"))
+            {
+                if (DateTime.TryParse(Status["ServerTime"].ToString(), out serverTimeStamp))
+                {
+                    timedifference = serverTimeStamp - DateTime.Now;
+                }
+            }
+
+            List<DateTime> OnGoingAlarms = ParseAlarms();
+
+            string[] timerStrArray = hfPresentTimerList.Value.Split(',');
+            StringBuilder updateHF = new StringBuilder();
+
+            int timerCount = 0;
+            TimeSpan fudgeFactor = new TimeSpan(0,0,30);
+            foreach (string item in timerStrArray)
+            {
+                DateTime itemDateTime;
+                DateTime.TryParse(item, out itemDateTime);
+                // need to look at the various timers and either add them or not.
+
+                //if (itemDateTime + timedifference + fudgeFactor > DateTime.Now || itemDateTime - timedifference - fudgeFactor < DateTime.Now)
+                //{
+                //    // do nothing, this is close enough
+                //}
+                //else
+                //{
+
+                //}
+                //if (itemDateTime > DateTime.Now)
+                //{
+                    //if (timerCount > 0)
+                    //    updateHF.Append("," + item);
+                    //else
+                    //    updateHF.Append(item);
+                    //timerCount++;
+                //}
+            }
+            //hfPresentTimerList.Value = updateHF.ToString();
+}
+
+        private List<DateTime> ParseAlarms()
+        {
+            List<DateTime> returnList = new List<DateTime>();
+            if (Status.ContainsKey("TotalTimers"))
+            {
+                int totalTimers;
+                int.TryParse(Status["TotalTimers"], out totalTimers);
+                for (int i = 0; i < totalTimers; i++)
+                {
+                    if (Status.ContainsKey("Timer" + i))
+                    {
+                        DateTime timer;
+                        if (DateTime.TryParse(Status["Timer" + i], out timer))
+                        {
+                            returnList.Add(timer);
+                        }
+                    }
+                }
+            }
+            return returnList;
         }
 
 

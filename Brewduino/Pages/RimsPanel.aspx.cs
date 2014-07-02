@@ -61,7 +61,7 @@ namespace Brewduino.Pages
 
 
             //Response.AppendHeader("Refresh", 5 + "; URL=RimsPanel.aspx");
-            tmrRefreshStatus.Interval = 150000;
+            tmrRefreshStatus.Interval = 150000000;
             tmrRefreshStatus.Enabled = true;
 
         }
