@@ -35,11 +35,14 @@ namespace BrewduinoCatalogLib
             returnDict["WhichThermoAlarm"] = BrewController.ThermometersName.Kettle.ToString();
             returnDict["TimersNotAllocated"] = "3";
             returnDict["TotalTimers"] = "12";
+            returnDict["RimsEnable"] = "0";
+            returnDict["AuxOn"] = "1";
+            returnDict["PumpOn"] = "0";
 
             DateTime serverTime = DateTime.Now.AddSeconds(5);
 
             returnDict["ServerTime"] = serverTime.ToShortTimeString();
-            returnDict["Timer0"] = "13:45:23";
+            returnDict["Timer0"] = "22:45:23";
             
 
             return returnDict;

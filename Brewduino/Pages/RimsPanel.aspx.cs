@@ -58,12 +58,20 @@ namespace Brewduino.Pages
                 btnResetAlarm.Checked = true;
                 soundAlarm();
             }
+            RefreshButtons();
 
 
             //Response.AppendHeader("Refresh", 5 + "; URL=RimsPanel.aspx");
             tmrRefreshStatus.Interval = 150000000;
             tmrRefreshStatus.Enabled = true;
 
+        }
+
+        private void RefreshButtons()
+        {
+            chkRimsOn.Checked = (CurrentStatus["RimsEnable"] == "1") ? true : false;
+            chAuxPower.Checked = (CurrentStatus["AuxOn"] == "1") ? true: false;
+            chPumpOn.Checked = (CurrentStatus["PumpOn"] == "1") ? true : false;
         }
 
 

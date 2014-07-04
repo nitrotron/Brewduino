@@ -53,7 +53,7 @@ namespace Brewduino.Controllers
             }
 
             //lets remove any that have expired
-            StripAlarms();
+            //StripAlarms();
 
 
             List<DateTime> OnGoingAlarms = ParseAlarms();
@@ -63,12 +63,35 @@ namespace Brewduino.Controllers
 
             int timerCount = 0;
             TimeSpan fudgeFactor = new TimeSpan(0, 0, 30);
+            //foreach (var hfTimers in timerStrArray)
+            //{
+            //    DateTime hft;
+            //    if (DateTime.TryParse(hfTimers, out hft))
+            //    {
+            //        var existingTimer = from t in OnGoingAlarms where t + fudgeFactor > hfTimers && t - fudgeFactor < hfTimers select t;
+            //    }
+            //}
             foreach (DateTime items in OnGoingAlarms)
             {
+                bool timerAlreadyExists = false;
+                foreach (string hfTimers in timerStrArray)
+                {
 
-                items.Add(timedifference);
-                AddTimer(items);
+                    DateTime tempD;// = Convert.ToDateTime(hfTimers);
 
+                    if (DateTime.TryParse(hfTimers, out tempD) && tempD + fudgeFactor > items && tempD - fudgeFactor < items)
+                    {
+                        timerAlreadyExists = true;
+                        break;
+                    }
+
+                }
+
+                if (timerAlreadyExists == false)
+                {
+                    items.Add(timedifference);
+                    AddTimer(items, false);
+                }
                 #region
                 // need to look at the various timers and either add them or not.
 
@@ -93,17 +116,17 @@ namespace Brewduino.Controllers
             //hfPresentTimerList.Value = updateHF.ToString();
         }
 
-        private void AddTimer(DateTime countDownTo)
+        private void AddTimer(DateTime countDownTo, bool localClient)
         {
             if (hfPresentTimerList.Value.Length == 0)
             {
                 hfPresentTimerList.Value = countDownTo.ToString("G", DateTimeFormatInfo.InvariantInfo);
-                hfPresentTimerTitleList.Value = tbTimerLabel.Text;
+                hfPresentTimerTitleList.Value = (localClient) ? tbTimerLabel.Text : "";
             }
             else
             {
                 hfPresentTimerList.Value += "," + countDownTo.ToString("G", DateTimeFormatInfo.InvariantInfo);
-                hfPresentTimerTitleList.Value += "," + tbTimerLabel.Text;
+                hfPresentTimerTitleList.Value += hfPresentTimerTitleList.Value = (localClient) ? "," + tbTimerLabel.Text : ",";
             }
         }
 
@@ -146,7 +169,7 @@ namespace Brewduino.Controllers
 
             BrewControl.SetTimer(minutes.ToString());
 
-            //AddTimer(countDownTo);
+            AddTimer(countDownTo,true);
             //if (hfPresentTimerList.Value.Length == 0)
             //{
             //    hfPresentTimerList.Value = countDownTo.ToString("G", DateTimeFormatInfo.InvariantInfo);
