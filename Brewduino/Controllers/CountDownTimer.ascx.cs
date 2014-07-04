@@ -52,17 +52,24 @@ namespace Brewduino.Controllers
                 }
             }
 
+            //lets remove any that have expired
+            StripAlarms();
+
+
             List<DateTime> OnGoingAlarms = ParseAlarms();
 
             string[] timerStrArray = hfPresentTimerList.Value.Split(',');
             StringBuilder updateHF = new StringBuilder();
 
             int timerCount = 0;
-            TimeSpan fudgeFactor = new TimeSpan(0,0,30);
-            foreach (string item in timerStrArray)
+            TimeSpan fudgeFactor = new TimeSpan(0, 0, 30);
+            foreach (DateTime items in OnGoingAlarms)
             {
-                DateTime itemDateTime;
-                DateTime.TryParse(item, out itemDateTime);
+
+                items.Add(timedifference);
+                AddTimer(items);
+
+                #region
                 // need to look at the various timers and either add them or not.
 
                 //if (itemDateTime + timedifference + fudgeFactor > DateTime.Now || itemDateTime - timedifference - fudgeFactor < DateTime.Now)
@@ -75,15 +82,30 @@ namespace Brewduino.Controllers
                 //}
                 //if (itemDateTime > DateTime.Now)
                 //{
-                    //if (timerCount > 0)
-                    //    updateHF.Append("," + item);
-                    //else
-                    //    updateHF.Append(item);
-                    //timerCount++;
+                //if (timerCount > 0)
+                //    updateHF.Append("," + item);
+                //else
+                //    updateHF.Append(item);
+                //timerCount++;
                 //}
+                #endregion
             }
             //hfPresentTimerList.Value = updateHF.ToString();
-}
+        }
+
+        private void AddTimer(DateTime countDownTo)
+        {
+            if (hfPresentTimerList.Value.Length == 0)
+            {
+                hfPresentTimerList.Value = countDownTo.ToString("G", DateTimeFormatInfo.InvariantInfo);
+                hfPresentTimerTitleList.Value = tbTimerLabel.Text;
+            }
+            else
+            {
+                hfPresentTimerList.Value += "," + countDownTo.ToString("G", DateTimeFormatInfo.InvariantInfo);
+                hfPresentTimerTitleList.Value += "," + tbTimerLabel.Text;
+            }
+        }
 
         private List<DateTime> ParseAlarms()
         {
@@ -118,30 +140,37 @@ namespace Brewduino.Controllers
             DateTime countDownTo = DateTime.Now;
             double minutes;
             double.TryParse(tbNewTime.Text, out minutes);
+
+            //btnAddkNewTimer(minutes);
             countDownTo = countDownTo.AddSeconds((minutes * 60));
 
             BrewControl.SetTimer(minutes.ToString());
 
-            if (hfPresentTimerList.Value.Length == 0)
-            {
-                hfPresentTimerList.Value = countDownTo.ToString("G", DateTimeFormatInfo.InvariantInfo);
-                hfPresentTimerTitleList.Value = tbTimerLabel.Text;
-            }
-            else
-            {
-                hfPresentTimerList.Value += "," + countDownTo.ToString("G", DateTimeFormatInfo.InvariantInfo);
-                hfPresentTimerTitleList.Value += "," + tbTimerLabel.Text;
-            }
+            //AddTimer(countDownTo);
+            //if (hfPresentTimerList.Value.Length == 0)
+            //{
+            //    hfPresentTimerList.Value = countDownTo.ToString("G", DateTimeFormatInfo.InvariantInfo);
+            //    hfPresentTimerTitleList.Value = tbTimerLabel.Text;
+            //}
+            //else
+            //{
+            //    hfPresentTimerList.Value += "," + countDownTo.ToString("G", DateTimeFormatInfo.InvariantInfo);
+            //    hfPresentTimerTitleList.Value += "," + tbTimerLabel.Text;
+            //}
 
-            //Div countdown = Page.FindControl("divCountdown") as Div;
 
-            int timersNotAllocated;
-            int.TryParse(Status["TimersNotAllocated"], out timersNotAllocated);
-            timersNotAllocated -= 1;
-            Status["TimersNotAllocated"] = timersNotAllocated.ToString();
+            //int timersNotAllocated;
+            //int.TryParse(Status["TimersNotAllocated"], out timersNotAllocated);
+            //timersNotAllocated -= 1;
+            //Status["TimersNotAllocated"] = timersNotAllocated.ToString();
             UpdateReadings();
 
         }
+
+        //private void btnAddNewTimer(double minutes)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public void ResetAlarm()
         {
@@ -160,6 +189,33 @@ namespace Brewduino.Controllers
                     else
                         updateHF.Append(item);
                     timerCount++;
+                }
+            }
+            hfPresentTimerList.Value = updateHF.ToString();
+
+        }
+        /// <summary>
+        /// used to remove all alarms except for ones that expire, those are stripped when the ResetAlarm() is called.
+        /// </summary>
+        public void StripAlarms()
+        {
+            string[] timerStrArray = hfPresentTimerList.Value.Split(',');
+            StringBuilder updateHF = new StringBuilder();
+
+            int timerCount = 0;
+            foreach (string item in timerStrArray)
+            {
+                DateTime itemDateTime;
+                if (DateTime.TryParse(item, out itemDateTime))
+                {
+                    if (itemDateTime <= DateTime.Now)
+                    {
+                        if (timerCount > 0)
+                            updateHF.Append("," + item);
+                        else
+                            updateHF.Append(item);
+                        timerCount++;
+                    }
                 }
             }
             hfPresentTimerList.Value = updateHF.ToString();

@@ -47,6 +47,7 @@ namespace BrewduinoCatalogLib
         public void SetTimer(string minutes)
         {
             Arduino.SendCommand((int)ArduinoCommands.CommandTypes.SetTimer, minutes);
+            Arduino.SendCommand((int)ArduinoCommands.CommandTypes.ReturnStatus,"");
         }
         public string GetHighTempAlarm(ThermometersName whichThermo)
         {
