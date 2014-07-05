@@ -74,9 +74,15 @@ namespace Brewduino.Controllers
                 lblCurrentTemp.ForeColor = System.Drawing.Color.Red;
             }
 
-
-            btnTempHighAlarm.Text = String.Format("{0:N1}", Status["ThermometerHighAlarm" + ThermoInt]);
-            btnTempLowAlarm.Text = String.Format("{0:N1}", Status["ThermometerLowAlarm" + ThermoInt]);
+            decimal temp;
+            decimal.TryParse(Status["ThermometerHighAlarm" + ThermoInt], out temp);
+            temp = decimal.Round(temp, 1);
+            btnTempHighAlarm.Text = temp.ToString();
+            //btnTempHighAlarm.Text = temp.ToString();
+            decimal.TryParse(Status["ThermometerLowAlarm" + ThermoInt], out temp);
+            temp = decimal.Round(temp, 1);
+            //btnTempLowAlarm.Text = temp.ToString();
+            btnTempLowAlarm.Text = temp.ToString();
         }
         protected void btnUpdateAlarms_OnClick(object sender, EventArgs e)
         {
