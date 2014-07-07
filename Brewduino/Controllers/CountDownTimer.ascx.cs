@@ -31,6 +31,7 @@ namespace Brewduino.Controllers
 
         private void UpdateReadings()
         {
+            CultureInfo ci = new CultureInfo("en-US");
             int TimersNotAllocated;
             int.TryParse(Status["TimersNotAllocated"], out TimersNotAllocated);
             if (TimersNotAllocated > 0)
@@ -61,25 +62,17 @@ namespace Brewduino.Controllers
             string[] timerStrArray = hfPresentTimerList.Value.Split(',');
             StringBuilder updateHF = new StringBuilder();
 
-            int timerCount = 0;
-            TimeSpan fudgeFactor = new TimeSpan(0, 0, 30);
-            //foreach (var hfTimers in timerStrArray)
-            //{
-            //    DateTime hft;
-            //    if (DateTime.TryParse(hfTimers, out hft))
-            //    {
-            //        var existingTimer = from t in OnGoingAlarms where t + fudgeFactor > hfTimers && t - fudgeFactor < hfTimers select t;
-            //    }
-            //}
+            TimeSpan fudgeFactor = new TimeSpan(0, 0, 45);
+
             foreach (DateTime items in OnGoingAlarms)
             {
                 bool timerAlreadyExists = false;
+                items.Add(timedifference);
                 foreach (string hfTimers in timerStrArray)
                 {
-
                     DateTime tempD;// = Convert.ToDateTime(hfTimers);
 
-                    if (DateTime.TryParse(hfTimers, out tempD) && tempD + fudgeFactor > items && tempD - fudgeFactor < items)
+                    if (DateTime.TryParse(hfTimers, ci, DateTimeStyles.None, out tempD) && tempD + fudgeFactor > items && tempD - fudgeFactor < items)
                     {
                         timerAlreadyExists = true;
                         break;
@@ -89,7 +82,6 @@ namespace Brewduino.Controllers
 
                 if (timerAlreadyExists == false)
                 {
-                    items.Add(timedifference);
                     AddTimer(items, false);
                 }
                 #region
@@ -169,7 +161,7 @@ namespace Brewduino.Controllers
 
             BrewControl.SetTimer(minutes.ToString());
 
-            AddTimer(countDownTo,true);
+            AddTimer(countDownTo, true);
             //if (hfPresentTimerList.Value.Length == 0)
             //{
             //    hfPresentTimerList.Value = countDownTo.ToString("G", DateTimeFormatInfo.InvariantInfo);
@@ -199,12 +191,14 @@ namespace Brewduino.Controllers
         {
             string[] timerStrArray = hfPresentTimerList.Value.Split(',');
             StringBuilder updateHF = new StringBuilder();
+            CultureInfo ci = new CultureInfo("en-US");
 
             int timerCount = 0;
             foreach (string item in timerStrArray)
             {
                 DateTime itemDateTime;
-                DateTime.TryParse(item, out itemDateTime);
+                DateTime.TryParse(item, ci, DateTimeStyles.None, out itemDateTime);
+                
                 if (itemDateTime > DateTime.Now)
                 {
                     if (timerCount > 0)
