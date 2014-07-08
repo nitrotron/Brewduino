@@ -12,10 +12,7 @@
             
             <asp:Timer ID="tmrRefreshStatus" runat="server" OnTick="tmrRefreshStatus_Tick" Enabled="false" />
             <div id="RimsPanelMain">
-                <%--<div id="RimsAlarm">
-            <asp:Button ID="btnResetAlarm" runat="server" OnClick="btnResetAlarm_OnClick" Text="Reset Alarms" />
-            <asp:Label ID="lblMainAlarm" runat="server" />
-        </div>--%>
+              
                 <div id="RimsThermometers">
                     <div class="RimsThermometer">
                         <uc1:BrewThermometer ID="btRims" runat="server" />
@@ -31,10 +28,7 @@
                         <br />
                     </div>
                 </div>
-                <%--<div id="Div1">
-            <asp:Button ID="Button1" runat="server" OnClick="btnResetAlarm_OnClick" Text="Reset Alarms" />
-            <asp:Label ID="Label1" runat="server" />
-        </div>--%>
+                
                 <div id="buttonRow">
                     <div class="switch" id="switchReset">
                         <asp:CheckBox ID="btnResetAlarm" runat="server" AutoPostBack="true" OnCheckedChanged="btnResetAlarm_OnClick"
@@ -77,4 +71,7 @@
             </script>
         </ContentTemplate>
     </asp:UpdatePanel>
+    <asp:Panel ID="pnlDebug" runat="server" Visible=false>
+    
+    </asp:Panel>
 </asp:Content>
