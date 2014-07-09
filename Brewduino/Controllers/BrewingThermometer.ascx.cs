@@ -58,6 +58,8 @@ namespace Brewduino.Controllers
             }
         }
 
+
+
         protected void UpdateReadings()
         {
 
@@ -154,6 +156,9 @@ namespace Brewduino.Controllers
             else
                 BrewControl.ClearAlarms(Thermometer);
         }
-
+        public void ShowRimsPanel(bool showPanel)
+        {
+            pnlRimsControls.Visible = showPanel;
+        }
     }
 }

@@ -68,6 +68,13 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="Bootstrap\bootstrap-3.2.0-dist\css\bootstrap-theme.css" />
+    <Content Include="Bootstrap\bootstrap-3.2.0-dist\css\bootstrap-theme.min.css" />
+    <Content Include="Bootstrap\bootstrap-3.2.0-dist\css\bootstrap.css" />
+    <Content Include="Bootstrap\bootstrap-3.2.0-dist\css\bootstrap.min.css" />
+    <Content Include="Bootstrap\bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Bootstrap\bootstrap-3.2.0-dist\js\bootstrap.js" />
+    <Content Include="Bootstrap\bootstrap-3.2.0-dist\js\bootstrap.min.js" />
     <Content Include="Controllers\BrewingThermometer.ascx" />
     <Content Include="Controllers\CountDownTimer.ascx" />
     <Content Include="Fonts\font-awesome-4.1.0\css\font-awesome.css" />
@@ -287,6 +294,11 @@
     <Content Include="Fonts\font-awesome-4.1.0\scss\_spinning.scss" />
     <Content Include="Fonts\font-awesome-4.1.0\scss\_stacked.scss" />
     <Content Include="Fonts\font-awesome-4.1.0\scss\_variables.scss" />
+    <None Include="Bootstrap\bootstrap-3.2.0-dist\css\bootstrap-theme.css.map" />
+    <None Include="Bootstrap\bootstrap-3.2.0-dist\css\bootstrap.css.map" />
+    <None Include="Bootstrap\bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Bootstrap\bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="Bootstrap\bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Fonts\fontello-374a6348\config.json" />
     <None Include="Fonts\fontello-374a6348\font\misc.eot" />
     <None Include="Fonts\fontello-374a6348\font\misc.ttf" />
