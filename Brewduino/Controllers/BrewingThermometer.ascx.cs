@@ -158,7 +158,7 @@ namespace Brewduino.Controllers
         }
         public void ShowRimsPanel(bool showPanel)
         {
-            pnlRimsControls.Visible = showPanel;
+            //pnlRimsControls.Visible = showPanel;
         }
     }
 }

@@ -35,16 +35,16 @@
                 
                     <%-- <div id="RimsPanelMain">--%>
                     <%--  <div id="RimsThermometers">--%>
-                    <div class="col-sm-6 col-md-3  RimsThermometer">
+                    <div class="col-sm-6 col-md-3  RimsThermometer" style="background-color:Lime">
                         <uc1:BrewThermometer ID="btRims" runat="server" />
                     </div>
-                    <div class="col-sm-6 col-md-3 RimsThermometer">
+                    <div class="col-sm-6 col-md-3 RimsThermometer" style="background-color:Gray">
                         <uc1:BrewThermometer ID="btMash" runat="server" />
                     </div>
-                    <div class="col-sm-6 col-md-3 RimsThermometer">
+                    <div class="col-sm-6 col-md-3 RimsThermometer" style="background-color:Lime">
                         <uc1:BrewThermometer ID="btKettle" runat="server" />
                     </div>
-                    <div class="col-sm-6 col-md-3 CountDownTimer">
+                    <div class="col-sm-6 col-md-3 CountDownTimer" style="background-color:Gray">
                         <uc2:CoundDownTimer ID="cdtTimer" runat="server" />
                         <br />
                     </div>

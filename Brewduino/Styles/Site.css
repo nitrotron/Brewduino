@@ -367,9 +367,9 @@ div#RimsThermometers
 {
     /*font-size: 65px;     background-color: Black;     color: red;*/
     text-align: center;
-    float: left;
+    /*float: left;
     width: 200px;
-    height: 81px;
+    height: 81px; */
     border: solid;
     border-color: Blue;
     border-width: 1px;
