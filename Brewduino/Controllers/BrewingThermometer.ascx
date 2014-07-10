@@ -4,20 +4,20 @@
     <asp:Label ID="lblTitle" runat="server" CssClass="BrewingThermometer_Title" Text="Title" />
     <br />
     <%--<div class="container">--%>
-    <div class="row">
+    <div class="row" style="background-color:Navy">
         <%-- <div id="BrewingThermometer_Display">--%>
         <div class="col-md-6" style="background-color: Fuchsia">
             <asp:LinkButton ID="lblCurrentTemp" runat="server" CssClass="TemperatureDigital"
                 Text="180" OnClick="btnCurrentTemp_OnClick" />
         </div>
         <div class="col-md-6">
-            <div class="row">
+            <div class="row" style="background-color:Olive">
                 <div class="col-md-12">
                     <asp:LinkButton ID="btnTempHighAlarm" runat="server" CssClass="TemperatureDigitalSmallTop"
                         Text="200" OnClick="btnTempHighAlarm_OnClick" />
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="background-color:Purple">
                 <div class="col-md-12">
                     <asp:LinkButton ID="btnTempLowAlarm" runat="server" CssClass="TemperatureDigitalSmallBottom"
                         Text="-10" OnClick="btnTempLowAlarm_OnClick" />

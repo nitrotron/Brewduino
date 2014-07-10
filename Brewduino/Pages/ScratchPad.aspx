@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    <title>Brasserie Sans Souci RIMS Controler</title>
     <!-- Bootstrap -->
     <%--<link href="css/bootstrap.min.css" rel="stylesheet">--%>
     <link href="../Bootstrap/bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet"
@@ -30,7 +30,7 @@
     <asp:UpdatePanel ID="pnlMain" runat="server">
         <ContentTemplate>
             <asp:Timer ID="tmrRefreshStatus" runat="server" OnTick="tmrRefreshStatus_Tick" Enabled="false" />
-            <div class="container-fluid">
+            <div class="container">
                 <div class="row">
                 
                     <%-- <div id="RimsPanelMain">--%>
