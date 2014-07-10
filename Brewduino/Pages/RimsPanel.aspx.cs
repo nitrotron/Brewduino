@@ -32,7 +32,7 @@ namespace Brewduino.Pages
             btRims.Name = "RIMS";
             btRims.BrewControl = BrewControl;
             btRims.Status = CurrentStatus;
-            //btRims.ShowRimsPanel(true);
+            btRims.ShowRimsPanel(true);
 
 
             btMash.Thermometer = BrewController.ThermometersName.MashTun;

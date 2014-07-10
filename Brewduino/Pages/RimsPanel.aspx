@@ -30,10 +30,12 @@
                 </div>
                 
                 <div id="buttonRow">
+               
                     <div class="switch" id="switchReset">
                         <asp:CheckBox ID="btnResetAlarm" runat="server" AutoPostBack="true" OnCheckedChanged="btnResetAlarm_OnClick"
                             Text="<i class='icon-attention-alt'></i>Alarm" />
                     </div>
+                 
                     <div class="switch" id="switchRimsOn">
                         <asp:CheckBox ID="chkRimsOn" runat="server" AutoPostBack="true" Text="<i class='icon-fire-1'></i>Rims"
                             OnCheckedChanged="chkRimsOn_CheckedChanged" />

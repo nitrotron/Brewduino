@@ -49,6 +49,15 @@ namespace Brewduino.Controllers {
         protected global::System.Web.UI.WebControls.LinkButton btnTempLowAlarm;
         
         /// <summary>
+        /// pnlRimsControls control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlRimsControls;
+        
+        /// <summary>
         /// pnlSetAlarm control.
         /// </summary>
         /// <remarks>
