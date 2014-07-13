@@ -144,6 +144,10 @@ namespace Brewduino.Controllers
 
 
         }
+        protected void btnUpdateRimsCancel_Click(object sender, EventArgs e)
+        {
+          /* Do nothing. Just want a call back that will hide the div. */
+        }
 
         public void ResetAlarm()
         {

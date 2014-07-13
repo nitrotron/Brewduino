@@ -112,6 +112,15 @@ namespace Brewduino.Controllers {
         protected global::System.Web.UI.WebControls.Button btnUpdateRims;
         
         /// <summary>
+        /// btnUpdateRimsCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdateRimsCancel;
+        
+        /// <summary>
         /// pnlSetAlarm control.
         /// </summary>
         /// <remarks>

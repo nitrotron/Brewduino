@@ -10,63 +10,65 @@
             Text="200" OnClick="btnTempHighAlarm_OnClick" />
         <asp:LinkButton ID="btnTempLowAlarm" runat="server" CssClass="TemperatureDigitalSmallBottom"
             Text="-10" OnClick="btnTempLowAlarm_OnClick" />
-            <br />
-        <asp:Panel ID="pnlRimsButton" runat="server" Visible=false>
+        <asp:Panel ID="pnlRimsButton" runat="server" Visible="false">
             <div id="btnShowRimsControls" class="Clickable">
-                <i class='icon-beer'></i>Rims Settings
+                <div id="pnlRimsControls" style="display: none;" class="RimsSettingContainterXXXXX">
+                    <table>
+                        <tr>
+                            <td class="RimsSettingLabel">
+                                Set Point:
+                            </td>
+                            <td class="RimsSettingTB">
+                                <asp:TextBox ID="tbSetPoint" runat="server" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="RimsSettingLabel">
+                                WindowSize:
+                            </td>
+                            <td class="RimsSettingTB">
+                                <asp:TextBox ID="tbWindowSize" runat="server" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="RimsSettingLabel">
+                                Kp:
+                            </td>
+                            <td class="RimsSettingTB">
+                                <asp:TextBox ID="tbKp" runat="server" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="RimsSettingLabel">
+                                Ki:
+                            </td>
+                            <td class="RimsSettingTB">
+                                <asp:TextBox ID="tbKi" runat="server" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="RimsSettingLabel">
+                                Kd:
+                            </td>
+                            <td class="RimsSettingTB">
+                                <asp:TextBox ID="tbKd" runat="server" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td class="RimsSettingTB">
+                                <asp:Button ID="btnUpdateRims" runat="server" Text="Set" OnClick="btnUpdateRims_Click"
+                                    CssClass="btnUpdateRims" />
+                                <asp:Button ID="btnUpdateRimsCancel" runat="server" Text="Cancel" OnClick="btnUpdateRimsCancel_Click"
+                                    CssClass="btnUpdateRims" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <i class='icon-beer'></i>RIMS Settings
             </div>
         </asp:Panel>
-        <div id="pnlRimsControls" style="display: none;" class="RimsSettingContainter">
-            <table>
-                <tr>
-                    <td class="RimsSettingLabel">
-                        Set Point:
-                    </td>
-                    <td class="RimsSettingTB">
-                        <asp:TextBox ID="tbSetPoint" runat="server" />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="RimsSettingLabel">
-                        WindowSize:
-                    </td>
-                    <td class="RimsSettingTB">
-                        <asp:TextBox ID="tbWindowSize" runat="server" />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="RimsSettingLabel">
-                        Kp:
-                    </td>
-                    <td class="RimsSettingTB">
-                        <asp:TextBox ID="tbKp" runat="server" />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="RimsSettingLabel">
-                        Ki:
-                    </td>
-                    <td class="RimsSettingTB">
-                        <asp:TextBox ID="tbKi" runat="server" />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="RimsSettingLabel">
-                        Kd:
-                    </td>
-                    <td class="RimsSettingTB">
-                        <asp:TextBox ID="tbKd" runat="server" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                    </td>
-                    <td class="RimsSettingTB">
-                        <asp:Button ID="btnUpdateRims" runat="server" Text="Set" OnClick="btnUpdateRims_Click" CssClass="btnUpdateRims" />
-                    </td>
-                </tr>
-            </table>
-        </div>
         <asp:Panel ID="pnlSetAlarm" CssClass="PanelOverlay" runat="server" Visible="false">
             <asp:Label ID="lblAlarmTitle" runat="server" />
             <br />
@@ -80,8 +82,7 @@
 <script type="text/javascript">
     function BindEvents3() {
         $("#btnShowRimsControls").click(function () {
-            debugger;
-            $("#pnlRimsControls").fadeIn('slow');
+            $("#pnlRimsControls").slideDown('slow');
         });
     };
     Sys.Application.add_load(BindEvents3);

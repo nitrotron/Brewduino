@@ -38,7 +38,7 @@
                     </div>
                  
                     <div class="switch" id="switchRimsOn">
-                        <asp:CheckBox ID="chkRimsOn" runat="server" AutoPostBack="true" Text="<i class='icon-fire-1'></i>Rims"
+                        <asp:CheckBox ID="chkRimsOn" runat="server" AutoPostBack="true" Text="<i class='icon-fire-1'></i>RIMS"
                             OnCheckedChanged="chkRimsOn_CheckedChanged" />
                     </div>
                     <div class="switch" id="switchPumpOn">
