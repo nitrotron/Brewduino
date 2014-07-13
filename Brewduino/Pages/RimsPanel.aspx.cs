@@ -67,6 +67,8 @@ namespace Brewduino.Pages
 
             if (!Page.IsPostBack)
                 RefreshButtons();
+
+            lblLastUpdate.Text = "Last Update " + DateTime.Now.ToLongTimeString();
         }
 
         private void RefreshButtons()
@@ -137,6 +139,21 @@ namespace Brewduino.Pages
             BrewControl.TurnOnPumps((chPumpOn.Checked == true) ? 1 : 0);
         }
 
+        protected void lbEnableDebug_OnClick(object sender, EventArgs e)
+        {
+            if (!pnlDebug.Visible)
+            {
+                pnlDebug.Visible = true;
+                lbEnableDebug.Text = "Hide BruinoData";
+                dlDebug.DataSource = CurrentStatus;
+                dlDebug.DataBind();
+            }
+            else
+            {
+                pnlDebug.Visible = false;
+                lbEnableDebug.Text = "Show BruinoData";
+            }
+        }
 
         private void soundAlarm()
         {

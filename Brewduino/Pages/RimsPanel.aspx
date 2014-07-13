@@ -9,10 +9,8 @@
     <script src="../Scripts/jquery-1.10.2.js"></script>
     <asp:UpdatePanel ID="pnlMain" runat="server">
         <ContentTemplate>
-            
             <asp:Timer ID="tmrRefreshStatus" runat="server" OnTick="tmrRefreshStatus_Tick" Enabled="false" />
             <div id="RimsPanelMain">
-              
                 <div id="RimsThermometers">
                     <div class="RimsThermometer">
                         <uc1:BrewThermometer ID="btRims" runat="server" />
@@ -28,15 +26,11 @@
                         <br />
                     </div>
                 </div>
-              
-                
                 <div id="buttonRow">
-               
                     <div class="switch" id="switchReset">
                         <asp:CheckBox ID="btnResetAlarm" runat="server" AutoPostBack="true" OnCheckedChanged="btnResetAlarm_OnClick"
                             Text="<i class='icon-attention-alt'></i>Alarm" />
                     </div>
-                 
                     <div class="switch" id="switchRimsOn">
                         <asp:CheckBox ID="chkRimsOn" runat="server" AutoPostBack="true" Text="<i class='icon-fire-1'></i>RIMS"
                             OnCheckedChanged="chkRimsOn_CheckedChanged" />
@@ -51,7 +45,20 @@
                     </div>
                 </div>
                 <asp:Label ID="lblSound" runat="server" Text="" />
+                <asp:Label ID="lblLastUpdate" runat="server" />
+                <br />
+                <asp:LinkButton ID="lbEnableDebug" runat="server" OnClick="lbEnableDebug_OnClick"
+                    Text="Show BruinoData" />
                 <%-- <div id="RimsGauge"></div>--%>
+                <asp:Panel ID="pnlDebug" runat="server" Visible="false">
+                    <asp:DataList ID="dlDebug" runat="server" DataKeyField="Key">
+                        <ItemTemplate>
+                            <asp:Label ID="lblKey" runat="server" Text='<%# Eval("Key") %>' /> = 
+                            <asp:Label ID="lblValue" runat="server" Text='<%# Eval("Value") %>'  />
+                        </ItemTemplate>
+                        <AlternatingItemStyle BackColor="#cccccc"/>
+                    </asp:DataList>
+                </asp:Panel>
             </div>
             <script type='text/javascript' src='https://www.google.com/jsapi'></script>
             <script type="text/javascript">
@@ -74,7 +81,4 @@
             </script>
         </ContentTemplate>
     </asp:UpdatePanel>
-    <asp:Panel ID="pnlDebug" runat="server" Visible=false>
-    
-    </asp:Panel>
 </asp:Content>

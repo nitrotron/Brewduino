@@ -112,6 +112,24 @@ namespace Brewduino.Pages {
         protected global::System.Web.UI.WebControls.Label lblSound;
         
         /// <summary>
+        /// lblLastUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLastUpdate;
+        
+        /// <summary>
+        /// lbEnableDebug control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbEnableDebug;
+        
+        /// <summary>
         /// pnlDebug control.
         /// </summary>
         /// <remarks>
@@ -119,5 +137,14 @@ namespace Brewduino.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlDebug;
+        
+        /// <summary>
+        /// dlDebug control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dlDebug;
     }
 }
