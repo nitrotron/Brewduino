@@ -43,7 +43,13 @@ namespace BrewduinoCatalogLib
 
             returnDict["ServerTime"] = serverTime.ToShortTimeString();
             returnDict["Timer0"] = "22:45:23";
-            
+            returnDict["Kp"] = "1";
+            returnDict["Ki"] = "2";
+            returnDict["Kd"] = "3";
+            returnDict["SetPoint"] = "5";
+            returnDict["WindowSize"] = "6";
+
+
 
             return returnDict;
         }

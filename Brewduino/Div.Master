@@ -5,6 +5,8 @@
 <head runat="server">
     <title></title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <%--<link href="~/Bootstrap/bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet"
+        type="text/css" />--%>
     <link href="Fonts/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="Fonts/fontello-374a6348/css/misc.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="head" runat="server">

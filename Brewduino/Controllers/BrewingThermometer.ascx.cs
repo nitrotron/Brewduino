@@ -134,7 +134,16 @@ namespace Brewduino.Controllers
         protected void btnCurrentTemp_OnClick(object sender, EventArgs e)
         {
         }
+        protected void btnUpdateRims_Click(object sender, EventArgs e)
+        {
+            BrewControl.SetPIDSetPoint(tbSetPoint.Text);
+            BrewControl.SetPIDWindowSize(tbWindowSize.Text);
+            BrewControl.SetPIDKd(tbKd.Text);
+            BrewControl.SetPIDKi(tbKi.Text);
+            BrewControl.SetPIDKp(tbKp.Text);
 
+
+        }
 
         public void ResetAlarm()
         {
@@ -149,7 +158,7 @@ namespace Brewduino.Controllers
             {
                 BrewControl.SetHighTempAlarm(Thermometer, "257");
             }
-            else if (temperature  < thermometerLowAlarm)
+            else if (temperature < thermometerLowAlarm)
             {
                 BrewControl.SetLowTempAlarm(Thermometer, "14");
             }
@@ -158,7 +167,14 @@ namespace Brewduino.Controllers
         }
         public void ShowRimsPanel(bool showPanel)
         {
-            pnlRimsControls.Attributes.Add("style", "Display:none");
+            pnlRimsButton.Visible = showPanel;
+
+            tbKp.Text = Status["Kp"];
+            tbKi.Text = Status["Ki"];
+            tbKd.Text = Status["Kd"];
+            tbSetPoint.Text = Status["SetPoint"];
+            tbWindowSize.Text = Status["WindowSize"];
+
         }
     }
 }

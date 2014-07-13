@@ -49,13 +49,67 @@ namespace Brewduino.Controllers {
         protected global::System.Web.UI.WebControls.LinkButton btnTempLowAlarm;
         
         /// <summary>
-        /// pnlRimsControls control.
+        /// pnlRimsButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlRimsControls;
+        protected global::System.Web.UI.WebControls.Panel pnlRimsButton;
+        
+        /// <summary>
+        /// tbSetPoint control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbSetPoint;
+        
+        /// <summary>
+        /// tbWindowSize control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbWindowSize;
+        
+        /// <summary>
+        /// tbKp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbKp;
+        
+        /// <summary>
+        /// tbKi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbKi;
+        
+        /// <summary>
+        /// tbKd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbKd;
+        
+        /// <summary>
+        /// btnUpdateRims control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdateRims;
         
         /// <summary>
         /// pnlSetAlarm control.

@@ -181,7 +181,10 @@ namespace Brewduino.Controllers
             UpdateReadings();
 
         }
-
+        public bool GetchkSoundAlarm()
+        {
+            return chkSoundAlarm.Checked;
+        }
         //private void btnAddNewTimer(double minutes)
         //{
         //    throw new NotImplementedException();

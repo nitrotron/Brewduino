@@ -50,14 +50,15 @@ namespace Brewduino.Pages
 
             bool tempAlarmActive = (CurrentStatus["TempAlarmActive"] == "1") ? true : false;
             bool timerAlarmActive = (CurrentStatus["TimerAlarmActive"] == "1") ? true : false;
-            
+
             if (tempAlarmActive || timerAlarmActive)
             {
                 //lblMainAlarm.Text = "We have an alarm";
                 btnResetAlarm.Checked = true;
-              //  soundAlarm();
+                if (cdtTimer.GetchkSoundAlarm())
+                    soundAlarm();
             }
-           
+
 
 
             //Response.AppendHeader("Refresh", 5 + "; URL=RimsPanel.aspx");
@@ -71,7 +72,7 @@ namespace Brewduino.Pages
         private void RefreshButtons()
         {
             chkRimsOn.Checked = (CurrentStatus["RimsEnable"] == "1") ? true : false;
-            chAuxPower.Checked = (CurrentStatus["AuxOn"] == "1") ? true: false;
+            chAuxPower.Checked = (CurrentStatus["AuxOn"] == "1") ? true : false;
             chPumpOn.Checked = (CurrentStatus["PumpOn"] == "1") ? true : false;
         }
 
