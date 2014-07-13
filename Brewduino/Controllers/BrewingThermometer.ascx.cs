@@ -118,17 +118,23 @@ namespace Brewduino.Controllers
 
 
         }
+        protected void btnCancelAlarms_OnClick(object sender, EventArgs e)
+        {
+            pnlSetAlarm.Visible = false;
+        }
         protected void btnTempHighAlarm_OnClick(object sender, EventArgs e)
         {
             pnlSetAlarm.Visible = true;
             lblAlarmTitle.Text = Name + ": High Temperature Alarm";
             hfWhichAlarm.Value = "High";
+            tbAlarm.Text = Status["ThermometerHighAlarm" + ThermoInt];
         }
         protected void btnTempLowAlarm_OnClick(object sender, EventArgs e)
         {
             pnlSetAlarm.Visible = true;
             lblAlarmTitle.Text = Name + ": Low Temperature Alarm";
             hfWhichAlarm.Value = "Low";
+            tbAlarm.Text = Status["ThermometerLowAlarm" + ThermoInt];
         }
 
         protected void btnCurrentTemp_OnClick(object sender, EventArgs e)

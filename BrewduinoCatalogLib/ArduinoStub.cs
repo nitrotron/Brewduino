@@ -26,12 +26,12 @@ namespace BrewduinoCatalogLib
             returnDict["TempAlarmActive"] = "1";
             returnDict["TimerAlarmActive"] = "0";
 
-            returnDict["ThermometerHighAlarm0"] = "275.0";
+            returnDict["ThermometerHighAlarm0"] = "209.0";
             returnDict["ThermometerHighAlarm1"] = "80.0";
-            returnDict["ThermometerHighAlarm2"] = "275.0";
-            returnDict["ThermometerLowAlarm0"] = "-10.0";
-            returnDict["ThermometerLowAlarm1"] = "-10.0";
-            returnDict["ThermometerLowAlarm2"] = "-10.0";
+            returnDict["ThermometerHighAlarm2"] = "210.0";
+            returnDict["ThermometerLowAlarm0"] = "15.0";
+            returnDict["ThermometerLowAlarm1"] = "22.0";
+            returnDict["ThermometerLowAlarm2"] = "30.0";
             returnDict["WhichThermoAlarm"] = BrewController.ThermometersName.Kettle.ToString();
             returnDict["TimersNotAllocated"] = "3";
             returnDict["TotalTimers"] = "12";
