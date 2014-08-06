@@ -72,10 +72,10 @@
         <asp:Panel ID="pnlSetAlarm" CssClass="PanelOverlay" runat="server" Visible="false">
             <asp:Label ID="lblAlarmTitle" runat="server" />
             <br />
-            <asp:TextBox ID="tbAlarm" runat="server" Width="33%"/>
+            <asp:TextBox ID="tbAlarm" runat="server" Width="33%" />
             <asp:Button ID="btnUpdateAlarms" runat="server" OnClick="btnUpdateAlarms_OnClick"
                 Text="Update" />
-                <asp:Button ID="btnCancelAlarms" runat="server" OnClick="btnCancelAlarms_OnClick"
+            <asp:Button ID="btnCancelAlarms" runat="server" OnClick="btnCancelAlarms_OnClick"
                 Text="Cancel" />
             <asp:HiddenField ID="hfWhichAlarm" runat="server" />
         </asp:Panel>

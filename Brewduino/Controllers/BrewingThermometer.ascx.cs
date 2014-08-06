@@ -85,6 +85,7 @@ namespace Brewduino.Controllers
             temp = decimal.Round(temp, 1);
             //btnTempLowAlarm.Text = temp.ToString();
             btnTempLowAlarm.Text = temp.ToString();
+            
         }
         protected void btnUpdateAlarms_OnClick(object sender, EventArgs e)
         {
@@ -147,13 +148,13 @@ namespace Brewduino.Controllers
             BrewControl.SetPIDKd(tbKd.Text);
             BrewControl.SetPIDKi(tbKi.Text);
             BrewControl.SetPIDKp(tbKp.Text);
-
-
+            
         }
         protected void btnUpdateRimsCancel_Click(object sender, EventArgs e)
         {
           /* Do nothing. Just want a call back that will hide the div. */
         }
+        
 
         public void ResetAlarm()
         {
@@ -178,12 +179,12 @@ namespace Brewduino.Controllers
         public void ShowRimsPanel(bool showPanel)
         {
             pnlRimsButton.Visible = showPanel;
-
             tbKp.Text = Status["Kp"];
             tbKi.Text = Status["Ki"];
             tbKd.Text = Status["Kd"];
             tbSetPoint.Text = Status["SetPoint"];
             tbWindowSize.Text = Status["WindowSize"];
+            
 
         }
     }

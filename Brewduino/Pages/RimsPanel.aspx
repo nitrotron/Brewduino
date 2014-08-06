@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Div.Master" AutoEventWireup="true"
+﻿<%@ Page Title="Brewduino" Language="C#" MasterPageFile="~/Div.Master" AutoEventWireup="true"
     CodeBehind="RimsPanel.aspx.cs" Inherits="Brewduino.Pages.RimsPanel" %>
 
 <%@ Register Src="~/Controllers/BrewingThermometer.ascx" TagPrefix="uc1" TagName="BrewThermometer" %>

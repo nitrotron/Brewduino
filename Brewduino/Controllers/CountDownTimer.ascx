@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CountDownTimer.ascx.cs"
     Inherits="Brewduino.Controllers.CountDownTimer" %>
-    <div><asp:CheckBox ID="chkSoundAlarm" runat="server" Text="Enable Sound Alarm" /></div>
+    <div><asp:CheckBox ID="chkSoundAlarm" runat="server" Text="Enable Sound Alarm" Visible="false"/></div>
 <div id="btnShowNewTimerPanel" class="Clickable">
     <i class="fa fa-fa fa-clock-o"></i>Click for New Timer
 </div>

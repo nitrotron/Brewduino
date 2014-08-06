@@ -24,7 +24,7 @@ namespace Brewduino.Pages
             //var address = new EndpointAddress("http://localhost:8080/SerialSwitch");
             var address = new EndpointAddress("http://192.168.0.16:8080/SerialSwitch");
             Arduino = new ArduinoSelfHostClient(binding, address);
-            //Arduino = new ArduinoStub(); //This in there so I can work on the skin.
+            Arduino = new ArduinoStub(); //This in there so I can work on the skin.
             BrewControl = new BrewController(Arduino);
 
             CurrentStatus = BrewControl.GetStatus();
@@ -32,7 +32,8 @@ namespace Brewduino.Pages
             btRims.Name = "RIMS";
             btRims.BrewControl = BrewControl;
             btRims.Status = CurrentStatus;
-            btRims.ShowRimsPanel(true);
+            if (!Page.IsPostBack)
+                btRims.ShowRimsPanel(true);
 
 
             btMash.Thermometer = BrewController.ThermometersName.MashTun;
@@ -62,7 +63,7 @@ namespace Brewduino.Pages
 
 
             //Response.AppendHeader("Refresh", 5 + "; URL=RimsPanel.aspx");
-            tmrRefreshStatus.Interval = 15000;
+            tmrRefreshStatus.Interval = 1500000;
             tmrRefreshStatus.Enabled = true;
 
             if (!Page.IsPostBack)
@@ -144,7 +145,7 @@ namespace Brewduino.Pages
 
         protected void chAuxPower_CheckedChanged(object sender, EventArgs e)
         {
-            BrewControl.TurnOnPumps((chPumpOn.Checked == true) ? 1 : 0);
+            BrewControl.TurnOnAux((chAuxPower.Checked == true) ? 1 : 0);
         }
 
         protected void lbEnableDebug_OnClick(object sender, EventArgs e)
