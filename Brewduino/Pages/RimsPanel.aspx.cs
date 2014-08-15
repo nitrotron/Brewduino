@@ -128,7 +128,12 @@ namespace Brewduino.Pages
             btRims.Status = CurrentStatus;
             btKettle.Status = CurrentStatus;
             btMash.Status = CurrentStatus;
+            cdtTimer.Status = CurrentStatus;
 
+            btRims.UpdateReadings();
+            btKettle.UpdateReadings();
+            btMash.UpdateReadings();
+            cdtTimer.UpdateReadings();
             RefreshButtons();
 
         }

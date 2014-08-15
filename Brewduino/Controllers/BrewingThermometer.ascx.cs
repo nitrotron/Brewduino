@@ -41,7 +41,7 @@ namespace Brewduino.Controllers
             set
             {
                 _Status = value;
-                UpdateReadings();
+                //UpdateReadings();
             }
         }
 
@@ -60,7 +60,7 @@ namespace Brewduino.Controllers
 
 
 
-        protected void UpdateReadings()
+        public void UpdateReadings()
         {
 
             lblCurrentTemp.Text = String.Format("{0:N1}", Status["Thermometer" + ThermoInt]);

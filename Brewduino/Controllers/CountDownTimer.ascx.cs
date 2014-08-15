@@ -25,11 +25,11 @@ namespace Brewduino.Controllers
             set
             {
                 _Status = value;
-                UpdateReadings();
+                //UpdateReadings();
             }
         }
 
-        private void UpdateReadings()
+        public void UpdateReadings()
         {
             CultureInfo ci = new CultureInfo("en-US");
             int TimersNotAllocated;
