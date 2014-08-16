@@ -85,7 +85,7 @@ namespace Brewduino.Controllers
             temp = decimal.Round(temp, 1);
             //btnTempLowAlarm.Text = temp.ToString();
             btnTempLowAlarm.Text = temp.ToString();
-            
+
         }
         protected void btnUpdateAlarms_OnClick(object sender, EventArgs e)
         {
@@ -128,14 +128,22 @@ namespace Brewduino.Controllers
             pnlSetAlarm.Visible = true;
             lblAlarmTitle.Text = Name + ": High Temperature Alarm";
             hfWhichAlarm.Value = "High";
-            tbAlarm.Text = Status["ThermometerHighAlarm" + ThermoInt];
+            decimal temp;
+            decimal.TryParse(Status["ThermometerHighAlarm" + ThermoInt], out temp);
+            temp = decimal.Round(temp, 1);
+            tbAlarm.Text = temp.ToString();
+
+            //tbAlarm.Text =  tbAlarm.Text.Remove(tbAlarm.Text.IndexOf('.')+2);
         }
         protected void btnTempLowAlarm_OnClick(object sender, EventArgs e)
         {
             pnlSetAlarm.Visible = true;
             lblAlarmTitle.Text = Name + ": Low Temperature Alarm";
             hfWhichAlarm.Value = "Low";
-            tbAlarm.Text = Status["ThermometerLowAlarm" + ThermoInt];
+            decimal temp;
+            decimal.TryParse(Status["ThermometerLowAlarm" + ThermoInt], out temp);
+            temp = decimal.Round(temp, 1);
+            tbAlarm.Text = temp.ToString();
         }
 
         protected void btnCurrentTemp_OnClick(object sender, EventArgs e)
@@ -148,13 +156,13 @@ namespace Brewduino.Controllers
             BrewControl.SetPIDKd(tbKd.Text);
             BrewControl.SetPIDKi(tbKi.Text);
             BrewControl.SetPIDKp(tbKp.Text);
-            
+
         }
         protected void btnUpdateRimsCancel_Click(object sender, EventArgs e)
         {
-          /* Do nothing. Just want a call back that will hide the div. */
+            /* Do nothing. Just want a call back that will hide the div. */
         }
-        
+
 
         public void ResetAlarm()
         {
@@ -184,7 +192,7 @@ namespace Brewduino.Controllers
             tbKd.Text = Status["Kd"];
             tbSetPoint.Text = Status["SetPoint"];
             tbWindowSize.Text = Status["WindowSize"];
-            
+
 
         }
     }
