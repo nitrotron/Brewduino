@@ -68,13 +68,6 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
-    <Content Include="Bootstrap\bootstrap-3.2.0-dist\css\bootstrap-theme.css" />
-    <Content Include="Bootstrap\bootstrap-3.2.0-dist\css\bootstrap-theme.min.css" />
-    <Content Include="Bootstrap\bootstrap-3.2.0-dist\css\bootstrap.css" />
-    <Content Include="Bootstrap\bootstrap-3.2.0-dist\css\bootstrap.min.css" />
-    <Content Include="Bootstrap\bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Bootstrap\bootstrap-3.2.0-dist\js\bootstrap.js" />
-    <Content Include="Bootstrap\bootstrap-3.2.0-dist\js\bootstrap.min.js" />
     <Content Include="Controllers\BrewingThermometer.ascx" />
     <Content Include="Controllers\CountDownTimer.ascx" />
     <Content Include="Fonts\font-awesome-4.1.0\css\font-awesome.css" />
@@ -90,6 +83,7 @@
     <Content Include="Fonts\fontello-374a6348\font\misc.svg" />
     <Content Include="Fonts\fontello-374a6348\LICENSE.txt" />
     <Content Include="Fonts\fontello-374a6348\README.txt" />
+    <Content Include="Pages\RimsPanelResp.aspx" />
     <Content Include="Pages\Debugaspx.aspx" />
     <Content Include="Pages\RimsPanel.aspx" />
     <Content Include="Pages\ScratchPad.aspx" />
@@ -100,7 +94,6 @@
     <Content Include="Scripts\jquery-ui-1.10.4.custom.min.js" />
     <Content Include="Scripts\jquery.countdown.js" />
     <Content Include="Scripts\jquery.countdown.min.js" />
-    <Content Include="Sounds\ALARM.WAV" />
     <Content Include="Styles\redmond\images\animated-overlay.gif" />
     <Content Include="Styles\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Styles\redmond\images\ui-bg_flat_55_fbec88_40x100.png" />
@@ -119,6 +112,23 @@
     <Content Include="Styles\redmond\images\ui-icons_f9bd01_256x240.png" />
     <Content Include="Styles\redmond\jquery-ui-1.10.4.custom.css" />
     <Content Include="Styles\redmond\jquery-ui-1.10.4.custom.min.css" />
+    <Content Include="Styles\responsivegridsystems\1024.css" />
+    <Content Include="Styles\responsivegridsystems\10cols.css" />
+    <Content Include="Styles\responsivegridsystems\11cols.css" />
+    <Content Include="Styles\responsivegridsystems\12cols.css" />
+    <Content Include="Styles\responsivegridsystems\2cols.css" />
+    <Content Include="Styles\responsivegridsystems\3cols.css" />
+    <Content Include="Styles\responsivegridsystems\480.css" />
+    <Content Include="Styles\responsivegridsystems\4cols.css" />
+    <Content Include="Styles\responsivegridsystems\5cols.css" />
+    <Content Include="Styles\responsivegridsystems\6cols.css" />
+    <Content Include="Styles\responsivegridsystems\768.css" />
+    <Content Include="Styles\responsivegridsystems\7cols.css" />
+    <Content Include="Styles\responsivegridsystems\8cols.css" />
+    <Content Include="Styles\responsivegridsystems\9cols.css" />
+    <Content Include="Styles\responsivegridsystems\col.css" />
+    <Content Include="Styles\responsivegridsystems\html5reset.css" />
+    <Content Include="Styles\responsivegridsystems\responsivegridsystem.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -199,8 +209,22 @@
     <Compile Include="Div.Master.designer.cs">
       <DependentUpon>Div.Master</DependentUpon>
     </Compile>
+    <Compile Include="DivResponsive.Master.cs">
+      <DependentUpon>DivResponsive.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DivResponsive.Master.designer.cs">
+      <DependentUpon>DivResponsive.Master</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RimsPanelResp.aspx.cs">
+      <DependentUpon>RimsPanelResp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RimsPanelResp.aspx.designer.cs">
+      <DependentUpon>RimsPanelResp.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Debugaspx.aspx.cs">
       <DependentUpon>Debugaspx.aspx</DependentUpon>
@@ -294,11 +318,7 @@
     <Content Include="Fonts\font-awesome-4.1.0\scss\_spinning.scss" />
     <Content Include="Fonts\font-awesome-4.1.0\scss\_stacked.scss" />
     <Content Include="Fonts\font-awesome-4.1.0\scss\_variables.scss" />
-    <None Include="Bootstrap\bootstrap-3.2.0-dist\css\bootstrap-theme.css.map" />
-    <None Include="Bootstrap\bootstrap-3.2.0-dist\css\bootstrap.css.map" />
-    <None Include="Bootstrap\bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.eot" />
-    <None Include="Bootstrap\bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.ttf" />
-    <None Include="Bootstrap\bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="DivResponsive.Master" />
     <None Include="Fonts\fontello-374a6348\config.json" />
     <None Include="Fonts\fontello-374a6348\font\misc.eot" />
     <None Include="Fonts\fontello-374a6348\font\misc.ttf" />

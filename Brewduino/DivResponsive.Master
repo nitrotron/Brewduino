@@ -1,0 +1,29 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DivResponsive.master.cs" Inherits="Brewduino.DivResponsive" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <%--<link href="~/Bootstrap/bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet"
+        type="text/css" />--%>
+    <link href="Fonts/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="Fonts/fontello-374a6348/css/misc.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+     <asp:ScriptManager ID="scriptManager" runat="server" />
+    <div id="content">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolderHead" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolderFooter" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
