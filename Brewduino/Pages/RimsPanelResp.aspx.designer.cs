@@ -8,10 +8,9 @@
 //------------------------------------------------------------------------------
 
 namespace Brewduino.Pages {
-
-
-    public partial class RimsPanelResp
-    {
+    
+    
+    public partial class RimsPanel {
         
         /// <summary>
         /// pnlMain control.

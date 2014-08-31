@@ -83,7 +83,6 @@
     <Content Include="Fonts\fontello-374a6348\font\misc.svg" />
     <Content Include="Fonts\fontello-374a6348\LICENSE.txt" />
     <Content Include="Fonts\fontello-374a6348\README.txt" />
-    <Content Include="Pages\RimsPanelResp.aspx" />
     <Content Include="Pages\Debugaspx.aspx" />
     <Content Include="Pages\RimsPanel.aspx" />
     <Content Include="Pages\ScratchPad.aspx" />
@@ -218,13 +217,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\RimsPanelResp.aspx.cs">
-      <DependentUpon>RimsPanelResp.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\RimsPanelResp.aspx.designer.cs">
-      <DependentUpon>RimsPanelResp.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Debugaspx.aspx.cs">
       <DependentUpon>Debugaspx.aspx</DependentUpon>
