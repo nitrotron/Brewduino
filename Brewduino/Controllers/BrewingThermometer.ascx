@@ -10,7 +10,7 @@
             Text="200" OnClick="btnTempHighAlarm_OnClick" />
         <asp:LinkButton ID="btnTempLowAlarm" runat="server" CssClass="TemperatureDigitalSmallBottom"
             Text="-10" OnClick="btnTempLowAlarm_OnClick" />
-        <asp:Panel ID="pnlRimsButton" runat="server" Visible="false">
+        <asp:Panel ID="pnlRimsButton" runat="server" Visible="false" CssClass="pnlRimsButton">
             <div id="btnShowRimsControls" class="Clickable">
                 <div id="pnlRimsControls" style="display: none;" class="RimsSettingContainterXXXXX">
                     <table>
