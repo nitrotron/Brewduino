@@ -442,6 +442,10 @@ body
     width: 100%;
     /*padding-left: 180px;*/
     display:block;
+    text-align: justify;
+    -ms-text-justify: distribute-all-lines;
+    text-justify: distribute-all-lines;
+
  }
 
 .switch input
@@ -460,24 +464,27 @@ body
 
 .SwitchWrapper
 {
-    width:50%;
+   width:50%;
     padding: 0px 25%;
+    display: inline-block;
+   
+
 }
 .switch
 {
-    width: 150px;
-    height: 150px;
-    width: 10em;
-    height: 10em;
+    width: 100px;
+    height: 100px;
+   /* width: 10em;
+    height: 10em; */
     position: relative;
     z-index: auto;
-    margin: 10% 5%;
+    margin: 5% 5%;
     display: block;
     display: flex;
     float: left;
-    padding-bottom: 25px;
+  /*  padding-bottom: 25px;
     padding: 10%;
-    margin-bottom: 30%;
+    margin-bottom: 30%;*/
 }
 
     .switch label
@@ -488,11 +495,11 @@ body
         position: relative;
         color: #a5a39d;
         font-size: 70px;
-        font-size: 5em;
+        font-size: 4.6em;
         text-align: center;
         vertical-align: middle;
         line-height: 115px;
-        line-height: 1.5em;
+        line-height: 1.9em;
         text-shadow: 0 2px 1px rgba(0,0,0,0.25);
         border-radius: 50%;
         background: #b25244; /* Fallback */
