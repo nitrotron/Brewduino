@@ -51,6 +51,7 @@
                                 OnCheckedChanged="chAuxPower_CheckedChanged" />
                         </div>
                     </div>
+                    <span class="Stretch" />
                 </div>
                 <asp:Label ID="lblSound" runat="server" Text="" />
                 <asp:Label ID="lblLastUpdate" runat="server" />
