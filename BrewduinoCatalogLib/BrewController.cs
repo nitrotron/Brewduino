@@ -13,7 +13,8 @@ namespace BrewduinoCatalogLib
         {
             RIMS,
             Kettle,
-            MashTun
+            MashTun,
+            HLT
         }
         private IArduinoSelfHost _Arduino;
         public IArduinoSelfHost Arduino

@@ -8,6 +8,7 @@ using BrewduinoCatalogLib;
 using System.ServiceModel;
 using System.Media;
 using System.ComponentModel;
+using Brewduino.Controllers;
 
 namespace Brewduino.Pages
 {
@@ -17,6 +18,7 @@ namespace Brewduino.Pages
         protected IArduinoSelfHost Arduino;
         protected BrewController BrewControl;
         protected Dictionary<string, string> CurrentStatus;
+        protected List<BrewingThermometer> thermometers = new List<BrewingThermometer>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,6 +28,8 @@ namespace Brewduino.Pages
             Arduino = new ArduinoSelfHostClient(binding, address);
             Arduino = new ArduinoStub(); //This in there so I can work on the skin.
             BrewControl = new BrewController(Arduino);
+            
+            
 
             CurrentStatus = BrewControl.GetStatus();
             btRims.Thermometer = BrewController.ThermometersName.RIMS;
@@ -34,17 +38,26 @@ namespace Brewduino.Pages
             btRims.Status = CurrentStatus;
             if (!Page.IsPostBack)
                 btRims.ShowRimsPanel(true);
-
+            thermometers.Add(btRims);
 
             btMash.Thermometer = BrewController.ThermometersName.MashTun;
             btMash.Name = "Mash Tun";
             btMash.BrewControl = BrewControl;
             btMash.Status = CurrentStatus;
+            thermometers.Add(btMash);
 
             btKettle.Thermometer = BrewController.ThermometersName.Kettle;
             btKettle.Name = "Kettle";
             btKettle.BrewControl = BrewControl;
             btKettle.Status = CurrentStatus;
+            thermometers.Add(btKettle);
+
+            btHLT.Thermometer = BrewController.ThermometersName.HLT;
+            btHLT.Name = "HLT/Kettle 2";
+            btHLT.BrewControl = BrewControl;
+            btHLT.Status = CurrentStatus;
+            thermometers.Add(btHLT);
+
 
             cdtTimer.BrewControl = BrewControl;
             cdtTimer.Status = CurrentStatus;
@@ -63,7 +76,7 @@ namespace Brewduino.Pages
 
 
             //Response.AppendHeader("Refresh", 5 + "; URL=RimsPanel.aspx");
-            tmrRefreshStatus.Interval = 15000000;
+            tmrRefreshStatus.Interval = 15000;
             tmrRefreshStatus.Enabled = true;
 
             if (!Page.IsPostBack)
@@ -96,18 +109,29 @@ namespace Brewduino.Pages
             {
                 int whichThermoAlarm = 9999;
                 int.TryParse(CurrentStatus["WhichThermoAlarm"], out whichThermoAlarm);
-                if (whichThermoAlarm == (int)BrewController.ThermometersName.RIMS)
+                foreach (BrewingThermometer bt in thermometers)
                 {
-                    btRims.ResetAlarm();
+                    if (whichThermoAlarm == bt.ThermoInt)
+                    {
+                        bt.ResetAlarm();
+                    }
                 }
-                else if (whichThermoAlarm == (int)BrewController.ThermometersName.MashTun)
-                {
-                    btMash.ResetAlarm();
-                }
-                else if (whichThermoAlarm == (int)BrewController.ThermometersName.Kettle)
-                {
-                    btKettle.ResetAlarm();
-                }
+                //if (whichThermoAlarm == (int)BrewController.ThermometersName.RIMS)
+                //{
+                //    btRims.ResetAlarm();
+                //}
+                //else if (whichThermoAlarm == (int)BrewController.ThermometersName.MashTun)
+                //{
+                //    btMash.ResetAlarm();
+                //}
+                //else if (whichThermoAlarm == (int)BrewController.ThermometersName.Kettle)
+                //{
+                //    btKettle.ResetAlarm();
+                //}
+                //else if (whichThermoAlarm == (int)BrewController.ThermometersName.HLT)
+                //{
+                //    btHLT.ResetAlarm();
+                //}
             }
             //if (CurrentStatus["TimerAlarmActive"] > 0)
             {
@@ -125,14 +149,21 @@ namespace Brewduino.Pages
             // do nothing. This post back should be enough
             CurrentStatus = BrewControl.GetStatus();
 
-            btRims.Status = CurrentStatus;
-            btKettle.Status = CurrentStatus;
-            btMash.Status = CurrentStatus;
+            foreach(BrewingThermometer bt in thermometers)
+            {
+                bt.Status = CurrentStatus;
+                bt.UpdateReadings();
+            }
+            //btRims.Status = CurrentStatus;
+            //btKettle.Status = CurrentStatus;
+            //btMash.Status = CurrentStatus;
+            //btHLT.Status = CurrentStatus;
             cdtTimer.Status = CurrentStatus;
 
-            btRims.UpdateReadings();
-            btKettle.UpdateReadings();
-            btMash.UpdateReadings();
+            //btRims.UpdateReadings();
+            //btKettle.UpdateReadings();
+            //btMash.UpdateReadings();
+            //btHLT.UpdateReadings();
             cdtTimer.UpdateReadings();
             RefreshButtons();
 

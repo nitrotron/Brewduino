@@ -58,6 +58,15 @@ namespace Brewduino.Pages {
         protected global::Brewduino.Controllers.BrewingThermometer btKettle;
         
         /// <summary>
+        /// btHLT control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Brewduino.Controllers.BrewingThermometer btHLT;
+        
+        /// <summary>
         /// cdtTimer control.
         /// </summary>
         /// <remarks>

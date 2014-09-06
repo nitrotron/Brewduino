@@ -21,6 +21,9 @@
                     <div class="RimsThermometer">
                         <uc1:BrewThermometer ID="btKettle" runat="server" />
                     </div>
+                    <div class="RimsThermometer">
+                        <uc1:BrewThermometer ID="btHLT" runat="server" />
+                    </div>
                     <div class="CountDownTimer">
                         <uc2:CoundDownTimer ID="cdtTimer" runat="server" />
                         <br />

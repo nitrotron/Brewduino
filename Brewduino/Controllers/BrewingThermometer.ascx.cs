@@ -44,6 +44,16 @@ namespace Brewduino.Controllers
                 //UpdateReadings();
             }
         }
+        private bool CurrentTemperatureExists
+        {
+            get
+            {
+                if (Status != null && Status.ContainsKey("Thermometer" + ThermoInt))
+                    return true;
+                else
+                    return false;
+            }
+        }
 
 
         #endregion
@@ -62,7 +72,17 @@ namespace Brewduino.Controllers
 
         public void UpdateReadings()
         {
-
+            //no need to continue if this thermometer doesn't exist
+            if (!CurrentTemperatureExists)
+            {
+                lblCurrentTemp.Text = "00.0";
+                btnTempHighAlarm.Text = "00.0";
+                btnTempLowAlarm.Text = "00.0";
+                lblCurrentTemp.Text = "--.-";
+                btnTempHighAlarm.Text = "--.-";
+                btnTempLowAlarm.Text = "--.-";
+                return;
+            }
             lblCurrentTemp.Text = String.Format("{0:N1}", Status["Thermometer" + ThermoInt]);
 
             bool tempAlarmActive = false;
@@ -125,6 +145,10 @@ namespace Brewduino.Controllers
         }
         protected void btnTempHighAlarm_OnClick(object sender, EventArgs e)
         {
+            //no need to continue if this thermometer doesn't exist
+            if (!CurrentTemperatureExists)
+                return;
+
             pnlSetAlarm.Visible = true;
             lblAlarmTitle.Text = Name + ": High Temperature Alarm";
             hfWhichAlarm.Value = "High";
@@ -137,6 +161,9 @@ namespace Brewduino.Controllers
         }
         protected void btnTempLowAlarm_OnClick(object sender, EventArgs e)
         {
+            //no need to continue if this thermometer doesn't exist
+            if (!CurrentTemperatureExists)
+                return;
             pnlSetAlarm.Visible = true;
             lblAlarmTitle.Text = Name + ": Low Temperature Alarm";
             hfWhichAlarm.Value = "Low";
@@ -148,6 +175,9 @@ namespace Brewduino.Controllers
 
         protected void btnCurrentTemp_OnClick(object sender, EventArgs e)
         {
+            //no need to continue if this thermometer doesn't exist
+            if (!CurrentTemperatureExists)
+                return;
         }
         protected void btnUpdateRims_Click(object sender, EventArgs e)
         {
@@ -166,6 +196,9 @@ namespace Brewduino.Controllers
 
         public void ResetAlarm()
         {
+            //no need to continue if this thermometer doesn't exist
+            if (!CurrentTemperatureExists)
+                return;
             int temperature;
             int.TryParse(Status["Thermometer" + ThermoInt], out temperature);
             int thermometerHighAlarm;

@@ -21,7 +21,8 @@ namespace BrewduinoCatalogLib
 
             returnDict["Thermometer0"] = "150.2";
             returnDict["Thermometer1"] = "82.9";
-            returnDict["Thermometer2"] = "202.3";
+            returnDict["Thermometer2"]= "202.3";
+            returnDict["Thermometer3"] = "189.3";
 
             returnDict["TempAlarmActive"] = "1";
             returnDict["TimerAlarmActive"] = "0";
@@ -29,9 +30,11 @@ namespace BrewduinoCatalogLib
             returnDict["ThermometerHighAlarm0"] = "209.0";
             returnDict["ThermometerHighAlarm1"] = "80.0";
             returnDict["ThermometerHighAlarm2"] = "210.0";
+            returnDict["ThermometerHighAlarm3"] = "155.0";
             returnDict["ThermometerLowAlarm0"] = "15.0";
             returnDict["ThermometerLowAlarm1"] = "22.0";
             returnDict["ThermometerLowAlarm2"] = "30.0";
+            returnDict["ThermometerLowAlarm3"] = "55.0";
             returnDict["WhichThermoAlarm"] = BrewController.ThermometersName.Kettle.ToString();
             returnDict["TimersNotAllocated"] = "3";
             returnDict["TotalTimers"] = "12";
@@ -42,7 +45,7 @@ namespace BrewduinoCatalogLib
             DateTime serverTime = DateTime.Now.AddSeconds(5);
 
             returnDict["ServerTime"] = serverTime.ToShortTimeString();
-            returnDict["Timer0"] = "22:45:23";
+            returnDict["Timer0"] = "23:59:23";
             returnDict["Kp"] = "1";
             returnDict["Ki"] = "2";
             returnDict["Kd"] = "3";
