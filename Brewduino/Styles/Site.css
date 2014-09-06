@@ -18,7 +18,7 @@ div#RimsThermometers
     margin-left: auto; /*width: 90%;*/
     text-align: center;
     float: left;
-    width: 100%;
+    width: 100%
 }
 
     div#RimsThermometers .RimsThermometer
@@ -39,8 +39,13 @@ div#RimsThermometers
         webkit-box-shadow: 0px 0px 5px 1px rgba(98,145,208, 0.5);
         -moz-box-shadow: 0px 0px 5px 1px rgba(98,145,208, 0.5);
         box-shadow: 0px 0px 5px 1px rgba(98,145,208, 0.5);
+        webkit-box-shadow: 0px 0px 5px 1px rgba(0, 30, 71, 0.5));
+        -moz-box-shadow: 0px 0px 5px 1px rgba(0, 30, 71, 0.5);
+        box-shadow: 0px 0px 5px 1px rgba(0, 30, 71, 0.5);
         /*width: 320px;*/
-        width: 100%;
+        width: 98%;
+        margin: 10px 1% 0px 1%;
+        padding-bottom: 10px;
         /*padding: 10px 10px 10px 10px;*/
         /*TODO padding: 3.125%;*/
         display: block;
@@ -137,6 +142,8 @@ div#RimsThermometers
     vertical-align: top;
     float: left;
     width: 100%;
+    width: 98%;
+    margin: 10px 1% 0px 1%
 }
 
 #pnlAddTimer
@@ -303,7 +310,7 @@ div#BrewingThermometer_Display
     /*todo padding: 10px 10px 10px 10px;*/
     background-color: Lime;
     z-index: 999;
-    width: 270px;
+    width: 100%;
     font-size: 18px; /*position: absolute;     top: 75px;     left: 400px; */
     background-color: White;
     /*  margin  : 5px 5px 5px 5px; */
@@ -694,13 +701,13 @@ body
 {
     div#RimsThermometers .RimsThermometer
     {
-        width: 50%;
+        width: 45%;
         height: 150px;
     }
 
     .CountDownTimer
     {
-        width: 50%;
+        width: 90%;
     }
 
     .switch
@@ -726,26 +733,41 @@ body
 
 @media only screen and (min-width: 1024px)
 {
-    div#RimsThermometers .RimsThermometer
+/*    div#RimsThermometers .RimsThermometer
     {
-        width: 25%;
+        width: 10%;
+        margin-left: 5%;
+        margin-top:10px;
     }
 
     .CountDownTimer
     {
-        width: 25%;
+        width: 20%;
     }
+*/
 }
 
 @media only screen and (min-width: 1200px)
 {
     div#RimsThermometers .RimsThermometer
     {
-        width: 280px;
+        width: 18.5%;
+       margin-left: 1%;
+       
     }
 
     .CountDownTimer
     {
-        width: 280px;
+        width: 220px;
+    }
+    .TemperatureDigital
+    {
+        font-size: 5.6em;
+        }
+
+    .TemperatureDigitalSmallBottom, .TemperatureDigitalSmallTop
+    {
+        font-size: 2.5em;
+        
     }
 }
