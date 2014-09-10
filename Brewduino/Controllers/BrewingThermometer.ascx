@@ -1,5 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="BrewingThermometer.ascx.cs"
     Inherits="Brewduino.Controllers.BrewingThermometer" %>
+<%@ Register Assembly="GoogleChartsNGraphsControls" Namespace="GoogleChartsNGraphsControls" TagPrefix="cc1" %>
+
 <div id="BrewingThermometerMain">
     <asp:Label ID="lblTitle" runat="server" CssClass="BrewingThermometer_Title" Text="Title" />
     <br />
@@ -15,48 +17,42 @@
                 <div id="pnlRimsControls" style="display: none;" class="RimsSettingContainterXXXXX">
                     <table>
                         <tr>
-                            <td class="RimsSettingLabel">
-                                Set Point:
+                            <td class="RimsSettingLabel">Set Point:
                             </td>
                             <td class="RimsSettingTB">
                                 <asp:TextBox ID="tbSetPoint" runat="server" />
                             </td>
                         </tr>
                         <tr>
-                            <td class="RimsSettingLabel">
-                                WindowSize:
+                            <td class="RimsSettingLabel">WindowSize:
                             </td>
                             <td class="RimsSettingTB">
                                 <asp:TextBox ID="tbWindowSize" runat="server" />
                             </td>
                         </tr>
                         <tr>
-                            <td class="RimsSettingLabel">
-                                Kp:
+                            <td class="RimsSettingLabel">Kp:
                             </td>
                             <td class="RimsSettingTB">
                                 <asp:TextBox ID="tbKp" runat="server" />
                             </td>
                         </tr>
                         <tr>
-                            <td class="RimsSettingLabel">
-                                Ki:
+                            <td class="RimsSettingLabel">Ki:
                             </td>
                             <td class="RimsSettingTB">
                                 <asp:TextBox ID="tbKi" runat="server" />
                             </td>
                         </tr>
                         <tr>
-                            <td class="RimsSettingLabel">
-                                Kd:
+                            <td class="RimsSettingLabel">Kd:
                             </td>
                             <td class="RimsSettingTB">
                                 <asp:TextBox ID="tbKd" runat="server" />
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                            </td>
+                            <td></td>
                             <td class="RimsSettingTB">
                                 <asp:Button ID="btnUpdateRims" runat="server" Text="Set" OnClick="btnUpdateRims_Click"
                                     CssClass="btnUpdateRims" />
@@ -81,6 +77,11 @@
         </asp:Panel>
     </div>
 </div>
+<asp:Panel ID="pnlTempGraph" runat="server" CssClass="pnlTempGraph">
+    <div class="TempGraph">
+        <cc1:GVAnnotatedTimeline ID="GVAnnotatedTimeline2" runat="server" Width="400px" Height="160px" GviDisplayAnnotations="True" />
+    </div>
+</asp:Panel>
 <script type="text/javascript">
     function BindEvents3() {
         $("#btnShowRimsControls").click(function () {
@@ -88,5 +89,5 @@
         });
     };
     Sys.Application.add_load(BindEvents3);
-  
+
 </script>

@@ -57,8 +57,33 @@ namespace Brewduino.Controllers
 
 
         #endregion
+        protected void Page_Init()
+        {
+            DateTime myDate = DateTime.Now.AddHours(-5);
 
+            // AnnotatedTimeline Test
+            List<GoogleChartsNGraphsControls.TimelineEvent> evts = new List<GoogleChartsNGraphsControls.TimelineEvent>();
+            float temperature = 55;
+            Random ran = new Random();
+            for (int i = 0; i < 100; i++)
+            {
+                float adder = ran.Next(-20, 100);
+                //decimal.TryParse(ran.Next(100).ToString(), out adder);
+                temperature += adder / (float)25.0;
+                if (temperature > 211) temperature = 211;
+                if (temperature < 55) temperature = 55;
+                evts.Add(new GoogleChartsNGraphsControls.TimelineEvent("Temp", myDate, (decimal)temperature));
+                myDate = myDate.AddMinutes(5);
+            }
+            //evts.Add(new GoogleChartsNGraphsControls.TimelineEvent("Sold Pencils", new DateTime(2008, 1, 2), 14045));
+            //evts.Add(new GoogleChartsNGraphsControls.TimelineEvent("Sold Pencils", new DateTime(2008, 1, 3), 55022));
+            //evts.Add(new GoogleChartsNGraphsControls.TimelineEvent("Sold Pencils", new DateTime(2008, 1, 4), 75284));
+            //evts.Add(new GoogleChartsNGraphsControls.TimelineEvent("Sold Pencils", new DateTime(2008, 1, 5), 41476));
+            //evts.Add(new GoogleChartsNGraphsControls.TimelineEvent("Sold Pencils", new DateTime(2008, 1, 6), 33322));
 
+            //this.GVAnnotatedTimeline1.ChartData(evts.ToArray());
+            this.GVAnnotatedTimeline2.ChartData(evts.Where(d => d.EventCategory == "Temp").ToArray());
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -68,7 +93,33 @@ namespace Brewduino.Controllers
             }
         }
 
+        protected void UpdateChart()
+        {
+            DateTime myDate = DateTime.Now.AddHours(-5);
 
+            // AnnotatedTimeline Test
+            List<GoogleChartsNGraphsControls.TimelineEvent> evts = new List<GoogleChartsNGraphsControls.TimelineEvent>();
+            float temperature = 55;
+            Random ran = new Random();
+            for (int i = 0; i < 100; i++)
+            {
+                float adder = ran.Next(-20, 100);
+                //decimal.TryParse(ran.Next(100).ToString(), out adder);
+                temperature += adder / (float)25.0;
+                if (temperature > 211) temperature = 211;
+                if (temperature < 55) temperature = 55;
+                evts.Add(new GoogleChartsNGraphsControls.TimelineEvent("Temp", myDate, (decimal)temperature));
+                myDate = myDate.AddMinutes(5);
+            }
+            //evts.Add(new GoogleChartsNGraphsControls.TimelineEvent("Sold Pencils", new DateTime(2008, 1, 2), 14045));
+            //evts.Add(new GoogleChartsNGraphsControls.TimelineEvent("Sold Pencils", new DateTime(2008, 1, 3), 55022));
+            //evts.Add(new GoogleChartsNGraphsControls.TimelineEvent("Sold Pencils", new DateTime(2008, 1, 4), 75284));
+            //evts.Add(new GoogleChartsNGraphsControls.TimelineEvent("Sold Pencils", new DateTime(2008, 1, 5), 41476));
+            //evts.Add(new GoogleChartsNGraphsControls.TimelineEvent("Sold Pencils", new DateTime(2008, 1, 6), 33322));
+
+            //this.GVAnnotatedTimeline1.ChartData(evts.ToArray());
+            this.GVAnnotatedTimeline2.ChartData(evts.Where(d => d.EventCategory == "Temp").ToArray());
+        }
 
         public void UpdateReadings()
         {
@@ -178,6 +229,8 @@ namespace Brewduino.Controllers
             //no need to continue if this thermometer doesn't exist
             if (!CurrentTemperatureExists)
                 return;
+            pnlTempGraph.Style["display"] = "block";
+            UpdateChart();
         }
         protected void btnUpdateRims_Click(object sender, EventArgs e)
         {
