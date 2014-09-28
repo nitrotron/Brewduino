@@ -82,7 +82,7 @@ namespace Brewduino.Controllers
             //evts.Add(new GoogleChartsNGraphsControls.TimelineEvent("Sold Pencils", new DateTime(2008, 1, 6), 33322));
 
             //this.GVAnnotatedTimeline1.ChartData(evts.ToArray());
-            this.GVAnnotatedTimeline2.ChartData(evts.Where(d => d.EventCategory == "Temp").ToArray());
+            //this.GVAnnotatedTimeline2.ChartData(evts.Where(d => d.EventCategory == "Temp").ToArray());
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -118,7 +118,7 @@ namespace Brewduino.Controllers
             //evts.Add(new GoogleChartsNGraphsControls.TimelineEvent("Sold Pencils", new DateTime(2008, 1, 6), 33322));
 
             //this.GVAnnotatedTimeline1.ChartData(evts.ToArray());
-            this.GVAnnotatedTimeline2.ChartData(evts.Where(d => d.EventCategory == "Temp").ToArray());
+            //this.GVAnnotatedTimeline2.ChartData(evts.Where(d => d.EventCategory == "Temp").ToArray());
         }
 
         public void UpdateReadings()
@@ -229,7 +229,7 @@ namespace Brewduino.Controllers
             //no need to continue if this thermometer doesn't exist
             if (!CurrentTemperatureExists)
                 return;
-            pnlTempGraph.Style["display"] = "block";
+            //pnlTempGraph.Style["display"] = "block";
             UpdateChart();
         }
         protected void btnUpdateRims_Click(object sender, EventArgs e)

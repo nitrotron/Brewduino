@@ -77,11 +77,11 @@
         </asp:Panel>
     </div>
 </div>
-<asp:Panel ID="pnlTempGraph" runat="server" CssClass="pnlTempGraph">
+<%--<asp:Panel ID="pnlTempGraph" runat="server" CssClass="pnlTempGraph">
     <div class="TempGraph">
         <cc1:GVAnnotatedTimeline ID="GVAnnotatedTimeline2" runat="server" Width="400px" Height="160px" GviDisplayAnnotations="True" />
     </div>
-</asp:Panel>
+</asp:Panel>--%>
 <script type="text/javascript">
     function BindEvents3() {
         $("#btnShowRimsControls").click(function () {

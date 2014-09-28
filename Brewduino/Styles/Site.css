@@ -623,7 +623,7 @@ body {
 }
 
 .pnlTempGraph {
-    display: none;
+    /*display: none;
     position: absolute;
     background-color: gray;
     background-color: rgba(125,125,125,0.5);
@@ -632,7 +632,7 @@ body {
     width: 100%;
     height: 100%;
     padding: 5%;
-    z-index: 210;
+    z-index: 210;*/
 
 }
 
