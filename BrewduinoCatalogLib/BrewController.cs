@@ -11,10 +11,10 @@ namespace BrewduinoCatalogLib
 
         public enum ThermometersName
         {
-            RIMS,
-            Kettle,
             MashTun,
-            HLT
+            Kettle,
+            HLT,
+            RIMS,
         }
         private IArduinoSelfHost _Arduino;
         public IArduinoSelfHost Arduino
