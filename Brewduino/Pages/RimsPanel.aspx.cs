@@ -26,7 +26,7 @@ namespace Brewduino.Pages
             var address = new EndpointAddress("http://localhost:8080/SerialSwitch");
             //var address = new EndpointAddress("http://192.168.0.21:8080/SerialSwitch");
             Arduino = new ArduinoSelfHostClient(binding, address);
-            Arduino = new ArduinoStub(); //This in there so I can work on the skin.
+            //Arduino = new ArduinoStub(); //This in there so I can work on the skin.
             BrewControl = new BrewController(Arduino);
             
             
